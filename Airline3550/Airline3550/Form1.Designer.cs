@@ -35,7 +35,7 @@
 			// 
 			textBox1.Location = new Point(44, 224);
 			textBox1.Name = "textBox1";
-			textBox1.Size = new Size(228, 23);
+			textBox1.Size = new Size(237, 23);
 			textBox1.TabIndex = 0;
 			textBox1.TextChanged += textBox1_TextChanged;
 			// 
