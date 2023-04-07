@@ -47,6 +47,17 @@ namespace Airline3550
 			{
 				//If we made it here there is some text in both username and password
 				//Begin Checking credentials
+				//Call function to hash user's password
+				//Call function to check csv for username and hashed password combination
+				if (User.validateCredentials(usernameField.Text, passwordField.Text))
+				{
+
+				}
+				else
+				{
+					credentialsErrorMessage.Text = "Invalid Credentials, Please Try Again.";
+				}
+
 			}
 		}
 

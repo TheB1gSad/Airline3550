@@ -1,3 +1,4 @@
+
 namespace Airline3550
 {
 	internal static class Program

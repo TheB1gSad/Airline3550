@@ -107,7 +107,7 @@
 			// 
 			// credentialsErrorMessage
 			// 
-			credentialsErrorMessage.ForeColor = Color.IndianRed;
+			credentialsErrorMessage.ForeColor = Color.Firebrick;
 			credentialsErrorMessage.Location = new Point(205, 175);
 			credentialsErrorMessage.Name = "credentialsErrorMessage";
 			credentialsErrorMessage.Size = new Size(237, 21);
