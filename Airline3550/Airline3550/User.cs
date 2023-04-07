@@ -5,14 +5,13 @@ using System.Security.Cryptography;
 using System.Runtime.Intrinsics.Arm;
 using System.Drawing.Text;
 using System.Collections.Concurrent;
+using System.Reflection;
 
 public class User
 
 {
-	string currentDirectory = Directory.GetCurrentDirectory();
-
-
-	//string filePath = currentDirectory.Concat("credentials.csv");
+	static string executablePath = AppDomain.CurrentDomain.BaseDirectory;
+	private static string dataPath = Path.Combine(executablePath, "credentials.csv");
 
 	public User()
 	{
@@ -23,8 +22,8 @@ public class User
 	{
 		password = hashPassword(password);
 
-		var data = File.ReadAllLines(filePath);
-		var usersData = from line in data.Skip(1)
+		var data = File.ReadAllLines(dataPath);
+		var usersData = from line in data.Skip(0)
 						let columns = line.Split(',')
 						select new
 						{
