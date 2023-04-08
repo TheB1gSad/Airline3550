@@ -2,10 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Security.Cryptography;
-using System.Runtime.Intrinsics.Arm;
-using System.Drawing.Text;
-using System.Collections.Concurrent;
-using System.Reflection;
+
 
 public static class User
 
@@ -36,7 +33,10 @@ public static class User
 							password = columns[1],
 							clearanceLevel = columns[2]
 						};
+
+		//this line made my head hurt
 		var user = usersData.FirstOrDefault(u => u.username == username);
+
 		if (user !=null && user.password ==password)
 		{
 			thisUser.credentials = user.clearanceLevel;

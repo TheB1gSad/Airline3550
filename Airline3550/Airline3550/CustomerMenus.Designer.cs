@@ -28,21 +28,75 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			colorDialog1 = new ColorDialog();
+			menuStrip1 = new MenuStrip();
+			viewFlightsToolStripMenuItem = new ToolStripMenuItem();
+			bookFlightsToolStripMenuItem = new ToolStripMenuItem();
+			manageAccountToolStripMenuItem = new ToolStripMenuItem();
+			logoutToolStripMenuItem = new ToolStripMenuItem();
+			menuStrip1.SuspendLayout();
 			SuspendLayout();
 			// 
-			// UserControl1
+			// menuStrip1
+			// 
+			menuStrip1.ImageScalingSize = new Size(20, 20);
+			menuStrip1.Items.AddRange(new ToolStripItem[] { viewFlightsToolStripMenuItem, bookFlightsToolStripMenuItem, manageAccountToolStripMenuItem, logoutToolStripMenuItem });
+			menuStrip1.Location = new Point(0, 0);
+			menuStrip1.Name = "menuStrip1";
+			menuStrip1.Size = new Size(919, 28);
+			menuStrip1.TabIndex = 1;
+			menuStrip1.Text = "menuStrip1";
+			menuStrip1.ItemClicked += menuStrip1_ItemClicked;
+			// 
+			// viewFlightsToolStripMenuItem
+			// 
+			viewFlightsToolStripMenuItem.Name = "viewFlightsToolStripMenuItem";
+			viewFlightsToolStripMenuItem.Size = new Size(124, 24);
+			viewFlightsToolStripMenuItem.Text = "Manage Flights";
+			viewFlightsToolStripMenuItem.Click += viewFlightsToolStripMenuItem_Click;
+			// 
+			// bookFlightsToolStripMenuItem
+			// 
+			bookFlightsToolStripMenuItem.Name = "bookFlightsToolStripMenuItem";
+			bookFlightsToolStripMenuItem.Size = new Size(104, 24);
+			bookFlightsToolStripMenuItem.Text = "Book Flights";
+			bookFlightsToolStripMenuItem.Click += bookFlightsToolStripMenuItem_Click;
+			// 
+			// manageAccountToolStripMenuItem
+			// 
+			manageAccountToolStripMenuItem.Name = "manageAccountToolStripMenuItem";
+			manageAccountToolStripMenuItem.Size = new Size(135, 24);
+			manageAccountToolStripMenuItem.Text = "Manage Account";
+			manageAccountToolStripMenuItem.Click += manageAccountToolStripMenuItem_Click;
+			// 
+			// logoutToolStripMenuItem
+			// 
+			logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+			logoutToolStripMenuItem.Size = new Size(70, 24);
+			logoutToolStripMenuItem.Text = "Logout";
+			logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
+			// 
+			// CustomerMenus
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			Name = "UserControl1";
-			Size = new Size(873, 592);
+			AutoSizeMode = AutoSizeMode.GrowAndShrink;
+			BorderStyle = BorderStyle.FixedSingle;
+			CausesValidation = false;
+			Controls.Add(menuStrip1);
+			Name = "CustomerMenus";
+			Size = new Size(919, 30);
 			Load += UserControl1_Load;
+			menuStrip1.ResumeLayout(false);
+			menuStrip1.PerformLayout();
 			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion
-
-		private ColorDialog colorDialog1;
+		private MenuStrip menuStrip1;
+		private ToolStripMenuItem viewFlightsToolStripMenuItem;
+		private ToolStripMenuItem bookFlightsToolStripMenuItem;
+		private ToolStripMenuItem manageAccountToolStripMenuItem;
+		private ToolStripMenuItem logoutToolStripMenuItem;
 	}
 }

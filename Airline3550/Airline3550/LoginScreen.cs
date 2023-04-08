@@ -52,12 +52,12 @@ namespace Airline3550
 				User.userData thisUser = User.validateCredentials(usernameField.Text, passwordField.Text);
 				if (thisUser.credentials != "")
 				{
-					switch (thisUser.credentials)
-					{
-						case "customer":
-							this.Hide();
-							break;
-					}
+					//create an instance of MainMenu, pass it our user info and then display it
+					MainMenu mainMenu = new MainMenu(thisUser);
+					this.Hide();
+					mainMenu.Show();
+					mainMenu.FormClosed += (s, args) => this.Close();
+
 				}
 				else
 				{
