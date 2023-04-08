@@ -1,6 +1,6 @@
 ﻿namespace Airline3550
 {
-	partial class Form1
+	partial class LoginScreen
 	{
 		/// <summary>
 		///  Required designer variable.
@@ -40,45 +40,47 @@
 			// 
 			// usernameField
 			// 
-			usernameField.Location = new Point(205, 218);
+			usernameField.Location = new Point(234, 291);
+			usernameField.Margin = new Padding(3, 4, 3, 4);
 			usernameField.Name = "usernameField";
-			usernameField.Size = new Size(237, 23);
+			usernameField.Size = new Size(270, 27);
 			usernameField.TabIndex = 0;
 			usernameField.TextChanged += textBox1_TextChanged;
 			// 
 			// passwordField
 			// 
-			passwordField.Location = new Point(205, 276);
+			passwordField.Location = new Point(234, 368);
+			passwordField.Margin = new Padding(3, 4, 3, 4);
 			passwordField.Name = "passwordField";
 			passwordField.PasswordChar = '*';
-			passwordField.Size = new Size(237, 23);
+			passwordField.Size = new Size(270, 27);
 			passwordField.TabIndex = 1;
 			passwordField.TextChanged += textBox1_TextChanged_1;
 			// 
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new Point(205, 200);
+			label1.Location = new Point(234, 267);
 			label1.Name = "label1";
-			label1.Size = new Size(60, 15);
+			label1.Size = new Size(75, 20);
 			label1.TabIndex = 2;
 			label1.Text = "Username";
 			// 
 			// label2
 			// 
 			label2.AutoSize = true;
-			label2.Location = new Point(205, 258);
+			label2.Location = new Point(234, 344);
 			label2.Name = "label2";
-			label2.Size = new Size(57, 15);
+			label2.Size = new Size(70, 20);
 			label2.TabIndex = 3;
 			label2.Text = "Password";
 			// 
 			// createAccount
 			// 
 			createAccount.AutoSize = true;
-			createAccount.Location = new Point(215, 312);
+			createAccount.Location = new Point(246, 416);
 			createAccount.Name = "createAccount";
-			createAccount.Size = new Size(217, 15);
+			createAccount.Size = new Size(269, 20);
 			createAccount.TabIndex = 4;
 			createAccount.TabStop = true;
 			createAccount.Text = "New Customer? Make An Account Here";
@@ -88,18 +90,19 @@
 			// 
 			label3.AutoSize = true;
 			label3.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-			label3.Location = new Point(229, 76);
+			label3.Location = new Point(262, 101);
 			label3.Name = "label3";
-			label3.Size = new Size(188, 45);
+			label3.Size = new Size(236, 54);
 			label3.TabIndex = 5;
 			label3.Text = "Airline 3550";
 			// 
 			// button1
 			// 
 			button1.BackColor = SystemColors.HighlightText;
-			button1.Location = new Point(245, 356);
+			button1.Location = new Point(280, 475);
+			button1.Margin = new Padding(3, 4, 3, 4);
 			button1.Name = "button1";
-			button1.Size = new Size(156, 23);
+			button1.Size = new Size(178, 31);
 			button1.TabIndex = 6;
 			button1.Text = "Login";
 			button1.UseVisualStyleBackColor = false;
@@ -108,20 +111,20 @@
 			// credentialsErrorMessage
 			// 
 			credentialsErrorMessage.ForeColor = Color.Firebrick;
-			credentialsErrorMessage.Location = new Point(205, 175);
+			credentialsErrorMessage.Location = new Point(234, 233);
 			credentialsErrorMessage.Name = "credentialsErrorMessage";
-			credentialsErrorMessage.Size = new Size(237, 21);
+			credentialsErrorMessage.Size = new Size(271, 28);
 			credentialsErrorMessage.TabIndex = 7;
 			credentialsErrorMessage.TextAlign = ContentAlignment.MiddleCenter;
 			// 
-			// Form1
+			// LoginScreen
 			// 
 			AcceptButton = button1;
 			AccessibleDescription = "";
-			AutoScaleDimensions = new SizeF(7F, 15F);
+			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = SystemColors.Menu;
-			ClientSize = new Size(668, 437);
+			ClientSize = new Size(763, 583);
 			Controls.Add(credentialsErrorMessage);
 			Controls.Add(button1);
 			Controls.Add(label3);
@@ -131,9 +134,8 @@
 			Controls.Add(passwordField);
 			Controls.Add(usernameField);
 			FormBorderStyle = FormBorderStyle.FixedSingle;
-			Margin = new Padding(3, 2, 3, 2);
-			Name = "Form1";
-			Text = "Form1";
+			Name = "LoginScreen";
+			Text = "Airline 3550";
 			Load += Form1_Load;
 			ResumeLayout(false);
 			PerformLayout();

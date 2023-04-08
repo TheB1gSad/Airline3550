@@ -1,8 +1,8 @@
 namespace Airline3550
 {
-	public partial class Form1 : Form
+	public partial class LoginScreen : Form
 	{
-		public Form1()
+		public LoginScreen()
 		{
 			InitializeComponent();
 		}
@@ -49,9 +49,15 @@ namespace Airline3550
 				//Begin Checking credentials
 				//Call function to hash user's password
 				//Call function to check csv for username and hashed password combination
-				if (User.validateCredentials(usernameField.Text, passwordField.Text))
+				string credentials = User.validateCredentials(usernameField.Text, passwordField.Text);
+				if (credentials != "")
 				{
-
+					switch (credentials)
+					{
+						case "customer":
+							this.Hide();
+							break;
+					}
 				}
 				else
 				{
@@ -61,6 +67,9 @@ namespace Airline3550
 			}
 		}
 
+		private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+		{
 
+		}
 	}
 }

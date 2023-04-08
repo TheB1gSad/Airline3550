@@ -18,7 +18,7 @@ public class User
 		 
 
 	}
-	public static bool validateCredentials(string username, string password)
+	public static string validateCredentials(string username, string password)
 	{
 		password = hashPassword(password);
 
@@ -28,18 +28,19 @@ public class User
 						select new
 						{
 							username = columns[0],
-							password = columns[1]
+							password = columns[1],
+							clearanceLevel = columns[2]
 						};
 		var user = usersData.FirstOrDefault(u => u.username == username);
 		if (user == null)
 		{
-			return false;
+			return "";
 		}
 		else if (user.password != password)
 		{ 
-			return false;
+			return "";
 		}
-		return true;
+		return user.clearanceLevel;
 	}
 
 	private static string hashPassword(string password)
