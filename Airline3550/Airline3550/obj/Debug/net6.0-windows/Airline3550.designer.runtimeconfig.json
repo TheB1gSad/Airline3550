@@ -12,7 +12,7 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Ready Player 1\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\finet\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\Ready Player 1\\.nuget\\packages"
     ],
     "configProperties": {
