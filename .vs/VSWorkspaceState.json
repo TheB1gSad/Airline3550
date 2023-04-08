@@ -1,13 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Airline3550",
-    "\\Airline3550\\Airline3550",
-    "\\Airline3550\\Airline3550\\bin",
-    "\\Airline3550\\Airline3550\\bin\\Debug",
-    "\\Airline3550\\Airline3550\\bin\\Debug\\net6.0-windows",
-    "\\Airline3550\\Airline3550\\bin\\Release"
+    ""
   ],
-  "SelectedNode": "\\Airline3550\\Airline3550\\bin\\Debug\\net6.0-windows\\credentials.csv",
+  "SelectedNode": "\\Airline3550.sln",
   "PreviewInSolutionExplorer": false
 }

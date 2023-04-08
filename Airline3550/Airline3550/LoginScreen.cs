@@ -49,10 +49,10 @@ namespace Airline3550
 				//Begin Checking credentials
 				//Call function to hash user's password
 				//Call function to check csv for username and hashed password combination
-				string credentials = User.validateCredentials(usernameField.Text, passwordField.Text);
-				if (credentials != "")
+				User.userData thisUser = User.validateCredentials(usernameField.Text, passwordField.Text);
+				if (thisUser.credentials != "")
 				{
-					switch (credentials)
+					switch (thisUser.credentials)
 					{
 						case "customer":
 							this.Hide();

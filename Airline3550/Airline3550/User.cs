@@ -7,21 +7,26 @@ using System.Drawing.Text;
 using System.Collections.Concurrent;
 using System.Reflection;
 
-public class User
+public static class User
 
 {
 	static string executablePath = AppDomain.CurrentDomain.BaseDirectory;
 	private static string dataPath = Path.Combine(executablePath, "credentials.csv");
 
-	public User()
+	public struct userData
 	{
-		 
+		public string userName;
+		public string credentials;
+	};
 
-	}
-	public static string validateCredentials(string username, string password)
+	public static userData validateCredentials(string username, string password)
 	{
 		password = hashPassword(password);
-
+		userData thisUser;
+		thisUser.userName = username;
+		thisUser.credentials = "";
+		
+	
 		var data = File.ReadAllLines(dataPath);
 		var usersData = from line in data.Skip(0)
 						let columns = line.Split(',')
@@ -32,15 +37,12 @@ public class User
 							clearanceLevel = columns[2]
 						};
 		var user = usersData.FirstOrDefault(u => u.username == username);
-		if (user == null)
+		if (user !=null && user.password ==password)
 		{
-			return "";
+			thisUser.credentials = user.clearanceLevel;
 		}
-		else if (user.password != password)
-		{ 
-			return "";
-		}
-		return user.clearanceLevel;
+
+		return thisUser;
 	}
 
 	private static string hashPassword(string password)
