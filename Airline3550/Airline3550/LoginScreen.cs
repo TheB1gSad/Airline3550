@@ -71,5 +71,15 @@ namespace Airline3550
 		{
 
 		}
-	}
+
+        private void LoginScreen_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
