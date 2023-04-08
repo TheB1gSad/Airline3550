@@ -21,5 +21,41 @@ namespace Airline3550
 		{
 
 		}
+
+		private void label1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void viewFlightsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void manageAccountToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+		{
+
+		}
+
+		public void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+
+		}
+
+		private void bookFlightsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

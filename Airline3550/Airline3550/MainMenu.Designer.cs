@@ -28,12 +28,51 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
+			panel1 = new Panel();
+			customerMenus1 = new CustomerMenus();
+			panel1.SuspendLayout();
+			SuspendLayout();
+			// 
+			// panel1
+			// 
+			panel1.Controls.Add(customerMenus1);
+			panel1.Dock = DockStyle.Fill;
+			panel1.Location = new Point(0, 0);
+			panel1.Name = "panel1";
+			panel1.Size = new Size(982, 453);
+			panel1.TabIndex = 0;
+			panel1.Paint += panel1_Paint;
+			// 
+			// customerMenus1
+			// 
+			customerMenus1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+			customerMenus1.BackColor = SystemColors.Menu;
+			customerMenus1.BorderStyle = BorderStyle.FixedSingle;
+			customerMenus1.CausesValidation = false;
+			customerMenus1.Dock = DockStyle.Top;
+			customerMenus1.Location = new Point(0, 0);
+			customerMenus1.Name = "customerMenus1";
+			customerMenus1.Size = new Size(982, 33);
+			customerMenus1.TabIndex = 1;
+			customerMenus1.Load += customerMenus1_Load;
+			// 
+			// MainMenu
+			// 
+			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(800, 450);
-			Text = "Form1";
+			ClientSize = new Size(982, 453);
+			Controls.Add(panel1);
+			FormBorderStyle = FormBorderStyle.FixedSingle;
+			Name = "MainMenu";
+			Text = "Airline 3550";
+			Load += MainMenu_Load;
+			panel1.ResumeLayout(false);
+			ResumeLayout(false);
 		}
 
 		#endregion
+
+		private Panel panel1;
+		private CustomerMenus customerMenus1;
 	}
 }
