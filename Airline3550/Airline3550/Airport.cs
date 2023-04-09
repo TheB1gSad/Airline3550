@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
+
 public class Airport
 {
+    static int currentFlightID = 0;
     public Airport(string name, string code, List<Flight> flights)
     {
         this.name = name;
@@ -20,38 +22,88 @@ public class Airport
     {
         string[,] airportInfo = new string[10, 2] 
         {
-            { "Nashville International Airport", "BNA" },
-            { "Hartsfield–Jackson Atlanta International Airport", "ATL" },
-            { "Dallas/Fort Worth International Airport", "DFW" },
-            { "Denver International Airport", "DEN" },
-            { "O'Hare International Airport", "ORD" },
-            { "Los Angeles International Airport", "LAX" },
-            { "Cleveland Hopkins International Airport", "CLE" },
-            { "Orlando International Airport", "MCO" },
-            { "Harry Reid International Airport", "LAS" },
-            { "Phoenix Sky Harbor International Airport", "PHX" },
+            { "Nashville International Airport", "BNA" },                   // 0
+            { "Hartsfield–Jackson Atlanta International Airport", "ATL" },  // 1
+            { "Dallas/Fort Worth International Airport", "DFW" },           // 2
+            { "Denver International Airport", "DEN" },                      // 3
+            { "O'Hare International Airport", "ORD" },                      // 4
+            { "Los Angeles International Airport", "LAX" },                 // 5
+            { "Cleveland Hopkins International Airport", "CLE" },           // 6
+            { "Orlando International Airport", "MCO" },                     // 7
+            { "Harry Reid International Airport", "LAS" },                  // 8
+            { "Phoenix Sky Harbor International Airport", "PHX" },          // 9
         };
         // Airport distance in miles. The indicies in this 2D array corresponds to the airport with the same index in airportInfo. For example, the value at airportDistances[4][6] is the distance between DEN and LAX
         // The distances were found using the haversine formula
-        double[,] airportDistances = new double[10, 10]
+        int[,] airportDistances = new int[10, 10]
         {
-            {       0,  213.88,  630.29, 1011.47,  409.83, 1793.57,  457.84,  617.41, 1583.89, 1445.45 },
-            {  213.88,       0,  729.96, 1197.14,  606.59, 1942.30,  563.14,  404.89, 1742.89, 1583.81 },
-            {  630.29,  729.96,       0,  640.94,  801.83, 1232.17, 1030.11,  983.55, 1053.05,  865.85 },
-            { 1011.47, 1197.14,  640.94,       0,  886.16,  860.44, 1206.01, 1545.16,  626.85,  601.32 },
-            {  409.83,  606.59,  801.83,  886.16,       0, 1741.03,  322.05, 1007.21, 1510.78, 1437.21 },
-            { 1793.57, 1942.30, 1232.17,  860.44, 1741.03,       0, 2056.69, 2213.65,  236.27,  369.45 },
-            {  457.84,  563.14, 1030.11, 1206.01,  322.05, 2056.69,       0,  903.69, 1828.38, 1742.86 },
-            {  617.41,  404.89,  983.55, 1545.16, 1007.21, 2213.65,  903.69,       0, 2035.91, 1845.26 },
-            { 1583.89, 1742.89, 1053.05,  626.85, 1510.78,  236.27, 1828.38, 2035.91,       0,  255.58 },
-            { 1445.45, 1583.81,  865.85,  601.32, 1437.21,  369.45, 1742.86, 1845.26,  255.58,       0 }
+            {    0,  214,  630, 1011,  410, 1794,  458,  617, 1584, 1445 },
+            {  214,    0,  730, 1197,  607, 1942,  563,  405, 1743, 1584 },
+            {  630,  730,    0,  640,  801, 1232, 1030,  983, 1053,  865 },
+            { 1011, 1197,  640,    0,  886,  860, 1206, 1545,  626,  601 },
+            {  410,  606,  801,  886,    0, 1741,  322, 1007, 1510, 1437 },
+            { 1794, 1942, 1232,  860, 1741,    0, 2056, 2213,  236,  369 },
+            {  458,  563, 1030, 1206,  322, 2056,    0,  903, 1828, 1742 },
+            {  617,  404,  983, 1545, 1007, 2213,  903,    0, 2035, 1845 },
+            { 1584, 1742, 1053,  626, 1510,  236, 1828, 2035,    0,  255 },
+            { 1445, 1583,  865,  601, 1437,  369, 1742, 1845,  255,    0 }
         };
+        int[][] index = {
+            new int[] { 5, 1, 2, 4, 6, 7},
+            new int[] { 6, 0, 2, 3, 4, 5, 7 },
+            new int[] { 6, 0, 1, 3, 5, 8, 9},
+            new int[] { 5, 1, 2, 4, 8, 9},
+            new int[] { 4, 0, 1, 3, 6},
+            new int[] { 4, 1, 2, 8, 9},
+            new int[] { 3, 0, 4, 7},
+            new int[] { 3, 0, 1, 6},
+            new int[] { 4, 2, 3, 5, 9},
+            new int[] { 5, 2, 3, 4, 5, 8},
+        };
+        List<Airport> airports = new List<Airport>();
+        for (int i = 0; i < 10; i++)
+        {
+            List<Flight> flights = new List<Flight>();
+            for (int j = 1; j < index[i][0] + 1; j++)
+            {
+                int distance = airportDistances[i, index[i][j]];
+                if (distance < 600)
+                {
+                    List<Seat> seats = new List<Seat>();
+                    for (int seatID = 0; seatID < 189; seatID++)
+                    {
+                        seats.Add(new Seat(seatID, true));
+                    }
+                    flights.Add(new Flight(currentFlightID, distance, airportInfo[i, 1], airportInfo[j, 1], 737, seats, 58 + (int)(0.12 * distance)));
+                }
+                else if (distance < 1100)
+                {
+                    List<Seat> seats = new List<Seat>();
+                    for (int seatID = 0; seatID < 200; seatID++)
+                    {
+                        seats.Add(new Seat(seatID, true));
+                    }
+                    flights.Add(new Flight(currentFlightID, distance, airportInfo[i, 1], airportInfo[j, 1], 757, seats, 58 + (int)(0.12 * distance)));
+                }
+                else
+                {
+                    List<Seat> seats = new List<Seat>();
+                    for (int seatID = 0; seatID < 312; seatID++)
+                    {
+                        seats.Add(new Seat(seatID, true));
+                    }
+                    flights.Add(new Flight(currentFlightID, distance, airportInfo[i, 1], airportInfo[j, 1], 777, seats, 58 + (int)(0.12 * distance)));
+                }
+            }
+            airports.Add(new Airport(airportInfo[i, 0], airportInfo[i, 1], flights));
+        }
+        return airports;
     }
 }
 
 public class Flight
 {
-    public Flight(int flightID, int flightDistance, Airport departure, Airport arrival, int planeType, List<Seat> seats, int price)
+    public Flight(int flightID, int flightDistance, string departure, string arrival, int planeType, List<Seat> seats, int price)
     {
         this.flightID = flightID;
         this.flightDistance = flightDistance;
@@ -63,8 +115,8 @@ public class Flight
     }
     private int flightID;
     private int flightDistance;
-    private Airport departure;
-    private Airport arrival;
+    private string departure;
+    private string arrival;
     private int planeType;
     List<Seat> seats;
     private int price;
