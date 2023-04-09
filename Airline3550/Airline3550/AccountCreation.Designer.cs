@@ -36,17 +36,19 @@
 			passwordField = new TextBox();
 			usernameField = new TextBox();
 			label4 = new Label();
-			textBox1 = new TextBox();
+			secondPasswordField = new TextBox();
+			linkLabel1 = new LinkLabel();
 			SuspendLayout();
 			// 
 			// credentialsErrorMessage
 			// 
 			credentialsErrorMessage.ForeColor = Color.Firebrick;
-			credentialsErrorMessage.Location = new Point(260, 155);
+			credentialsErrorMessage.Location = new Point(230, 155);
 			credentialsErrorMessage.Name = "credentialsErrorMessage";
-			credentialsErrorMessage.Size = new Size(271, 28);
+			credentialsErrorMessage.Size = new Size(375, 28);
 			credentialsErrorMessage.TabIndex = 15;
 			credentialsErrorMessage.TextAlign = ContentAlignment.MiddleCenter;
+			credentialsErrorMessage.Click += credentialsErrorMessage_Click;
 			// 
 			// button1
 			// 
@@ -56,8 +58,9 @@
 			button1.Name = "button1";
 			button1.Size = new Size(178, 31);
 			button1.TabIndex = 14;
-			button1.Text = "Login";
+			button1.Text = "Create Account";
 			button1.UseVisualStyleBackColor = false;
+			button1.Click += button1_Click;
 			// 
 			// label3
 			// 
@@ -105,28 +108,42 @@
 			// 
 			// label4
 			// 
-			label4.Location = new Point(282, 328);
+			label4.Location = new Point(282, 340);
 			label4.Name = "label4";
-			label4.Size = new Size(70, 20);
+			label4.Size = new Size(150, 20);
 			label4.TabIndex = 17;
-			label4.Text = "Password";
+			label4.Text = "Re-Type Password";
 			// 
-			// textBox1
+			// secondPasswordField
 			// 
-			textBox1.Location = new Point(282, 352);
-			textBox1.Margin = new Padding(3, 4, 3, 4);
-			textBox1.Name = "textBox1";
-			textBox1.PasswordChar = '*';
-			textBox1.Size = new Size(270, 27);
-			textBox1.TabIndex = 16;
+			secondPasswordField.Location = new Point(282, 364);
+			secondPasswordField.Margin = new Padding(3, 4, 3, 4);
+			secondPasswordField.Name = "secondPasswordField";
+			secondPasswordField.PasswordChar = '*';
+			secondPasswordField.Size = new Size(270, 27);
+			secondPasswordField.TabIndex = 10;
+			secondPasswordField.TextChanged += textBox1_TextChanged;
+			// 
+			// linkLabel1
+			// 
+			linkLabel1.AutoSize = true;
+			linkLabel1.Location = new Point(286, 491);
+			linkLabel1.Name = "linkLabel1";
+			linkLabel1.Size = new Size(262, 20);
+			linkLabel1.TabIndex = 18;
+			linkLabel1.TabStop = true;
+			linkLabel1.Text = "Already Have An Account? Login Here";
+			linkLabel1.LinkClicked += linkLabel1_LinkClicked;
 			// 
 			// AccountCreation
 			// 
+			AcceptButton = button1;
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(835, 591);
+			Controls.Add(linkLabel1);
 			Controls.Add(label4);
-			Controls.Add(textBox1);
+			Controls.Add(secondPasswordField);
 			Controls.Add(credentialsErrorMessage);
 			Controls.Add(button1);
 			Controls.Add(label3);
@@ -135,7 +152,10 @@
 			Controls.Add(passwordField);
 			Controls.Add(usernameField);
 			Name = "AccountCreation";
-			Text = "AccountCreation";
+			StartPosition = FormStartPosition.CenterScreen;
+			Text = "Airline 3550";
+			FormClosing += AccountCreation_FormClosing;
+			Load += AccountCreation_Load;
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -150,6 +170,7 @@
 		private TextBox passwordField;
 		private TextBox usernameField;
 		private Label label4;
-		private TextBox textBox1;
+		private TextBox secondPasswordField;
+		private LinkLabel linkLabel1;
 	}
 }

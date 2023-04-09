@@ -4,13 +4,12 @@ namespace Airline3550
 	{
 		public LoginScreen()
 		{
+
 			InitializeComponent();
 		}
 
-		private void Form1_Load(object sender, EventArgs e)
-		{
 
-		}
+
 
 		private void textBox1_TextChanged(object sender, EventArgs e)
 		{
@@ -26,7 +25,9 @@ namespace Airline3550
 
 		private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-
+			this.Hide();
+			AccountCreation accountCreation = new AccountCreation(this);
+			accountCreation.Show();
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -67,7 +68,7 @@ namespace Airline3550
 			}
 		}
 
-		private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+		private void LoginScreen_Load(object sender, EventArgs e)
 		{
 
 		}

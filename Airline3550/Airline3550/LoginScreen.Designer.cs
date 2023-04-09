@@ -137,7 +137,7 @@
 			FormBorderStyle = FormBorderStyle.FixedSingle;
 			Name = "LoginScreen";
 			Text = "Airline 3550";
-			Load += Form1_Load;
+			Load += LoginScreen_Load;
 			ResumeLayout(false);
 			PerformLayout();
 		}
