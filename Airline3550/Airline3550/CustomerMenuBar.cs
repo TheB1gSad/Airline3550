@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Airline3550
 {
-	public partial class CustomerMenus : UserControl
+	public partial class CustomerMenuBar : UserControl
 	{
-		public CustomerMenus()
+		public CustomerMenuBar()
 		{
 			InitializeComponent();
 		}

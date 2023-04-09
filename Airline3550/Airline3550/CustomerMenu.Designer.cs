@@ -1,6 +1,6 @@
 ﻿namespace Airline3550
 {
-	partial class MainMenu
+	partial class CustomerMenu
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			panel1 = new Panel();
-			customerMenus1 = new CustomerMenus();
+			customerMenus1 = new CustomerMenuBar();
 			panel1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -73,6 +73,6 @@
 		#endregion
 
 		private Panel panel1;
-		private CustomerMenus customerMenus1;
+		private CustomerMenuBar customerMenus1;
 	}
 }

@@ -138,6 +138,7 @@
 			Name = "LoginScreen";
 			Text = "Airline 3550";
 			Load += LoginScreen_Load;
+			Resize += LoginScreen_Resize;
 			ResumeLayout(false);
 			PerformLayout();
 		}

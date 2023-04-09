@@ -14,7 +14,7 @@ C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0
 C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.pdb
 C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.genruntimeconfig.cache
 C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\ref\Airline3550.dll
-C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.CustomerMenus.resources
 C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.LoginScreen.resources
-C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.MainMenu.resources
 C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.AccountCreation.resources
+C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.CustomerMenu.resources
+C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.CustomerMenuBar.resources

@@ -10,17 +10,14 @@ using System.Windows.Forms;
 
 namespace Airline3550
 {
-	public partial class MainMenu : Form
+	public partial class CustomerMenu : Form
 	{
 		//pass a userData struct from the User class that contains logged in user's credentials/username
-		public MainMenu(User.userData thisUser)
+		public CustomerMenu(User.userData thisUser, LoginScreen loginScreen)
 		{
-			
+
 			InitializeComponent();
-			if (thisUser.credentials == "customer")
-			{
-				this.customerMenus1.Show();
-			}
+
 		}
 
 		private void MainMenu_Load(object sender, EventArgs e)
@@ -30,7 +27,7 @@ namespace Airline3550
 
 		private void customerMenus1_Load(object sender, EventArgs e)
 		{
-			
+
 		}
 
 		private void panel1_Paint(object sender, PaintEventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace Airline3550
 {
-	partial class CustomerMenus
+	partial class CustomerMenuBar
 	{
 		/// <summary> 
 		/// Required designer variable.

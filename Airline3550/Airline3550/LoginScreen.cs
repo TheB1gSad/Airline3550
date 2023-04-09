@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace Airline3550
 {
 	public partial class LoginScreen : Form
@@ -54,7 +56,7 @@ namespace Airline3550
 				if (thisUser.credentials != "")
 				{
 					//create an instance of MainMenu, pass it our user info and then display it
-					MainMenu mainMenu = new MainMenu(thisUser);
+					CustomerMenu mainMenu = new CustomerMenu(thisUser, this);
 					this.Hide();
 					mainMenu.Show();
 					mainMenu.FormClosed += (s, args) => this.Close();
@@ -71,6 +73,16 @@ namespace Airline3550
 		private void LoginScreen_Load(object sender, EventArgs e)
 		{
 
+		}
+
+		private void LoginScreen_Resize(object sender, EventArgs e)
+		{
+			usernameField.Location = new Point(Width / 2 - usernameField.Size.Width/2 , usernameField.Location.Y);
+			passwordField.Location = new Point(Width / 2 - passwordField.Size.Width / 2, passwordField.Location.Y);
+			createAccount.Location = new Point(Width / 2 - createAccount.Size.Width / 2, createAccount.Location.Y);
+			label1.Location = new Point(Width / 2 -  label1.Size.Width / 2, label1.Location.Y);
+			label2.Location = new Point(Width / 2 - label2.Size.Width / 2, label2.Location.Y);
+			button1.Location = new Point(Width / 2 - button1.Size.Width / 2, button1.Location.Y);
 		}
 	}
 }
