@@ -75,6 +75,7 @@ public class Airport
                         seats.Add(new Seat(seatID, true));
                     }
                     flights.Add(new Flight(currentFlightID, distance, airportInfo[i, 1], airportInfo[j, 1], 737, seats, 58 + (int)(0.12 * distance)));
+                    currentFlightID++;
                 }
                 else if (distance < 1100)
                 {
@@ -84,6 +85,7 @@ public class Airport
                         seats.Add(new Seat(seatID, true));
                     }
                     flights.Add(new Flight(currentFlightID, distance, airportInfo[i, 1], airportInfo[j, 1], 757, seats, 58 + (int)(0.12 * distance)));
+                    currentFlightID++;
                 }
                 else
                 {
@@ -93,6 +95,7 @@ public class Airport
                         seats.Add(new Seat(seatID, true));
                     }
                     flights.Add(new Flight(currentFlightID, distance, airportInfo[i, 1], airportInfo[j, 1], 777, seats, 58 + (int)(0.12 * distance)));
+                    currentFlightID++;
                 }
             }
             airports.Add(new Airport(airportInfo[i, 0], airportInfo[i, 1], flights));
