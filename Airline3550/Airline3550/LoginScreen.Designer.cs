@@ -134,7 +134,6 @@
 			Controls.Add(label1);
 			Controls.Add(passwordField);
 			Controls.Add(usernameField);
-			FormBorderStyle = FormBorderStyle.FixedSingle;
 			Name = "LoginScreen";
 			Text = "Airline 3550";
 			Load += LoginScreen_Load;

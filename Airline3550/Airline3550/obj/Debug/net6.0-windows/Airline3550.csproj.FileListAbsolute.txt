@@ -17,4 +17,4 @@ C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0
 C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.LoginScreen.resources
 C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.AccountCreation.resources
 C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.CustomerMenu.resources
-C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.CustomerMenuBar.resources
+C:\Users\finet\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.Properties.Resources.resources
