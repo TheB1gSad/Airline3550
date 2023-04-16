@@ -111,8 +111,10 @@
 			// 
 			// credentialsErrorMessage
 			// 
+			credentialsErrorMessage.Anchor = AnchorStyles.Top;
+			credentialsErrorMessage.BackColor = SystemColors.Menu;
 			credentialsErrorMessage.ForeColor = Color.Firebrick;
-			credentialsErrorMessage.Location = new Point(239, 164);
+			credentialsErrorMessage.Location = new Point(246, 164);
 			credentialsErrorMessage.Name = "credentialsErrorMessage";
 			credentialsErrorMessage.Size = new Size(271, 28);
 			credentialsErrorMessage.TabIndex = 7;

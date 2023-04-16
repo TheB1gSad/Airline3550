@@ -15,8 +15,8 @@ namespace Airline3550
 		public LoginScreen loginScreen;
 		public AccountCreation(LoginScreen screen)
 		{
-			loginScreen = screen;
-			InitializeComponent();
+				loginScreen = screen;
+				InitializeComponent();
 		}
 
 		private void textBox1_TextChanged(object sender, EventArgs e)
@@ -88,6 +88,7 @@ namespace Airline3550
 			linkLabel1.Location = new Point(Width / 2 - linkLabel1.Size.Width / 2, linkLabel1.Location.Y);
 			label4.Location = new Point(Width / 2 - label4.Size.Width / 2, label4.Location.Y);
 			button1.Location = new Point(Width / 2 - button1.Size.Width / 2, button1.Location.Y);
+			credentialsErrorMessage.Location = new Point(Width / 2 - credentialsErrorMessage.Size.Width/2, credentialsErrorMessage.Location.Y);
 		}
 
 		private void label4_Click(object sender, EventArgs e)
@@ -98,6 +99,7 @@ namespace Airline3550
 		private void AccountCreation_Activated(object sender, EventArgs e)
 		{
 			usernameField.Location = new Point(Width / 2 - usernameField.Size.Width / 2, usernameField.Location.Y);
+			credentialsErrorMessage.Location = new Point(Width / 2 - credentialsErrorMessage.Size.Width/2 , credentialsErrorMessage.Location.Y);
 			passwordField.Location = new Point(Width / 2 - passwordField.Size.Width / 2, passwordField.Location.Y);
 			secondPasswordField.Location = new Point(Width / 2 - secondPasswordField.Size.Width / 2, secondPasswordField.Location.Y);
 			label1.Location = new Point(Width / 2 - label1.Size.Width / 2, label1.Location.Y);
