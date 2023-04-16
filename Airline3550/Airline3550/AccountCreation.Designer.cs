@@ -72,6 +72,7 @@
 			label3.TabIndex = 13;
 			label3.Text = "Airline 3550";
 			label3.TextAlign = ContentAlignment.TopCenter;
+			label3.Resize += AccountCreation_Resized;
 			// 
 			// label2
 			// 
@@ -113,6 +114,7 @@
 			label4.Size = new Size(150, 20);
 			label4.TabIndex = 17;
 			label4.Text = "Re-Type Password";
+			label4.Click += label4_Click;
 			// 
 			// secondPasswordField
 			// 
@@ -154,6 +156,7 @@
 			Name = "AccountCreation";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Airline 3550";
+			Activated += AccountCreation_Activated;
 			FormClosing += AccountCreation_FormClosing;
 			Load += AccountCreation_Load;
 			ResumeLayout(false);
