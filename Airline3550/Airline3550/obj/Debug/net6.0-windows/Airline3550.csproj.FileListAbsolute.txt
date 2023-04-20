@@ -36,3 +36,5 @@ C:\Users\Ready Player 1\source\repos\Airline3550\Airline3550\Airline3550\obj\Deb
 C:\Users\Ready Player 1\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\ref\Airline3550.dll
 C:\Users\Ready Player 1\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.pdb
 C:\Users\Ready Player 1\source\repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.genruntimeconfig.cache
+C:\Users\Ready Player 1\Source\Repos\Airline3550\Airline3550\Airline3550\bin\Debug\net6.0-windows\CsvHelper.dll
+C:\Users\Ready Player 1\Source\Repos\Airline3550\Airline3550\Airline3550\obj\Debug\net6.0-windows\Airline3550.csproj.CopyComplete
