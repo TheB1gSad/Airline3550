@@ -68,6 +68,10 @@ public class AirportGraph
             for (int j = 1; j < index[i][0] + 1; j++)
             {
                 int distance = airportDistances[i, index[i][j]];
+                int arrivalT = flightT + Convert.ToInt32(distance / 500.0 + 0.5);
+                int price = 58 + (int)(0.12 * distance);
+                if (arrivalT == flightT) arrivalT++;
+                
                 if (distance < 600)
                 {
                     List<Seat> seats = new List<Seat>();
@@ -75,7 +79,11 @@ public class AirportGraph
                     {
                         seats.Add(new Seat() { seatID = seatID, available = true });
                     }
-                    flights.Add(new Flight() { flightTime = flightT.ToString() + ":00", flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 737, seats = seats, price = 58 + (int)(0.12 * distance) });
+                    if ((flightT >= 0 && flightT <= 5) || (arrivalT >= 0 && arrivalT <= 5))
+                        price = Convert.ToInt32(price * 0.8);
+                    else if (flightT < 8 || arrivalT > 19)
+                        price = Convert.ToInt32(price * 0.9);
+                    flights.Add(new Flight() { departureTime = flightT.ToString() + ":00", arrivalTime = arrivalT.ToString() + ":00", flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 737, seats = seats, price = price });
                     currentFlightID++;
 
                     List<Seat> seats2 = new List<Seat>();
@@ -83,7 +91,13 @@ public class AirportGraph
                     {
                         seats2.Add(new Seat() { seatID = seatID, available = true });
                     }
-                    flights.Add(new Flight() { flightTime = (flightT + 8).ToString() + ":00", flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 737, seats = seats2, price = 58 + (int)(0.12 * distance) });
+                    arrivalT += 8;
+                    if (arrivalT >= 24) arrivalT -= 24;
+                    if ((flightT + 8 >= 0 && flightT + 8 <= 5) || (arrivalT >= 0 && arrivalT <= 5))
+                        price = Convert.ToInt32(price * 0.8);
+                    else if (flightT + 8 < 8 || arrivalT > 19)
+                        price = Convert.ToInt32(price * 0.9);
+                    flights.Add(new Flight() { departureTime = (flightT + 8).ToString() + ":00", arrivalTime = arrivalT.ToString() + ":00", flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 737, seats = seats2, price = price });
                     currentFlightID++;
                     flightT++;
                     if (flightT == 16)
@@ -97,7 +111,11 @@ public class AirportGraph
                     {
                         seats.Add(new Seat() { seatID = seatID, available = true });
                     }
-                    flights.Add(new Flight() { flightTime = flightT.ToString() + ":00", flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 757, seats = seats, price = 58 + (int)(0.12 * distance) });
+                    if ((flightT >= 0 && flightT <= 5) || (arrivalT >= 0 && arrivalT <= 5))
+                        price = Convert.ToInt32(price * 0.8);
+                    else if (flightT < 8 || arrivalT > 19)
+                        price = Convert.ToInt32(price * 0.9);
+                    flights.Add(new Flight() { departureTime = flightT.ToString() + ":00", arrivalTime = arrivalT.ToString() + ":00", flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 757, seats = seats, price = price });
                     currentFlightID++;
 
                     List<Seat> seats2 = new List<Seat>();
@@ -106,7 +124,13 @@ public class AirportGraph
                         seats2.Add(new Seat() { seatID = seatID, available = true });
                     }
                     //flights.Add(new Flight((flightT + 8).ToString() + ":00", currentFlightID, distance, airportInfo[i, 1], airportInfo[j, 1], 757, seats2, 58 + (int)(0.12 * distance)));
-                    flights.Add(new Flight() { flightTime = (flightT + 8).ToString() + ":00" , flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 757, seats = seats2, price = 58 + (int)(0.12 * distance) });
+                    arrivalT += 8;
+                    if (arrivalT >= 24) arrivalT -= 24;
+                    if ((flightT + 8 >= 0 && flightT + 8 <= 5) || (arrivalT >= 0 && arrivalT <= 5))
+                        price = Convert.ToInt32(price * 0.8);
+                    else if (flightT + 8 < 8 || arrivalT > 19)
+                        price = Convert.ToInt32(price * 0.9);
+                    flights.Add(new Flight() { departureTime = (flightT + 8).ToString() + ":00" , arrivalTime = arrivalT.ToString() + ":00", flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 757, seats = seats2, price = price });
 
                     currentFlightID++;
                     flightT++;
@@ -120,7 +144,11 @@ public class AirportGraph
                     {
                         seats.Add(new Seat() { seatID = seatID, available = true });
                     }
-                    flights.Add(new Flight() { flightTime = flightT.ToString() + ":00", flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 777, seats = seats, price = 58 + (int)(0.12 * distance) });
+                    if ((flightT >= 0 && flightT <= 5) || (arrivalT >= 0 && arrivalT <= 5))
+                        price = Convert.ToInt32(price * 0.8);
+                    else if (flightT < 8 || arrivalT > 19)
+                        price = Convert.ToInt32(price * 0.9);
+                    flights.Add(new Flight() { departureTime = flightT.ToString() + ":00", arrivalTime = arrivalT.ToString() + ":00", flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 777, seats = seats, price = price });
                     currentFlightID++;
 
                     List<Seat> seats2 = new List<Seat>();
@@ -128,7 +156,13 @@ public class AirportGraph
                     {
                         seats2.Add(new Seat() { seatID = seatID, available = true });
                     }
-                    flights.Add(new Flight() { flightTime = (flightT + 8).ToString() + ":00", flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 777, seats = seats2, price = 58 + (int)(0.12 * distance) });
+                    arrivalT += 8;
+                    if (arrivalT >= 24) arrivalT -= 24;
+                    if ((flightT + 8 >= 0 && flightT + 8 <= 5) || (arrivalT >= 0 && arrivalT <= 5))
+                        price = Convert.ToInt32(price * 0.8);
+                    else if (flightT + 8 < 8 || arrivalT > 19)
+                        price = Convert.ToInt32(price * 0.9);
+                    flights.Add(new Flight() { departureTime = (flightT + 8).ToString() + ":00", arrivalTime = arrivalT.ToString() + ":00", flightID = currentFlightID, flightDistance = distance, departure = airportInfo[i, 1], arrival = airportInfo[j, 1], planeType = 777, seats = seats2, price = price });
                     currentFlightID++;
                     flightT++;
                     if (flightT == 16)
@@ -143,7 +177,8 @@ public class AirportGraph
 
 public class Flight
 {
-    public string flightTime { get; set; }
+    public string departureTime { get; set; }
+    public string arrivalTime { get; set; }
     public int flightID { get; set; }
     public int flightDistance { get; set; }
     public string departure { get; set; }
