@@ -23,8 +23,8 @@ public static class User
 		userData thisUser;
 		thisUser.userName = username;
 		thisUser.credentials = "";
-		
-	
+
+
 		var data = File.ReadAllLines(dataPath);
 		var usersData = from line in data.Skip(0)
 						let columns = line.Split(',')
@@ -38,7 +38,7 @@ public static class User
 		//this line made my head hurt
 		var user = usersData.FirstOrDefault(u => u.username == username);
 
-		if (user !=null && user.password ==password)
+		if (user != null && user.password == password)
 		{
 			thisUser.credentials = user.clearanceLevel;
 		}
@@ -54,5 +54,27 @@ public static class User
 			return BitConverter.ToString(hashedPassword).Replace("-", "").ToLower();
 		}
 
+	}
+	public static bool createCustomerAccount(string username, string password)
+	{
+		var data = File.ReadAllLines(dataPath);
+		var usersData = from line in data.Skip(0)
+						let columns = line.Split(',')
+						select new
+						{
+							username = columns[0],
+							password = columns[1],
+							clearanceLevel = columns[2]
+						};
+
+		//this line made my head hurt
+		var user = usersData.FirstOrDefault(u => u.username == username);
+
+		if (user != null)
+			return false;
+
+		password = hashPassword(password);
+		File.AppendAllText(dataPath,Environment.NewLine + username + "," + password + "," + "customer");
+		return true;
 	}
 }

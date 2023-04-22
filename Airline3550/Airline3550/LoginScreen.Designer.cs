@@ -40,7 +40,7 @@
 			// 
 			// usernameField
 			// 
-			usernameField.Location = new Point(234, 291);
+			usernameField.Location = new Point(246, 222);
 			usernameField.Margin = new Padding(3, 4, 3, 4);
 			usernameField.Name = "usernameField";
 			usernameField.Size = new Size(270, 27);
@@ -49,7 +49,7 @@
 			// 
 			// passwordField
 			// 
-			passwordField.Location = new Point(234, 368);
+			passwordField.Location = new Point(246, 299);
 			passwordField.Margin = new Padding(3, 4, 3, 4);
 			passwordField.Name = "passwordField";
 			passwordField.PasswordChar = '*';
@@ -60,7 +60,7 @@
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new Point(234, 267);
+			label1.Location = new Point(246, 198);
 			label1.Name = "label1";
 			label1.Size = new Size(75, 20);
 			label1.TabIndex = 2;
@@ -69,7 +69,7 @@
 			// label2
 			// 
 			label2.AutoSize = true;
-			label2.Location = new Point(234, 344);
+			label2.Location = new Point(246, 275);
 			label2.Name = "label2";
 			label2.Size = new Size(70, 20);
 			label2.TabIndex = 3;
@@ -78,7 +78,7 @@
 			// createAccount
 			// 
 			createAccount.AutoSize = true;
-			createAccount.Location = new Point(246, 416);
+			createAccount.Location = new Point(247, 347);
 			createAccount.Name = "createAccount";
 			createAccount.Size = new Size(269, 20);
 			createAccount.TabIndex = 4;
@@ -88,18 +88,19 @@
 			// 
 			// label3
 			// 
-			label3.AutoSize = true;
+			label3.Dock = DockStyle.Top;
 			label3.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-			label3.Location = new Point(262, 101);
+			label3.Location = new Point(0, 0);
 			label3.Name = "label3";
-			label3.Size = new Size(236, 54);
+			label3.Size = new Size(763, 54);
 			label3.TabIndex = 5;
 			label3.Text = "Airline 3550";
+			label3.TextAlign = ContentAlignment.TopCenter;
 			// 
 			// button1
 			// 
 			button1.BackColor = SystemColors.HighlightText;
-			button1.Location = new Point(280, 475);
+			button1.Location = new Point(292, 406);
 			button1.Margin = new Padding(3, 4, 3, 4);
 			button1.Name = "button1";
 			button1.Size = new Size(178, 31);
@@ -110,8 +111,10 @@
 			// 
 			// credentialsErrorMessage
 			// 
+			credentialsErrorMessage.Anchor = AnchorStyles.Top;
+			credentialsErrorMessage.BackColor = SystemColors.Menu;
 			credentialsErrorMessage.ForeColor = Color.Firebrick;
-			credentialsErrorMessage.Location = new Point(234, 233);
+			credentialsErrorMessage.Location = new Point(246, 164);
 			credentialsErrorMessage.Name = "credentialsErrorMessage";
 			credentialsErrorMessage.Size = new Size(271, 28);
 			credentialsErrorMessage.TabIndex = 7;
@@ -133,10 +136,10 @@
 			Controls.Add(label1);
 			Controls.Add(passwordField);
 			Controls.Add(usernameField);
-			FormBorderStyle = FormBorderStyle.FixedSingle;
 			Name = "LoginScreen";
 			Text = "Airline 3550";
-			Load += Form1_Load;
+			Load += LoginScreen_Load;
+			Resize += LoginScreen_Resize;
 			ResumeLayout(false);
 			PerformLayout();
 		}
