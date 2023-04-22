@@ -15,13 +15,14 @@ namespace Airline3550
 	{
 		private LoginScreen login;
 		private User.userData userData;
+		private ManageAccount manageAccount = new ManageAccount();
 		//pass a userData struct from the User class that contains logged in user's credentials/username
 		public CustomerMenu(User.userData thisUser, LoginScreen loginScreen)
 		{
 			login = loginScreen;
 			userData = thisUser;
 			InitializeComponent();
-
+			
 
 		}
 
@@ -69,11 +70,12 @@ namespace Airline3550
 
 		private void manageAccountClicked(object sender, EventArgs e)
 		{
-			ManageAccount manageAccount = new ManageAccount();
+			
+			
 
 			manageAccount.TopLevel = false;
-			manageAccount.Dock = DockStyle.Fill;
 			menuLabel.Controls.Add(manageAccount);
+			manageAccount.Dock = DockStyle.Fill;
 			manageAccount.Show();
 		}
 

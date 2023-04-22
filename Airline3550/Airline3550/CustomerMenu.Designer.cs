@@ -111,6 +111,7 @@
 			// 
 			menuLabel.AutoSize = true;
 			menuLabel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+			menuLabel.BorderStyle = BorderStyle.FixedSingle;
 			menuLabel.Dock = DockStyle.Fill;
 			menuLabel.Location = new Point(0, 28);
 			menuLabel.Name = "menuLabel";
