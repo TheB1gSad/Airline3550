@@ -28,113 +28,120 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.usernameField = new System.Windows.Forms.TextBox();
-            this.passwordField = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.createAccount = new System.Windows.Forms.LinkLabel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.credentialsErrorMessage = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // usernameField
-            // 
-            this.usernameField.Location = new System.Drawing.Point(205, 218);
-            this.usernameField.Name = "usernameField";
-            this.usernameField.Size = new System.Drawing.Size(237, 23);
-            this.usernameField.TabIndex = 0;
-            // 
-            // passwordField
-            // 
-            this.passwordField.Location = new System.Drawing.Point(205, 276);
-            this.passwordField.Name = "passwordField";
-            this.passwordField.PasswordChar = '*';
-            this.passwordField.Size = new System.Drawing.Size(237, 23);
-            this.passwordField.TabIndex = 1;
-            this.passwordField.TextChanged += new System.EventHandler(this.passwordField_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(205, 200);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Username";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(205, 258);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Password";
-            // 
-            // createAccount
-            // 
-            this.createAccount.AutoSize = true;
-            this.createAccount.Location = new System.Drawing.Point(215, 312);
-            this.createAccount.Name = "createAccount";
-            this.createAccount.Size = new System.Drawing.Size(217, 15);
-            this.createAccount.TabIndex = 4;
-            this.createAccount.TabStop = true;
-            this.createAccount.Text = "New Customer? Make An Account Here";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(229, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(188, 45);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Airline 3550";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(245, 356);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // credentialsErrorMessage
-            // 
-            this.credentialsErrorMessage.ForeColor = System.Drawing.Color.Firebrick;
-            this.credentialsErrorMessage.Location = new System.Drawing.Point(205, 175);
-            this.credentialsErrorMessage.Name = "credentialsErrorMessage";
-            this.credentialsErrorMessage.Size = new System.Drawing.Size(237, 21);
-            this.credentialsErrorMessage.TabIndex = 7;
-            this.credentialsErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LoginScreen
-            // 
-            this.AcceptButton = this.button1;
-            this.AccessibleDescription = "";
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(668, 437);
-            this.Controls.Add(this.credentialsErrorMessage);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.createAccount);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.passwordField);
-            this.Controls.Add(this.usernameField);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "LoginScreen";
-            this.Text = "Airline 3550";
-            this.Load += new System.EventHandler(this.LoginScreen_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+			usernameField = new TextBox();
+			passwordField = new TextBox();
+			label1 = new Label();
+			label2 = new Label();
+			createAccount = new LinkLabel();
+			label3 = new Label();
+			button1 = new Button();
+			credentialsErrorMessage = new Label();
+			SuspendLayout();
+			// 
+			// usernameField
+			// 
+			usernameField.Location = new Point(246, 222);
+			usernameField.Margin = new Padding(3, 4, 3, 4);
+			usernameField.Name = "usernameField";
+			usernameField.Size = new Size(270, 27);
+			usernameField.TabIndex = 0;
+			usernameField.TextChanged += textBox1_TextChanged;
+			// 
+			// passwordField
+			// 
+			passwordField.Location = new Point(246, 299);
+			passwordField.Margin = new Padding(3, 4, 3, 4);
+			passwordField.Name = "passwordField";
+			passwordField.PasswordChar = '*';
+			passwordField.Size = new Size(270, 27);
+			passwordField.TabIndex = 1;
+			passwordField.TextChanged += textBox1_TextChanged_1;
+			// 
+			// label1
+			// 
+			label1.AutoSize = true;
+			label1.Location = new Point(246, 198);
+			label1.Name = "label1";
+			label1.Size = new Size(75, 20);
+			label1.TabIndex = 2;
+			label1.Text = "Username";
+			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.Location = new Point(246, 275);
+			label2.Name = "label2";
+			label2.Size = new Size(70, 20);
+			label2.TabIndex = 3;
+			label2.Text = "Password";
+			// 
+			// createAccount
+			// 
+			createAccount.AutoSize = true;
+			createAccount.Location = new Point(247, 347);
+			createAccount.Name = "createAccount";
+			createAccount.Size = new Size(269, 20);
+			createAccount.TabIndex = 4;
+			createAccount.TabStop = true;
+			createAccount.Text = "New Customer? Make An Account Here";
+			createAccount.LinkClicked += LinkLabel1_LinkClicked;
+			// 
+			// label3
+			// 
+			label3.Dock = DockStyle.Top;
+			label3.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+			label3.Location = new Point(0, 0);
+			label3.Name = "label3";
+			label3.Size = new Size(763, 54);
+			label3.TabIndex = 5;
+			label3.Text = "Airline 3550";
+			label3.TextAlign = ContentAlignment.TopCenter;
+			// 
+			// button1
+			// 
+			button1.BackColor = SystemColors.HighlightText;
+			button1.Location = new Point(292, 406);
+			button1.Margin = new Padding(3, 4, 3, 4);
+			button1.Name = "button1";
+			button1.Size = new Size(178, 31);
+			button1.TabIndex = 6;
+			button1.Text = "Login";
+			button1.UseVisualStyleBackColor = false;
+			button1.Click += button1_Click;
+			// 
+			// credentialsErrorMessage
+			// 
+			credentialsErrorMessage.Anchor = AnchorStyles.Top;
+			credentialsErrorMessage.BackColor = SystemColors.Menu;
+			credentialsErrorMessage.ForeColor = Color.Firebrick;
+			credentialsErrorMessage.Location = new Point(246, 164);
+			credentialsErrorMessage.Name = "credentialsErrorMessage";
+			credentialsErrorMessage.Size = new Size(271, 28);
+			credentialsErrorMessage.TabIndex = 7;
+			credentialsErrorMessage.TextAlign = ContentAlignment.MiddleCenter;
+			// 
+			// LoginScreen
+			// 
+			AcceptButton = button1;
+			AccessibleDescription = "";
+			AutoScaleDimensions = new SizeF(8F, 20F);
+			AutoScaleMode = AutoScaleMode.Font;
+			BackColor = SystemColors.Menu;
+			ClientSize = new Size(763, 583);
+			Controls.Add(credentialsErrorMessage);
+			Controls.Add(button1);
+			Controls.Add(label3);
+			Controls.Add(createAccount);
+			Controls.Add(label2);
+			Controls.Add(label1);
+			Controls.Add(passwordField);
+			Controls.Add(usernameField);
+			Name = "LoginScreen";
+			Text = "Airline 3550";
+			Load += LoginScreen_Load;
+			Resize += LoginScreen_Resize;
+			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion
