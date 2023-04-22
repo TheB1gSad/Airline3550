@@ -129,7 +129,7 @@
 			label1.Name = "label1";
 			label1.Size = new Size(992, 42);
 			label1.TabIndex = 2;
-			label1.Text = "Welcome ";
+			label1.Text = "Welcome To Airline 3550 ";
 			// 
 			// CustomerMenu
 			// 

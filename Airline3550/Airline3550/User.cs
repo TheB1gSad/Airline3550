@@ -4,6 +4,7 @@ using System.Text;
 using System.Security.Cryptography;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Net.Sockets;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 // Test
@@ -33,11 +34,11 @@ public static class User
 		thisUser.credentials = "";
 
 		thisUser.firstname = "";
-		thisUser.lastname="";
-		thisUser.address="";
-		thisUser.age="";
-		thisUser.phoneNumber="";
-		thisUser.cardNumber="";
+		thisUser.lastname = "";
+		thisUser.address = "";
+		thisUser.age = "";
+		thisUser.phoneNumber = "";
+		thisUser.cardNumber = "";
 
 
 		var data = File.ReadAllLines(dataPath);
@@ -108,9 +109,103 @@ public static class User
 
 		} while (user != null);
 		password = hashPassword(password);
-		File.AppendAllText(dataPath, Environment.NewLine + username + "," + password + "," + "customer" + "," +firstname + "," + lastname + "," + age + "," + address + "," + phoneNumber + "," + cardNumber);
+		File.AppendAllText(dataPath, Environment.NewLine + username + "," + password + "," + "customer" + "," + firstname + "," + lastname + "," + age + "," + address + "," + phoneNumber + "," + cardNumber);
 		return username;
 	}
 
 
+
+	public static void updatePassword(string username, string password)
+	{
+
+		/*
+		 * We must Read in the data line by line until we find the line with their user
+		 * name, once we do we append it to a temporary file and then overwrite the original
+		 * with the new file. This code doesn't look bad but is annoying.
+		 */
+
+
+		string temporaryFilePath = Path.GetTempFileName();
+		StreamReader streamReader = new StreamReader(dataPath);
+		StreamWriter streamWriter = new StreamWriter(temporaryFilePath);
+
+		string line;
+		while ((line = streamReader.ReadLine()) != null)
+		{
+			if (line.Contains(username))
+			{
+				string[] tempstring = line.Split(",");
+
+				//double check we are at the right user
+				if (tempstring[0] != username)
+					continue;
+
+				tempstring[1] = hashPassword(password);
+				line = String.Join(",", tempstring);
+
+			}
+			streamWriter.WriteLine(line);
+		}
+
+		//Make sure to close the stream or else we will get an error
+		streamReader.Close();
+		streamWriter.Close();
+
+		//Delete the original and replace with the new file
+		File.Delete(dataPath);
+		File.Move(temporaryFilePath, dataPath);
+
+	}
+
+	/*
+	 * Very similar to updatePassword except we are replacing the whole line at once.
+	 */
+	public static void updateInfo(userData data)
+	{
+		/*
+		 * We must Read in the data line by line until we find the line with their user
+		 * name, once we do we append it to a temporary file and then overwrite the original
+		 * with the new file. This code doesn't look bad but is annoying.
+		 */
+
+		string username = data.userName;
+		string temporaryFilePath = Path.GetTempFileName();
+		StreamReader streamReader = new StreamReader(dataPath);
+		StreamWriter streamWriter = new StreamWriter(temporaryFilePath);
+
+		string line;
+		while ((line = streamReader.ReadLine()) != null)
+		{
+			if (line.Contains(username))
+			{
+				string[] tempstring = line.Split(",");
+
+				//double check we are at the right user
+				if (tempstring[0] != username)
+					continue;
+
+				//Update all the data with the new data we got from the user
+
+				//We Start at 3 since 0-2 we don't need to change
+				tempstring[3] = data.firstname;
+				tempstring[4] = data.lastname;
+				tempstring[5] = data.age;
+				tempstring[6] = data.address;
+				tempstring[7] = data.phoneNumber;
+				tempstring[8] = data.cardNumber;
+				
+				line = String.Join(",", tempstring);
+
+			}
+			streamWriter.WriteLine(line);
+		}
+
+		//Make sure to close the stream or else we will get an error
+		streamReader.Close();
+		streamWriter.Close();
+
+		//Delete the original and replace with the new file
+		File.Delete(dataPath);
+		File.Move(temporaryFilePath, dataPath);
+	}
 }

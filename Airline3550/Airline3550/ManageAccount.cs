@@ -40,31 +40,85 @@
 
 			if (e.KeyCode == Keys.Enter)
 			{
-				e.SuppressKeyPress = true;
-				//Check which text box is focused
+
+				//Keep track if any valid changes were made
+				bool infoChanged = false;
+
+				User.userData tempUserDat = userData;
+
+
 				if (panel2.Focus())
 				{
 					//call function to edit first Name
+
+					//Check which boxes have data in them, then check if
+					//those boxes are valid before updating the data
 					if (firstNameField.Text.Length > 0)
 					{
-						userData.firstname = firstNameField.Text;
-						firstLabel.Text = "First Name: " + firstNameField.Text;
-						//Call function to update userinfo
+						tempUserDat.firstname = firstNameField.Text;
+						firstNameField.Text = "";
+						infoChanged = true;
 
 					}
 
 					if (lastNameField.Text.Length > 0)
 					{
-						userData.lastname = lastNameField.Text;
-						lastLabel.Text = "Last Name: " + lastNameField.Text;
-						//call function to update info
+						tempUserDat.lastname = lastNameField.Text;
+						lastNameField.Text = "";
+						infoChanged = true;
 					}
 
-					if (lastNameField.Text.Length > 0)
+					if (ageField.Text.Length > 0)
 					{
-						userData.lastname = lastNameField.Text;
-						lastLabel.Text = "Last Name: " + lastNameField.Text;
-						//call function to update info
+						int temp;
+
+						if (!int.TryParse(ageField.Text, out temp))
+						{
+							personalInfoerrorLabel.Text = "Invalid Age Entered";
+							return;
+						}
+
+						tempUserDat.age = ageField.Text;
+						ageField.Text = "";
+						infoChanged = true;
+					}
+
+					if (phoneField.Text.Length > 0)
+					{
+						if (phoneField.Text.Length != 10)
+						{
+							personalInfoerrorLabel.Text = "Phone Number Must Be 10 Numbers in Length";
+							return;
+						}
+						else
+						{
+							long temp;
+							if (!long.TryParse(phoneField.Text, out temp))
+							{
+								personalInfoerrorLabel.Text = "Invalid Phone Number";
+								return;
+							}
+							tempUserDat.phoneNumber = phoneField.Text;
+							phoneField.Text = "";
+							infoChanged = true;
+						}
+					}
+
+					if (addressField.Text.Length > 0)
+					{
+						tempUserDat.address = addressField.Text;
+						addressField.Text = "";
+						infoChanged = true;
+					}
+
+					if (infoChanged)
+					{
+						firstLabel.Text = "First Name: " + tempUserDat.firstname;
+						lastLabel.Text = "Last Name: " + tempUserDat.lastname;
+						ageLabel.Text = "Age: " + tempUserDat.age;
+						phoneLabel.Text = "Phone Number: " + tempUserDat.phoneNumber;
+						phoneLabel.Text = "Address: " + tempUserDat.address;
+						personalInfoerrorLabel.Text = "";
 					}
 
 				}
@@ -75,13 +129,19 @@
 					//Check Card Number
 					if (cardNumberField.Text.Length > 14)
 					{
+						long temp;
+						if (!long.TryParse(cardNumberField.Text, out temp))
+						{
+							securityErrorMessage.Text = "Invalid Card Number";
+							return;
+						}
+						tempUserDat.cardNumber = cardNumberField.Text;
 
-						userData.cardNumber = cardNumberField.Text;
 
-						string last4CardNum = userData.cardNumber.Substring(userData.cardNumber.Length - 4, 4);
-						string atr = new string('*', (userData.cardNumber.Length - 4));
-						cardLabel.Text = "Card Number: " + atr + last4CardNum;
 						securityErrorMessage.Text = "";
+						cardNumberField.Text = "";
+
+						infoChanged = true;
 					}
 					else if (cardNumberField.Text.Length > 0)
 					{
@@ -98,6 +158,13 @@
 								if (newPassword.Text == newPassword2.Text)
 								{
 									//We are good to go ahead and begin replacing password.
+									User.updatePassword(userData.userName, newPassword2.Text);
+
+									//Clear all of our field to show that the change was succesful
+									currPassword.Text = "";
+									newPassword.Text = "";
+									newPassword2.Text = "";
+									securityErrorMessage.Text = "";
 								}
 								else
 								{
@@ -119,8 +186,21 @@
 						securityErrorMessage.Text = "Please Enter Current Password to Update Your Password";
 					}
 
+					//Check if the user succesfully updated anything, this reduces calls to update function
+					if (infoChanged)
+					{
+						string last4CardNum = tempUserDat.cardNumber.Substring(tempUserDat.cardNumber.Length - 4, 4);
+						string atr = new string('*', (tempUserDat.cardNumber.Length - 4));
+						cardLabel.Text = "Card Number: " + atr + last4CardNum;
+
+
+						userData = tempUserDat;
+						User.updateInfo(userData);
+					}
 				}
+				e.SuppressKeyPress = true;
 			}
+
 		}
 
 		private void formResized(object sender, EventArgs e)

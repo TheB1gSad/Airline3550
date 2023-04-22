@@ -87,7 +87,7 @@ namespace Airline3550
 				hideAllMenus();
 				label1.Show();
 			}
-			
+
 		}
 
 		//When this method is called, all menus in the menu field will be hidden.
@@ -95,7 +95,7 @@ namespace Airline3550
 		{
 			manageAccount.Hide();
 			userData = manageAccount.userData;
-			label1.Text = "Welcome " + userData.firstname;
+			label1.Text = "Welcome To Airline 3550 " + userData.firstname;
 		}
 
 		private void manageFlightsClick(object sender, EventArgs e)
