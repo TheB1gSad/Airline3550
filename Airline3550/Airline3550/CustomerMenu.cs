@@ -15,14 +15,15 @@ namespace Airline3550
 	{
 		private LoginScreen login;
 		private User.userData userData;
-		private ManageAccount manageAccount = new ManageAccount();
+		private ManageAccount manageAccount;
 		//pass a userData struct from the User class that contains logged in user's credentials/username
 		public CustomerMenu(User.userData thisUser, LoginScreen loginScreen)
 		{
 			login = loginScreen;
 			userData = thisUser;
+			manageAccount = new ManageAccount(userData);
 			InitializeComponent();
-			
+
 
 		}
 
@@ -70,18 +71,39 @@ namespace Airline3550
 
 		private void manageAccountClicked(object sender, EventArgs e)
 		{
-			
-			
 
-			manageAccount.TopLevel = false;
-			menuLabel.Controls.Add(manageAccount);
-			manageAccount.Dock = DockStyle.Fill;
-			manageAccount.Show();
+			if (!manageAccount.Visible)
+			{
+
+				hideAllMenus();
+				label1.Hide();
+				manageAccount.TopLevel = false;
+				menuLabel.Controls.Add(manageAccount);
+				manageAccount.Dock = DockStyle.Fill;
+				manageAccount.Show();
+			}
+			else
+			{
+				hideAllMenus();
+				label1.Show();
+			}
+			
 		}
 
-		private void menuLabel_Paint(object sender, PaintEventArgs e)
+		//When this method is called, all menus in the menu field will be hidden.
+		private void hideAllMenus()
 		{
+			manageAccount.Hide();
+		}
 
+		private void manageFlightsClick(object sender, EventArgs e)
+		{
+			hideAllMenus();
+		}
+
+		private void bookFlightClick(object sender, EventArgs e)
+		{
+			hideAllMenus();
 		}
 	}
 }

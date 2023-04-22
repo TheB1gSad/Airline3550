@@ -31,17 +31,27 @@
 			panel1 = new Panel();
 			label1 = new Label();
 			panel2 = new Panel();
+			phoneField = new TextBox();
+			addressField = new TextBox();
+			ageField = new TextBox();
+			lastNameField = new TextBox();
+			firstNameField = new TextBox();
+			phoneLabel = new Label();
+			addressLabel = new Label();
+			ageLabel = new Label();
+			lastLabel = new Label();
+			firstLabel = new Label();
 			label2 = new Label();
 			panel3 = new Panel();
+			panel5 = new Panel();
+			button1 = new Button();
+			cardLabel = new Label();
+			userLabel = new Label();
 			label3 = new Label();
-			label4 = new Label();
-			label5 = new Label();
-			label6 = new Label();
-			label7 = new Label();
-			label8 = new Label();
 			panel1.SuspendLayout();
 			panel2.SuspendLayout();
 			panel3.SuspendLayout();
+			panel5.SuspendLayout();
 			SuspendLayout();
 			// 
 			// panel1
@@ -68,11 +78,16 @@
 			// panel2
 			// 
 			panel2.BorderStyle = BorderStyle.FixedSingle;
-			panel2.Controls.Add(label8);
-			panel2.Controls.Add(label7);
-			panel2.Controls.Add(label6);
-			panel2.Controls.Add(label5);
-			panel2.Controls.Add(label4);
+			panel2.Controls.Add(phoneField);
+			panel2.Controls.Add(addressField);
+			panel2.Controls.Add(ageField);
+			panel2.Controls.Add(lastNameField);
+			panel2.Controls.Add(firstNameField);
+			panel2.Controls.Add(phoneLabel);
+			panel2.Controls.Add(addressLabel);
+			panel2.Controls.Add(ageLabel);
+			panel2.Controls.Add(lastLabel);
+			panel2.Controls.Add(firstLabel);
 			panel2.Controls.Add(label2);
 			panel2.Dock = DockStyle.Left;
 			panel2.Location = new Point(0, 99);
@@ -80,12 +95,104 @@
 			panel2.Size = new Size(493, 492);
 			panel2.TabIndex = 1;
 			// 
+			// phoneField
+			// 
+			phoneField.Location = new Point(262, 291);
+			phoneField.Name = "phoneField";
+			phoneField.Size = new Size(212, 27);
+			phoneField.TabIndex = 15;
+			// 
+			// addressField
+			// 
+			addressField.Location = new Point(262, 241);
+			addressField.Name = "addressField";
+			addressField.Size = new Size(212, 27);
+			addressField.TabIndex = 14;
+			// 
+			// ageField
+			// 
+			ageField.Location = new Point(262, 191);
+			ageField.Name = "ageField";
+			ageField.Size = new Size(212, 27);
+			ageField.TabIndex = 13;
+			// 
+			// lastNameField
+			// 
+			lastNameField.Location = new Point(262, 141);
+			lastNameField.Name = "lastNameField";
+			lastNameField.Size = new Size(212, 27);
+			lastNameField.TabIndex = 12;
+			// 
+			// firstNameField
+			// 
+			firstNameField.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+			firstNameField.Location = new Point(262, 83);
+			firstNameField.Name = "firstNameField";
+			firstNameField.Size = new Size(212, 27);
+			firstNameField.TabIndex = 11;
+			// 
+			// phoneLabel
+			// 
+			phoneLabel.Anchor = AnchorStyles.Left;
+			phoneLabel.AutoSize = true;
+			phoneLabel.Location = new Point(1, 294);
+			phoneLabel.Name = "phoneLabel";
+			phoneLabel.Padding = new Padding(5, 0, 0, 0);
+			phoneLabel.Size = new Size(120, 20);
+			phoneLabel.TabIndex = 5;
+			phoneLabel.Text = "Phone Number: ";
+			// 
+			// addressLabel
+			// 
+			addressLabel.Anchor = AnchorStyles.Left;
+			addressLabel.AutoSize = true;
+			addressLabel.Location = new Point(1, 244);
+			addressLabel.Name = "addressLabel";
+			addressLabel.Padding = new Padding(5, 0, 0, 0);
+			addressLabel.Size = new Size(74, 20);
+			addressLabel.TabIndex = 4;
+			addressLabel.Text = "Address: ";
+			// 
+			// ageLabel
+			// 
+			ageLabel.Anchor = AnchorStyles.Left;
+			ageLabel.AutoSize = true;
+			ageLabel.Location = new Point(1, 194);
+			ageLabel.Name = "ageLabel";
+			ageLabel.Padding = new Padding(5, 0, 0, 0);
+			ageLabel.Size = new Size(48, 20);
+			ageLabel.TabIndex = 3;
+			ageLabel.Text = "Age: ";
+			// 
+			// lastLabel
+			// 
+			lastLabel.Anchor = AnchorStyles.Left;
+			lastLabel.AutoSize = true;
+			lastLabel.Location = new Point(1, 144);
+			lastLabel.Name = "lastLabel";
+			lastLabel.Padding = new Padding(5, 0, 0, 0);
+			lastLabel.Size = new Size(91, 20);
+			lastLabel.TabIndex = 2;
+			lastLabel.Text = "Last Name: ";
+			// 
+			// firstLabel
+			// 
+			firstLabel.Anchor = AnchorStyles.Left;
+			firstLabel.AutoSize = true;
+			firstLabel.Location = new Point(0, 83);
+			firstLabel.Name = "firstLabel";
+			firstLabel.Padding = new Padding(5, 0, 0, 0);
+			firstLabel.Size = new Size(92, 20);
+			firstLabel.TabIndex = 1;
+			firstLabel.Text = "First Name: ";
+			// 
 			// label2
 			// 
 			label2.Dock = DockStyle.Top;
+			label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
 			label2.Location = new Point(0, 0);
 			label2.Name = "label2";
-			label2.Size = new Size(491, 20);
+			label2.Size = new Size(491, 36);
 			label2.TabIndex = 0;
 			label2.Text = "Personal Info";
 			label2.TextAlign = ContentAlignment.TopCenter;
@@ -93,77 +200,68 @@
 			// panel3
 			// 
 			panel3.BorderStyle = BorderStyle.FixedSingle;
+			panel3.Controls.Add(panel5);
+			panel3.Controls.Add(cardLabel);
+			panel3.Controls.Add(userLabel);
 			panel3.Controls.Add(label3);
-			panel3.Dock = DockStyle.Right;
-			panel3.Location = new Point(499, 99);
+			panel3.Dock = DockStyle.Fill;
+			panel3.Location = new Point(493, 99);
 			panel3.Name = "panel3";
-			panel3.Size = new Size(493, 492);
+			panel3.Size = new Size(499, 492);
 			panel3.TabIndex = 2;
+			// 
+			// panel5
+			// 
+			panel5.Controls.Add(button1);
+			panel5.Dock = DockStyle.Fill;
+			panel5.Location = new Point(0, 176);
+			panel5.Name = "panel5";
+			panel5.Padding = new Padding(0, 40, 0, 0);
+			panel5.Size = new Size(497, 314);
+			panel5.TabIndex = 4;
+			// 
+			// button1
+			// 
+			button1.Dock = DockStyle.Top;
+			button1.Location = new Point(0, 40);
+			button1.Name = "button1";
+			button1.Size = new Size(497, 29);
+			button1.TabIndex = 0;
+			button1.Text = "Click Here To Change Password";
+			button1.UseVisualStyleBackColor = true;
+			// 
+			// cardLabel
+			// 
+			cardLabel.AutoSize = true;
+			cardLabel.Dock = DockStyle.Top;
+			cardLabel.Location = new Point(0, 126);
+			cardLabel.Name = "cardLabel";
+			cardLabel.Padding = new Padding(15, 30, 0, 0);
+			cardLabel.Size = new Size(120, 50);
+			cardLabel.TabIndex = 3;
+			cardLabel.Text = "Card Number: ";
+			// 
+			// userLabel
+			// 
+			userLabel.AutoSize = true;
+			userLabel.Dock = DockStyle.Top;
+			userLabel.Location = new Point(0, 36);
+			userLabel.Name = "userLabel";
+			userLabel.Padding = new Padding(15, 70, 0, 0);
+			userLabel.Size = new Size(79, 90);
+			userLabel.TabIndex = 2;
+			userLabel.Text = "User ID: ";
 			// 
 			// label3
 			// 
 			label3.Dock = DockStyle.Top;
+			label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
 			label3.Location = new Point(0, 0);
 			label3.Name = "label3";
-			label3.Size = new Size(491, 20);
+			label3.Size = new Size(497, 36);
 			label3.TabIndex = 0;
 			label3.Text = "Security And Payment";
 			label3.TextAlign = ContentAlignment.TopCenter;
-			// 
-			// label4
-			// 
-			label4.AutoSize = true;
-			label4.Dock = DockStyle.Top;
-			label4.Location = new Point(0, 20);
-			label4.Name = "label4";
-			label4.Padding = new Padding(15, 70, 0, 0);
-			label4.Size = new Size(95, 90);
-			label4.TabIndex = 1;
-			label4.Text = "First Name";
-			// 
-			// label5
-			// 
-			label5.AutoSize = true;
-			label5.Dock = DockStyle.Top;
-			label5.Location = new Point(0, 110);
-			label5.Name = "label5";
-			label5.Padding = new Padding(15, 30, 0, 0);
-			label5.Size = new Size(94, 50);
-			label5.TabIndex = 2;
-			label5.Text = "Last Name";
-			// 
-			// label6
-			// 
-			label6.AutoSize = true;
-			label6.Dock = DockStyle.Top;
-			label6.Location = new Point(0, 160);
-			label6.Name = "label6";
-			label6.Padding = new Padding(15, 30, 0, 0);
-			label6.Size = new Size(51, 50);
-			label6.TabIndex = 3;
-			label6.Text = "Age";
-			// 
-			// label7
-			// 
-			label7.AutoSize = true;
-			label7.Dock = DockStyle.Top;
-			label7.Location = new Point(0, 210);
-			label7.Name = "label7";
-			label7.Padding = new Padding(15, 30, 0, 0);
-			label7.Size = new Size(77, 50);
-			label7.TabIndex = 4;
-			label7.Text = "Address";
-			// 
-			// label8
-			// 
-			label8.AutoSize = true;
-			label8.Dock = DockStyle.Top;
-			label8.Location = new Point(0, 260);
-			label8.Name = "label8";
-			label8.Padding = new Padding(15, 30, 0, 0);
-			label8.Size = new Size(123, 50);
-			label8.TabIndex = 5;
-			label8.Text = "Phone Number";
 			// 
 			// ManageAccount
 			// 
@@ -175,12 +273,18 @@
 			Controls.Add(panel2);
 			Controls.Add(panel1);
 			FormBorderStyle = FormBorderStyle.None;
+			KeyPreview = true;
 			Name = "ManageAccount";
 			Text = "ManageAccount";
+			Load += formLoaded;
+			KeyDown += keyPressed;
+			Resize += formResized;
 			panel1.ResumeLayout(false);
 			panel2.ResumeLayout(false);
 			panel2.PerformLayout();
 			panel3.ResumeLayout(false);
+			panel3.PerformLayout();
+			panel5.ResumeLayout(false);
 			ResumeLayout(false);
 		}
 
@@ -192,10 +296,19 @@
 		private Label label2;
 		private Panel panel3;
 		private Label label3;
-		private Label label8;
-		private Label label7;
-		private Label label6;
-		private Label label5;
-		private Label label4;
+		private Label phoneLabel;
+		private Label addressLabel;
+		private Label ageLabel;
+		private Label lastLabel;
+		private Label firstLabel;
+		private Label cardLabel;
+		private Label userLabel;
+		private Panel panel5;
+		private Button button1;
+		private TextBox phoneField;
+		private TextBox addressField;
+		private TextBox ageField;
+		private TextBox lastNameField;
+		private TextBox firstNameField;
 	}
 }

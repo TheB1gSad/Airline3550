@@ -174,6 +174,7 @@
 			cardNumber.Name = "cardNumber";
 			cardNumber.Size = new Size(270, 27);
 			cardNumber.TabIndex = 8;
+			cardNumber.TextChanged += cardNumber_TextChanged;
 			// 
 			// phoneNumber
 			// 

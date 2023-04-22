@@ -71,12 +71,14 @@
 			manageFlightsToolStripMenuItem.Name = "manageFlightsToolStripMenuItem";
 			manageFlightsToolStripMenuItem.Size = new Size(124, 24);
 			manageFlightsToolStripMenuItem.Text = "Manage Flights";
+			manageFlightsToolStripMenuItem.Click += manageFlightsClick;
 			// 
 			// bookFlightToolStripMenuItem
 			// 
 			bookFlightToolStripMenuItem.Name = "bookFlightToolStripMenuItem";
 			bookFlightToolStripMenuItem.Size = new Size(98, 24);
 			bookFlightToolStripMenuItem.Text = "Book Flight";
+			bookFlightToolStripMenuItem.Click += bookFlightClick;
 			// 
 			// manageAccountToolStripMenuItem
 			// 
@@ -114,10 +116,10 @@
 			menuLabel.BorderStyle = BorderStyle.FixedSingle;
 			menuLabel.Dock = DockStyle.Fill;
 			menuLabel.Location = new Point(0, 28);
+			menuLabel.MinimumSize = new Size(992, 591);
 			menuLabel.Name = "menuLabel";
 			menuLabel.Size = new Size(992, 591);
 			menuLabel.TabIndex = 3;
-			menuLabel.Paint += menuLabel_Paint;
 			// 
 			// label1
 			// 
@@ -136,6 +138,7 @@
 			ClientSize = new Size(994, 664);
 			Controls.Add(panel1);
 			FormBorderStyle = FormBorderStyle.FixedSingle;
+			MaximumSize = new Size(1512, 1211);
 			Name = "CustomerMenu";
 			Text = "Airline 3550";
 			FormClosing += CustomerMenu_FormClosing;

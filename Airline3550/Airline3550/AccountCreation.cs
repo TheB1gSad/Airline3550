@@ -45,9 +45,9 @@ namespace Airline3550
 			{
 				credentialsErrorMessage.Text = "Phone Number Field Cannot Be Blank";
 			}
-			else if (cardNumber.Text.Length < 1)
+			else if (cardNumber.Text.Length < 15)
 			{
-				credentialsErrorMessage.Text = "Card Number Field Cannot Be Blank";
+				credentialsErrorMessage.Text = "Card Number Must Be At Least 15 Characters Long";
 			}
 			else if (passwordField.Text.Length < 3)
 			{
@@ -141,7 +141,10 @@ namespace Airline3550
 
 		}
 
+		private void cardNumber_TextChanged(object sender, EventArgs e)
+		{
 
+		}
 	}
 
 }
