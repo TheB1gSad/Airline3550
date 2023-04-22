@@ -25,6 +25,7 @@ namespace Airline3550
 
 		private void button1_Click(object sender, EventArgs e)
 		{
+			long temp;
 			if (firstName.Text.Length < 1)
 			{
 				credentialsErrorMessage.Text = "First Name Field Cannot Be Blank";
@@ -41,13 +42,32 @@ namespace Airline3550
 			{
 				credentialsErrorMessage.Text = "Age Field Cannot Be Blank";
 			}
-			else if (phoneNumber.Text.Length < 1)
+			else if (!long.TryParse(age.Text, out temp))
 			{
-				credentialsErrorMessage.Text = "Phone Number Field Cannot Be Blank";
+				credentialsErrorMessage.Text = "Age Must Be A Number";
+				return;
+			}
+			else if (phoneNumber.Text.Length < 10)
+			{
+				credentialsErrorMessage.Text = "Phone Number Is Too Short";
+			}
+			else if (phoneNumber.Text.Length > 10)
+			{
+				credentialsErrorMessage.Text = "Phone Number Is Too Long";
+			}
+			else if (!long.TryParse(phoneNumber.Text, out temp))
+			{
+				credentialsErrorMessage.Text = "Invalid Phone Number";
+				return;
 			}
 			else if (cardNumber.Text.Length < 15)
 			{
 				credentialsErrorMessage.Text = "Card Number Must Be At Least 15 Characters Long";
+			}
+			else if (!long.TryParse(cardNumber.Text, out temp))
+			{
+				credentialsErrorMessage.Text = "Invalid Card Number";
+				return;
 			}
 			else if (passwordField.Text.Length < 3)
 			{

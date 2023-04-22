@@ -86,7 +86,7 @@
 			// 
 			// label2
 			// 
-			label2.Location = new Point(281, 481);
+			label2.Location = new Point(281, 548);
 			label2.Name = "label2";
 			label2.Size = new Size(70, 20);
 			label2.TabIndex = 11;
@@ -102,12 +102,12 @@
 			// 
 			// passwordField
 			// 
-			passwordField.Location = new Point(281, 505);
+			passwordField.Location = new Point(281, 572);
 			passwordField.Margin = new Padding(3, 4, 3, 4);
 			passwordField.Name = "passwordField";
 			passwordField.PasswordChar = '*';
 			passwordField.Size = new Size(270, 27);
-			passwordField.TabIndex = 6;
+			passwordField.TabIndex = 7;
 			// 
 			// firstName
 			// 
@@ -119,7 +119,7 @@
 			// 
 			// label4
 			// 
-			label4.Location = new Point(281, 547);
+			label4.Location = new Point(281, 614);
 			label4.Name = "label4";
 			label4.Size = new Size(150, 20);
 			label4.TabIndex = 17;
@@ -128,12 +128,12 @@
 			// 
 			// secondPasswordField
 			// 
-			secondPasswordField.Location = new Point(281, 571);
+			secondPasswordField.Location = new Point(281, 638);
 			secondPasswordField.Margin = new Padding(3, 4, 3, 4);
 			secondPasswordField.Name = "secondPasswordField";
 			secondPasswordField.PasswordChar = '*';
 			secondPasswordField.Size = new Size(270, 27);
-			secondPasswordField.TabIndex = 7;
+			secondPasswordField.TabIndex = 8;
 			secondPasswordField.TextChanged += textBox1_TextChanged;
 			// 
 			// linkLabel1
@@ -170,10 +170,10 @@
 			// 
 			// cardNumber
 			// 
-			cardNumber.Location = new Point(281, 645);
+			cardNumber.Location = new Point(281, 506);
 			cardNumber.Name = "cardNumber";
 			cardNumber.Size = new Size(270, 27);
-			cardNumber.TabIndex = 8;
+			cardNumber.TabIndex = 6;
 			cardNumber.TextChanged += cardNumber_TextChanged;
 			// 
 			// phoneNumber
@@ -217,7 +217,7 @@
 			// 
 			// label9
 			// 
-			label9.Location = new Point(281, 622);
+			label9.Location = new Point(281, 483);
 			label9.Name = "label9";
 			label9.Size = new Size(150, 20);
 			label9.TabIndex = 28;

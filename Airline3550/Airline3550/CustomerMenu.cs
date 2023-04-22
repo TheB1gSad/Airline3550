@@ -94,6 +94,8 @@ namespace Airline3550
 		private void hideAllMenus()
 		{
 			manageAccount.Hide();
+			userData = manageAccount.userData;
+			label1.Text = "Welcome " + userData.firstname;
 		}
 
 		private void manageFlightsClick(object sender, EventArgs e)
