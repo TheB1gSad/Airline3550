@@ -14,10 +14,12 @@ namespace Airline3550
 	public partial class CustomerMenu : Form
 	{
 		private LoginScreen login;
+		private User.userData userData;
 		//pass a userData struct from the User class that contains logged in user's credentials/username
 		public CustomerMenu(User.userData thisUser, LoginScreen loginScreen)
 		{
 			login = loginScreen;
+			userData = thisUser;
 			InitializeComponent();
 
 
@@ -25,7 +27,7 @@ namespace Airline3550
 
 		private void MainMenu_Load(object sender, EventArgs e)
 		{
-
+			label1.Text += userData.firstname;
 		}
 
 		private void customerMenus1_Load(object sender, EventArgs e)

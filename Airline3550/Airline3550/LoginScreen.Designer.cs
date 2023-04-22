@@ -45,7 +45,6 @@
 			usernameField.Name = "usernameField";
 			usernameField.Size = new Size(270, 27);
 			usernameField.TabIndex = 0;
-			usernameField.TextChanged += textBox1_TextChanged;
 			// 
 			// passwordField
 			// 
@@ -55,7 +54,6 @@
 			passwordField.PasswordChar = '*';
 			passwordField.Size = new Size(270, 27);
 			passwordField.TabIndex = 1;
-			passwordField.TextChanged += textBox1_TextChanged_1;
 			// 
 			// label1
 			// 
@@ -138,6 +136,7 @@
 			Controls.Add(usernameField);
 			Name = "LoginScreen";
 			Text = "Airline 3550";
+			Load += LoginScreen_Load;
 			Resize += LoginScreen_Resize;
 			ResumeLayout(false);
 			PerformLayout();

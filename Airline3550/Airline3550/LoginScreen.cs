@@ -10,21 +10,6 @@ namespace Airline3550
 			InitializeComponent();
 		}
 
-
-
-
-		private void textBox1_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void textBox1_TextChanged_1(object sender, EventArgs e)
-		{
-
-		}
-
-
-
 		private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			this.Hide();
@@ -93,12 +78,5 @@ namespace Airline3550
 			button1.Location = new Point(Width / 2 - button1.Size.Width / 2, button1.Location.Y);
 			credentialsErrorMessage.Location = new Point(Width / 2 - credentialsErrorMessage.Size.Width / 2, credentialsErrorMessage.Location.Y);
 		}
-
-  
-
-        private void passwordField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-    }
+	}
 }
