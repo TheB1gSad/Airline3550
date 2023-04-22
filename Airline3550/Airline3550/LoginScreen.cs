@@ -94,10 +94,10 @@ namespace Airline3550
 			credentialsErrorMessage.Location = new Point(Width / 2 - credentialsErrorMessage.Size.Width / 2, credentialsErrorMessage.Location.Y);
 		}
 
-        private void LoginScreen_Load(object sender, EventArgs e)
-        {
+        //private void LoginScreen_Load(object sender, EventArgs e)
+       // {
 
-        }
+        //}
 
         private void passwordField_TextChanged(object sender, EventArgs e)
         {
