@@ -193,4 +193,5 @@ public class Seat
 {
     public int seatID { get; set; }
     public bool available { get; set; }
+    public int userID { get; set; } = 0;
 }
