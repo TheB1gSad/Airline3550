@@ -67,6 +67,19 @@ namespace Airline3550
 
 		}
 
+		private void manageAccountClicked(object sender, EventArgs e)
+		{
+			ManageAccount manageAccount = new ManageAccount();
 
+			manageAccount.TopLevel = false;
+			manageAccount.Dock = DockStyle.Fill;
+			menuLabel.Controls.Add(manageAccount);
+			manageAccount.Show();
+		}
+
+		private void menuLabel_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
 	}
 }

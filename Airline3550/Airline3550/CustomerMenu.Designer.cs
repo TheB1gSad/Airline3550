@@ -32,11 +32,11 @@
 			menuStrip1 = new MenuStrip();
 			manageFlightsToolStripMenuItem = new ToolStripMenuItem();
 			bookFlightToolStripMenuItem = new ToolStripMenuItem();
+			manageAccountToolStripMenuItem = new ToolStripMenuItem();
 			logoutToolStripMenuItem = new ToolStripMenuItem();
 			panel1 = new Panel();
-			label1 = new Label();
-			manageAccountToolStripMenuItem = new ToolStripMenuItem();
 			menuLabel = new Panel();
+			label1 = new Label();
 			menuStrip1.SuspendLayout();
 			panel1.SuspendLayout();
 			SuspendLayout();
@@ -48,7 +48,7 @@
 			panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 			panel2.BackColor = SystemColors.Control;
 			panel2.BorderStyle = BorderStyle.FixedSingle;
-			panel2.Location = new Point(0, 436);
+			panel2.Location = new Point(0, 647);
 			panel2.Name = "panel2";
 			panel2.Size = new Size(2, 2);
 			panel2.TabIndex = 1;
@@ -62,7 +62,7 @@
 			menuStrip1.Items.AddRange(new ToolStripItem[] { manageFlightsToolStripMenuItem, bookFlightToolStripMenuItem, manageAccountToolStripMenuItem, logoutToolStripMenuItem });
 			menuStrip1.Location = new Point(0, 0);
 			menuStrip1.Name = "menuStrip1";
-			menuStrip1.Size = new Size(980, 28);
+			menuStrip1.Size = new Size(992, 28);
 			menuStrip1.TabIndex = 1;
 			menuStrip1.Text = "menuStrip1";
 			// 
@@ -77,6 +77,13 @@
 			bookFlightToolStripMenuItem.Name = "bookFlightToolStripMenuItem";
 			bookFlightToolStripMenuItem.Size = new Size(98, 24);
 			bookFlightToolStripMenuItem.Text = "Book Flight";
+			// 
+			// manageAccountToolStripMenuItem
+			// 
+			manageAccountToolStripMenuItem.Name = "manageAccountToolStripMenuItem";
+			manageAccountToolStripMenuItem.Size = new Size(135, 24);
+			manageAccountToolStripMenuItem.Text = "Manage Account";
+			manageAccountToolStripMenuItem.Click += manageAccountClicked;
 			// 
 			// logoutToolStripMenuItem
 			// 
@@ -96,39 +103,36 @@
 			panel1.Controls.Add(panel2);
 			panel1.Location = new Point(0, 0);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(982, 452);
+			panel1.Size = new Size(994, 663);
 			panel1.TabIndex = 0;
 			panel1.Paint += panel1_Paint;
+			// 
+			// menuLabel
+			// 
+			menuLabel.AutoSize = true;
+			menuLabel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+			menuLabel.Dock = DockStyle.Fill;
+			menuLabel.Location = new Point(0, 28);
+			menuLabel.Name = "menuLabel";
+			menuLabel.Size = new Size(992, 591);
+			menuLabel.TabIndex = 3;
+			menuLabel.Paint += menuLabel_Paint;
 			// 
 			// label1
 			// 
 			label1.Dock = DockStyle.Bottom;
 			label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-			label1.Location = new Point(0, 408);
+			label1.Location = new Point(0, 619);
 			label1.Name = "label1";
-			label1.Size = new Size(980, 42);
+			label1.Size = new Size(992, 42);
 			label1.TabIndex = 2;
 			label1.Text = "Welcome ";
-			// 
-			// manageAccountToolStripMenuItem
-			// 
-			manageAccountToolStripMenuItem.Name = "manageAccountToolStripMenuItem";
-			manageAccountToolStripMenuItem.Size = new Size(135, 24);
-			manageAccountToolStripMenuItem.Text = "Manage Account";
-			// 
-			// menuLabel
-			// 
-			menuLabel.Dock = DockStyle.Fill;
-			menuLabel.Location = new Point(0, 28);
-			menuLabel.Name = "menuLabel";
-			menuLabel.Size = new Size(980, 380);
-			menuLabel.TabIndex = 3;
 			// 
 			// CustomerMenu
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(982, 453);
+			ClientSize = new Size(994, 664);
 			Controls.Add(panel1);
 			FormBorderStyle = FormBorderStyle.FixedSingle;
 			Name = "CustomerMenu";
