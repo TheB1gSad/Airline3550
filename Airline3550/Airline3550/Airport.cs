@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using CsvHelper.Configuration.Attributes;
+using CsvHelper.Configuration;
+using CsvHelper;
 
 
 public class Airport
@@ -187,7 +190,104 @@ public class AirportGraph
     }
     public static List<Airport> readAirportGraph()
     {
+        string[,] airportInfo = new string[10, 2]
+        {
+            { "Nashville International Airport", "BNA" },                   // 0
+            { "Hartsfield–Jackson Atlanta International Airport", "ATL" },  // 1
+            { "Dallas/Fort Worth International Airport", "DFW" },           // 2
+            { "Denver International Airport", "DEN" },                      // 3
+            { "O'Hare International Airport", "ORD" },                      // 4
+            { "Los Angeles International Airport", "LAX" },                 // 5
+            { "Cleveland Hopkins International Airport", "CLE" },           // 6
+            { "Orlando International Airport", "MCO" },                     // 7
+            { "Harry Reid International Airport", "LAS" },                  // 8
+            { "Phoenix Sky Harbor International Airport", "PHX" },          // 9
+        };
         List<Airport> airports = new List<Airport>();
+        for (int i = 0; i < 10; i++)
+        {
+            airports.Add(new Airport() { name = airportInfo[i, 0], code = airportInfo[i, 1], flights = new List<Flight>() });
+        }
+        var csvFlightsConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
+        {
+            HasHeaderRecord = true
+        };
+        var csvSeatsConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
+        {
+            HasHeaderRecord = false
+        };
+        string filePathFlights = Path.GetDirectoryName(Application.ExecutablePath);
+        string fileCsvFlights = Path.Combine(filePathFlights, "..", "..", "..", "csv", "flightList.csv");
+        string filePathSeats = Path.GetDirectoryName(Application.ExecutablePath);
+        string fileCsvSeats = Path.Combine(filePathSeats, "..", "..", "..", "csv", "flightSeats.csv");
+        using (var streamFlightsReader = File.OpenText(fileCsvFlights))
+        using (var csvFlightsReader = new CsvReader(streamFlightsReader, csvFlightsConfig))
+        {
+            int flightID;
+            int flightIDSeat;
+            int userID;
+            string departure;
+
+            while (csvFlightsReader.Read())
+            {
+                if (csvFlightsReader.TryGetField<int>(3, out flightID))
+                {
+                    using (var streamSeatsReader = File.OpenText(fileCsvSeats))
+                    using (var csvSeatsReader = new CsvReader(streamSeatsReader, csvSeatsConfig))
+                    {
+                        while (csvSeatsReader.Read())
+                        {
+                            if (csvSeatsReader.TryGetField<int>(0, out flightIDSeat))
+                            {
+                                if (flightID == flightIDSeat)
+                                {
+                                    List<Seat> seats = new List<Seat>();
+                                    int seatID = 0;
+                                    while (csvSeatsReader.TryGetField<int>(seatID + 1, out userID))
+                                    {
+                                        if (userID != 0)
+                                        {
+                                            seats.Add(new Seat() { seatID = seatID, available = false, userID = userID });
+                                        }
+                                        else
+                                        {
+                                            seats.Add(new Seat() { seatID = seatID, available = true, userID = userID });
+                                        }
+                                        seatID++;
+                                    }
+                                    csvFlightsReader.TryGetField<string>(5, out departure);
+                                    foreach (Airport airport in airports)
+                                    {
+                                        if (airport.code.Equals(departure))
+                                        {
+                                            string departureTime;
+                                            string arrivalTime;
+                                            string departureDate;
+                                            int flightDistance;
+                                            string arrival;
+                                            int planeType;
+                                            int price;
+                                            csvFlightsReader.TryGetField<string>(0, out departureTime);
+                                            csvFlightsReader.TryGetField<string>(1, out arrivalTime);
+                                            csvFlightsReader.TryGetField<string>(2, out departureDate);
+                                            csvFlightsReader.TryGetField<int>(4, out flightDistance);
+                                            csvFlightsReader.TryGetField<string>(6, out arrival);
+                                            csvFlightsReader.TryGetField<int>(7, out planeType);
+                                            csvFlightsReader.TryGetField<int>(8, out price);
+                                            airport.flights.Add(new Flight() { departureTime = departureTime, arrivalTime = arrivalTime, departureDate = departureDate, flightID = flightID, flightDistance = flightDistance, departure = departure, arrival = arrival, planeType = planeType, price = price, seats = seats });
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                        
+                }
+            }
+        }
+        
         return airports;
     }
 
