@@ -47,7 +47,7 @@
 			label8 = new Label();
 			label9 = new Label();
 			label10 = new Label();
-			errorMessage = new Label();
+			departureTableLabel = new Label();
 			tableLayoutPanel3 = new TableLayoutPanel();
 			label12 = new Label();
 			label13 = new Label();
@@ -59,6 +59,7 @@
 			label18 = new Label();
 			label19 = new Label();
 			button1 = new Button();
+			errorMessage = new Label();
 			tableLayoutPanel1.SuspendLayout();
 			panel1.SuspendLayout();
 			tableLayoutPanel2.SuspendLayout();
@@ -81,10 +82,10 @@
 			// tableLayoutPanel1
 			// 
 			tableLayoutPanel1.ColumnCount = 5;
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.8899078F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 21.3302746F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.8990822F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.8807335F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 118F));
 			tableLayoutPanel1.Controls.Add(label2, 0, 0);
 			tableLayoutPanel1.Controls.Add(label3, 1, 0);
@@ -112,7 +113,7 @@
 			label2.Dock = DockStyle.Fill;
 			label2.Location = new Point(3, 0);
 			label2.Name = "label2";
-			label2.Size = new Size(212, 31);
+			label2.Size = new Size(150, 31);
 			label2.TabIndex = 0;
 			label2.Text = "Departure";
 			label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -121,9 +122,9 @@
 			// 
 			label3.AutoSize = true;
 			label3.Dock = DockStyle.Top;
-			label3.Location = new Point(221, 0);
+			label3.Location = new Point(159, 0);
 			label3.Name = "label3";
-			label3.Size = new Size(212, 20);
+			label3.Size = new Size(180, 20);
 			label3.TabIndex = 1;
 			label3.Text = "Arrival";
 			label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -133,53 +134,53 @@
 			departure.Dock = DockStyle.Fill;
 			departure.Location = new Point(3, 34);
 			departure.Name = "departure";
-			departure.Size = new Size(212, 27);
+			departure.Size = new Size(150, 27);
 			departure.TabIndex = 2;
 			// 
 			// arrival
 			// 
 			arrival.Dock = DockStyle.Fill;
-			arrival.Location = new Point(221, 34);
+			arrival.Location = new Point(159, 34);
 			arrival.Name = "arrival";
-			arrival.Size = new Size(212, 27);
+			arrival.Size = new Size(180, 27);
 			arrival.TabIndex = 3;
 			// 
 			// departureDate
 			// 
 			departureDate.Dock = DockStyle.Fill;
-			departureDate.Location = new Point(439, 34);
+			departureDate.Location = new Point(345, 34);
 			departureDate.Name = "departureDate";
-			departureDate.Size = new Size(212, 27);
+			departureDate.Size = new Size(246, 27);
 			departureDate.TabIndex = 4;
 			// 
 			// arrivalDate
 			// 
 			arrivalDate.Dock = DockStyle.Fill;
-			arrivalDate.Location = new Point(657, 34);
+			arrivalDate.Location = new Point(597, 34);
 			arrivalDate.Name = "arrivalDate";
-			arrivalDate.Size = new Size(212, 27);
+			arrivalDate.Size = new Size(272, 27);
 			arrivalDate.TabIndex = 5;
 			// 
 			// label4
 			// 
 			label4.AutoSize = true;
 			label4.Dock = DockStyle.Fill;
-			label4.Location = new Point(439, 0);
+			label4.Location = new Point(345, 0);
 			label4.Name = "label4";
-			label4.Size = new Size(212, 31);
+			label4.Size = new Size(246, 31);
 			label4.TabIndex = 6;
-			label4.Text = "Departure Date";
+			label4.Text = "Departure Date mm/dd/yyyy";
 			label4.TextAlign = ContentAlignment.MiddleCenter;
 			// 
 			// label5
 			// 
 			label5.AutoSize = true;
 			label5.Dock = DockStyle.Fill;
-			label5.Location = new Point(657, 0);
+			label5.Location = new Point(597, 0);
 			label5.Name = "label5";
-			label5.Size = new Size(212, 31);
+			label5.Size = new Size(272, 31);
 			label5.TabIndex = 7;
-			label5.Text = "Return Date";
+			label5.Text = "Return Date mm/dd/yyyy";
 			label5.TextAlign = ContentAlignment.MiddleCenter;
 			// 
 			// label11
@@ -294,17 +295,17 @@
 			label10.Text = "Flight Number";
 			label10.TextAlign = ContentAlignment.MiddleCenter;
 			// 
-			// errorMessage
+			// departureTableLabel
 			// 
-			errorMessage.BorderStyle = BorderStyle.FixedSingle;
-			errorMessage.Dock = DockStyle.Top;
-			errorMessage.ForeColor = SystemColors.ControlText;
-			errorMessage.Location = new Point(0, 127);
-			errorMessage.Name = "errorMessage";
-			errorMessage.Size = new Size(992, 35);
-			errorMessage.TabIndex = 2;
-			errorMessage.Text = "Departure";
-			errorMessage.TextAlign = ContentAlignment.MiddleLeft;
+			departureTableLabel.BorderStyle = BorderStyle.FixedSingle;
+			departureTableLabel.Dock = DockStyle.Top;
+			departureTableLabel.ForeColor = SystemColors.ControlText;
+			departureTableLabel.Location = new Point(0, 127);
+			departureTableLabel.Name = "departureTableLabel";
+			departureTableLabel.Size = new Size(992, 35);
+			departureTableLabel.TabIndex = 2;
+			departureTableLabel.Text = "Departure";
+			departureTableLabel.TextAlign = ContentAlignment.MiddleLeft;
 			// 
 			// tableLayoutPanel3
 			// 
@@ -352,7 +353,7 @@
 			returnTableLabel.Dock = DockStyle.Top;
 			returnTableLabel.Location = new Point(0, 335);
 			returnTableLabel.Name = "returnTableLabel";
-			returnTableLabel.Size = new Size(992, 44);
+			returnTableLabel.Size = new Size(992, 41);
 			returnTableLabel.TabIndex = 4;
 			returnTableLabel.Text = "Return";
 			returnTableLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -374,12 +375,12 @@
 			tableLayoutPanel4.Controls.Add(label18, 3, 0);
 			tableLayoutPanel4.Controls.Add(label19, 4, 0);
 			tableLayoutPanel4.Dock = DockStyle.Fill;
-			tableLayoutPanel4.Location = new Point(0, 379);
+			tableLayoutPanel4.Location = new Point(0, 376);
 			tableLayoutPanel4.Name = "tableLayoutPanel4";
 			tableLayoutPanel4.RowCount = 2;
 			tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 11.2328768F));
 			tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 88.76712F));
-			tableLayoutPanel4.Size = new Size(992, 212);
+			tableLayoutPanel4.Size = new Size(992, 215);
 			tableLayoutPanel4.TabIndex = 5;
 			tableLayoutPanel4.Visible = false;
 			// 
@@ -448,22 +449,35 @@
 			button1.Text = "Confirm Selection";
 			button1.UseVisualStyleBackColor = true;
 			// 
+			// errorMessage
+			// 
+			errorMessage.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			errorMessage.AutoSize = true;
+			errorMessage.ForeColor = Color.Red;
+			errorMessage.Location = new Point(520, 24);
+			errorMessage.Name = "errorMessage";
+			errorMessage.Size = new Size(0, 20);
+			errorMessage.TabIndex = 0;
+			errorMessage.TextAlign = ContentAlignment.MiddleCenter;
+			// 
 			// BookFlightMenu
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(992, 591);
+			Controls.Add(errorMessage);
 			Controls.Add(button1);
 			Controls.Add(tableLayoutPanel4);
 			Controls.Add(returnTableLabel);
 			Controls.Add(panel1);
-			Controls.Add(errorMessage);
+			Controls.Add(departureTableLabel);
 			Controls.Add(tableLayoutPanel1);
 			Controls.Add(label1);
 			FormBorderStyle = FormBorderStyle.None;
 			KeyPreview = true;
 			Name = "BookFlightMenu";
 			Text = "BookFlightMenu";
+			KeyDown += keyDown;
 			tableLayoutPanel1.ResumeLayout(false);
 			tableLayoutPanel1.PerformLayout();
 			panel1.ResumeLayout(false);
@@ -474,6 +488,7 @@
 			tableLayoutPanel4.ResumeLayout(false);
 			tableLayoutPanel4.PerformLayout();
 			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion
@@ -497,7 +512,7 @@
 		private CheckBox checkBox1;
 		private Label label9;
 		private Label label10;
-		private Label errorMessage;
+		private Label departureTableLabel;
 		private TableLayoutPanel tableLayoutPanel3;
 		private Label label12;
 		private Label label13;
@@ -509,5 +524,6 @@
 		private Label label18;
 		private Label label19;
 		private Button button1;
+		private Label errorMessage;
 	}
 }
