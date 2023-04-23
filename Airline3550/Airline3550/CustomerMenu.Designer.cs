@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerMenu));
 			panel2 = new Panel();
 			menuStrip1 = new MenuStrip();
 			manageFlightsToolStripMenuItem = new ToolStripMenuItem();
@@ -62,7 +63,7 @@
 			menuStrip1.Items.AddRange(new ToolStripItem[] { manageFlightsToolStripMenuItem, bookFlightToolStripMenuItem, manageAccountToolStripMenuItem, logoutToolStripMenuItem });
 			menuStrip1.Location = new Point(0, 0);
 			menuStrip1.Name = "menuStrip1";
-			menuStrip1.Size = new Size(992, 28);
+			menuStrip1.Size = new Size(980, 28);
 			menuStrip1.TabIndex = 1;
 			menuStrip1.Text = "menuStrip1";
 			// 
@@ -105,7 +106,7 @@
 			panel1.Controls.Add(panel2);
 			panel1.Location = new Point(0, 0);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(994, 663);
+			panel1.Size = new Size(982, 663);
 			panel1.TabIndex = 0;
 			panel1.Paint += panel1_Paint;
 			// 
@@ -113,6 +114,8 @@
 			// 
 			menuLabel.AutoSize = true;
 			menuLabel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+			menuLabel.BackgroundImage = (Image)resources.GetObject("menuLabel.BackgroundImage");
+			menuLabel.BackgroundImageLayout = ImageLayout.Stretch;
 			menuLabel.BorderStyle = BorderStyle.FixedSingle;
 			menuLabel.Dock = DockStyle.Fill;
 			menuLabel.Location = new Point(0, 28);
@@ -127,7 +130,7 @@
 			label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
 			label1.Location = new Point(0, 619);
 			label1.Name = "label1";
-			label1.Size = new Size(992, 42);
+			label1.Size = new Size(980, 42);
 			label1.TabIndex = 2;
 			label1.Text = "Welcome To Airline 3550 ";
 			// 
@@ -135,7 +138,7 @@
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(994, 664);
+			ClientSize = new Size(982, 664);
 			Controls.Add(panel1);
 			FormBorderStyle = FormBorderStyle.FixedSingle;
 			MaximumSize = new Size(1512, 1211);

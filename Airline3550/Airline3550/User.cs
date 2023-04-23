@@ -32,7 +32,6 @@ public static class User
 		userData thisUser;
 		thisUser.userName = username;
 		thisUser.credentials = "";
-
 		thisUser.firstname = "";
 		thisUser.lastname = "";
 		thisUser.address = "";
@@ -193,7 +192,7 @@ public static class User
 				tempstring[6] = data.address;
 				tempstring[7] = data.phoneNumber;
 				tempstring[8] = data.cardNumber;
-				
+
 				line = String.Join(",", tempstring);
 
 			}

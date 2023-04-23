@@ -82,6 +82,7 @@
 			label1.Size = new Size(992, 99);
 			label1.TabIndex = 0;
 			label1.Text = "Manage Account Details";
+			label1.TextAlign = ContentAlignment.MiddleLeft;
 			label1.Click += label1_Click;
 			// 
 			// panel2
@@ -120,28 +121,28 @@
 			phoneField.Location = new Point(262, 291);
 			phoneField.Name = "phoneField";
 			phoneField.Size = new Size(212, 27);
-			phoneField.TabIndex = 15;
+			phoneField.TabIndex = 5;
 			// 
 			// addressField
 			// 
 			addressField.Location = new Point(262, 239);
 			addressField.Name = "addressField";
 			addressField.Size = new Size(212, 27);
-			addressField.TabIndex = 14;
+			addressField.TabIndex = 4;
 			// 
 			// ageField
 			// 
 			ageField.Location = new Point(262, 187);
 			ageField.Name = "ageField";
 			ageField.Size = new Size(212, 27);
-			ageField.TabIndex = 13;
+			ageField.TabIndex = 3;
 			// 
 			// lastNameField
 			// 
 			lastNameField.Location = new Point(262, 135);
 			lastNameField.Name = "lastNameField";
 			lastNameField.Size = new Size(212, 27);
-			lastNameField.TabIndex = 12;
+			lastNameField.TabIndex = 2;
 			// 
 			// firstNameField
 			// 
@@ -149,7 +150,7 @@
 			firstNameField.Location = new Point(262, 83);
 			firstNameField.Name = "firstNameField";
 			firstNameField.Size = new Size(212, 27);
-			firstNameField.TabIndex = 11;
+			firstNameField.TabIndex = 1;
 			// 
 			// phoneLabel
 			// 
@@ -239,14 +240,14 @@
 			cardNumberField.Location = new Point(209, 135);
 			cardNumberField.Name = "cardNumberField";
 			cardNumberField.Size = new Size(257, 27);
-			cardNumberField.TabIndex = 40;
+			cardNumberField.TabIndex = 6;
 			// 
 			// newPassword2
 			// 
 			newPassword2.Location = new Point(207, 346);
 			newPassword2.Name = "newPassword2";
 			newPassword2.Size = new Size(258, 27);
-			newPassword2.TabIndex = 39;
+			newPassword2.TabIndex = 9;
 			newPassword2.UseSystemPasswordChar = true;
 			// 
 			// newPassword
@@ -254,7 +255,7 @@
 			newPassword.Location = new Point(208, 291);
 			newPassword.Name = "newPassword";
 			newPassword.Size = new Size(257, 27);
-			newPassword.TabIndex = 38;
+			newPassword.TabIndex = 8;
 			newPassword.UseSystemPasswordChar = true;
 			// 
 			// currPassword
@@ -262,7 +263,7 @@
 			currPassword.Location = new Point(209, 236);
 			currPassword.Name = "currPassword";
 			currPassword.Size = new Size(257, 27);
-			currPassword.TabIndex = 37;
+			currPassword.TabIndex = 7;
 			currPassword.UseSystemPasswordChar = true;
 			// 
 			// label6
