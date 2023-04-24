@@ -11,7 +11,7 @@ namespace Airline3550
 {
     internal class FlightManager
     {
-        public List<string> seatList(int flightID)
+        public List<string> printManifest(int flightID)
         {
             List<string> seatList = new List<string>();
             string filePathSeats = Path.GetDirectoryName(Application.ExecutablePath);
