@@ -12,7 +12,8 @@ public static class User
 
 {
 	static string executablePath = AppDomain.CurrentDomain.BaseDirectory;
-	private static string dataPath = Path.Combine(executablePath, "credentials.csv");
+	private static string userInformationPath = Path.Combine(executablePath, "credentials.csv");
+	private static string userTransactionsPath = Path.Combine(executablePath, "userTransactions.csv");
 
 	public struct userData
 	{
@@ -40,7 +41,7 @@ public static class User
 		thisUser.cardNumber = "";
 
 
-		var data = File.ReadAllLines(dataPath);
+		var data = File.ReadAllLines(userInformationPath);
 		var usersData = from line in data.Skip(0)
 						let columns = line.Split(',')
 						select new
@@ -87,7 +88,7 @@ public static class User
 
 		Random rand = new Random();
 		string username = "";
-		var data = File.ReadAllLines(dataPath);
+		var data = File.ReadAllLines(userInformationPath);
 
 		var usersData = from line in data.Skip(0)
 						let columns = line.Split(',')
@@ -108,7 +109,7 @@ public static class User
 
 		} while (user != null);
 		password = hashPassword(password);
-		File.AppendAllText(dataPath, Environment.NewLine + username + "," + password + "," + "customer" + "," + firstname + "," + lastname + "," + age + "," + address + "," + phoneNumber + "," + cardNumber);
+		File.AppendAllText(userInformationPath, Environment.NewLine + username + "," + password + "," + "customer" + "," + firstname + "," + lastname + "," + age + "," + address + "," + phoneNumber + "," + cardNumber);
 		return username;
 	}
 
@@ -125,7 +126,7 @@ public static class User
 
 
 		string temporaryFilePath = Path.GetTempFileName();
-		StreamReader streamReader = new StreamReader(dataPath);
+		StreamReader streamReader = new StreamReader(userInformationPath);
 		StreamWriter streamWriter = new StreamWriter(temporaryFilePath);
 
 		string line;
@@ -151,8 +152,8 @@ public static class User
 		streamWriter.Close();
 
 		//Delete the original and replace with the new file
-		File.Delete(dataPath);
-		File.Move(temporaryFilePath, dataPath);
+		File.Delete(userInformationPath);
+		File.Move(temporaryFilePath, userInformationPath);
 
 	}
 
@@ -169,7 +170,7 @@ public static class User
 
 		string username = data.userName;
 		string temporaryFilePath = Path.GetTempFileName();
-		StreamReader streamReader = new StreamReader(dataPath);
+		StreamReader streamReader = new StreamReader(userInformationPath);
 		StreamWriter streamWriter = new StreamWriter(temporaryFilePath);
 
 		string line;
@@ -204,7 +205,44 @@ public static class User
 		streamWriter.Close();
 
 		//Delete the original and replace with the new file
-		File.Delete(dataPath);
-		File.Move(temporaryFilePath, dataPath);
+		File.Delete(userInformationPath);
+		File.Move(temporaryFilePath, userInformationPath);
+	}
+
+	public static void completeTransaction(string userID, bool pointsUsed, int priceInDollars,string flightID)
+	{
+		//Add transaction to csv in the format userID,pointsUser(y/n),priceInDollars,flightID(s),canceled(y/n);
+		
+		//If there are multiple flightIDs they will be seperated by a -
+		
+		var file = File.ReadAllLines(userTransactionsPath);
+
+		//Create array for transaction data
+		string points;
+		if(pointsUsed)
+		{
+			points = "y";
+			//Call function to decrement points
+		}
+		else
+		{
+			//call function to increment points
+			points = "n";
+		}
+		string today = DateTime.Now.ToString("M/dd/yyyy");
+		string[] args =
+		{
+			userID,today,points,priceInDollars.ToString(),flightID,"n"
+		};
+		string output = String.Join(",", args);
+		File.AppendAllText(userTransactionsPath,Environment.NewLine+ output);
+
+
+	}
+
+	public static void cancelBooking(string userID, string flightID)
+	{
+		//Find line with flightID and userID, replace cancled with y
+
 	}
 }

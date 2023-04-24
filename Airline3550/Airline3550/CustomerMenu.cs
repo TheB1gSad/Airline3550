@@ -14,7 +14,7 @@ namespace Airline3550
 	public partial class CustomerMenu : Form
 	{
 		private LoginScreen login;
-		private User.userData userData;
+		public User.userData userData;
 		private ManageAccount manageAccount;
 		private ManageFlights_Customer manageFlights;
 		private BookFlightMenu bookFlightMenu;
@@ -24,8 +24,8 @@ namespace Airline3550
 			login = loginScreen;
 			userData = thisUser;
 			manageAccount = new ManageAccount(userData);
-			manageFlights = new ManageFlights_Customer();
-			bookFlightMenu = new BookFlightMenu();
+			manageFlights = new ManageFlights_Customer(this);
+			bookFlightMenu = new BookFlightMenu(this);
 			InitializeComponent();
 
 
@@ -35,13 +35,6 @@ namespace Airline3550
 		{
 			label1.Text += userData.firstname;
 		}
-
-		private void customerMenus1_Load(object sender, EventArgs e)
-		{
-
-		}
-
-
 		private void panel1_Paint(object sender, PaintEventArgs e)
 		{
 
@@ -64,11 +57,6 @@ namespace Airline3550
 		}
 
 		private void panel2_Paint(object sender, PaintEventArgs e)
-		{
-
-		}
-
-		private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
 
 		}

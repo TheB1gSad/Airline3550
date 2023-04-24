@@ -31,16 +31,17 @@
 			label1 = new Label();
 			panel1 = new Panel();
 			tabControl1 = new TabControl();
-			upComingFlights = new TabPage();
-			vScrollBar2 = new VScrollBar();
-			previousFlights = new TabPage();
-			vScrollBar1 = new VScrollBar();
+			upComingFlightsWindow = new TabPage();
+			upcomingFlightsTable = new TableLayoutPanel();
+			previousFlightsWindow = new TabPage();
+			previousFlightsTable = new TableLayoutPanel();
 			panel2 = new Panel();
 			sideMenu = new Label();
+			panel3 = new Panel();
 			panel1.SuspendLayout();
 			tabControl1.SuspendLayout();
-			upComingFlights.SuspendLayout();
-			previousFlights.SuspendLayout();
+			upComingFlightsWindow.SuspendLayout();
+			previousFlightsWindow.SuspendLayout();
 			panel2.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -68,8 +69,8 @@
 			// 
 			// tabControl1
 			// 
-			tabControl1.Controls.Add(upComingFlights);
-			tabControl1.Controls.Add(previousFlights);
+			tabControl1.Controls.Add(upComingFlightsWindow);
+			tabControl1.Controls.Add(previousFlightsWindow);
 			tabControl1.Dock = DockStyle.Fill;
 			tabControl1.Location = new Point(0, 0);
 			tabControl1.Name = "tabControl1";
@@ -77,49 +78,62 @@
 			tabControl1.Size = new Size(564, 491);
 			tabControl1.TabIndex = 0;
 			// 
-			// upComingFlights
+			// upComingFlightsWindow
 			// 
-			upComingFlights.Controls.Add(vScrollBar2);
-			upComingFlights.Location = new Point(4, 29);
-			upComingFlights.Name = "upComingFlights";
-			upComingFlights.Padding = new Padding(3);
-			upComingFlights.Size = new Size(556, 458);
-			upComingFlights.TabIndex = 0;
-			upComingFlights.Text = "Upcoming Flights";
-			upComingFlights.UseVisualStyleBackColor = true;
-			upComingFlights.Click += tabPage1_Click;
+			upComingFlightsWindow.AutoScroll = true;
+			upComingFlightsWindow.Controls.Add(upcomingFlightsTable);
+			upComingFlightsWindow.Location = new Point(4, 29);
+			upComingFlightsWindow.Name = "upComingFlightsWindow";
+			upComingFlightsWindow.Padding = new Padding(3);
+			upComingFlightsWindow.Size = new Size(556, 458);
+			upComingFlightsWindow.TabIndex = 0;
+			upComingFlightsWindow.Text = "Upcoming Flights";
+			upComingFlightsWindow.UseVisualStyleBackColor = true;
 			// 
-			// vScrollBar2
+			// upcomingFlightsTable
 			// 
-			vScrollBar2.Dock = DockStyle.Right;
-			vScrollBar2.Location = new Point(527, 3);
-			vScrollBar2.Name = "vScrollBar2";
-			vScrollBar2.Size = new Size(26, 452);
-			vScrollBar2.TabIndex = 0;
+			upcomingFlightsTable.AutoSize = true;
+			upcomingFlightsTable.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+			upcomingFlightsTable.ColumnCount = 1;
+			upcomingFlightsTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+			upcomingFlightsTable.Dock = DockStyle.Top;
+			upcomingFlightsTable.Location = new Point(3, 3);
+			upcomingFlightsTable.Name = "upcomingFlightsTable";
+			upcomingFlightsTable.RowCount = 1;
+			upcomingFlightsTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+			upcomingFlightsTable.Size = new Size(550, 22);
+			upcomingFlightsTable.TabIndex = 1;
 			// 
-			// previousFlights
+			// previousFlightsWindow
 			// 
-			previousFlights.AutoScroll = true;
-			previousFlights.Controls.Add(vScrollBar1);
-			previousFlights.Location = new Point(4, 29);
-			previousFlights.Name = "previousFlights";
-			previousFlights.Padding = new Padding(3);
-			previousFlights.Size = new Size(556, 483);
-			previousFlights.TabIndex = 1;
-			previousFlights.Text = "Previous Flights";
-			previousFlights.UseVisualStyleBackColor = true;
+			previousFlightsWindow.AutoScroll = true;
+			previousFlightsWindow.Controls.Add(previousFlightsTable);
+			previousFlightsWindow.Location = new Point(4, 29);
+			previousFlightsWindow.Name = "previousFlightsWindow";
+			previousFlightsWindow.Padding = new Padding(3);
+			previousFlightsWindow.Size = new Size(556, 458);
+			previousFlightsWindow.TabIndex = 1;
+			previousFlightsWindow.Text = "Previous Flights";
+			previousFlightsWindow.UseVisualStyleBackColor = true;
 			// 
-			// vScrollBar1
+			// previousFlightsTable
 			// 
-			vScrollBar1.Dock = DockStyle.Right;
-			vScrollBar1.Location = new Point(527, 3);
-			vScrollBar1.Name = "vScrollBar1";
-			vScrollBar1.Size = new Size(26, 477);
-			vScrollBar1.TabIndex = 0;
+			previousFlightsTable.AutoSize = true;
+			previousFlightsTable.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+			previousFlightsTable.ColumnCount = 1;
+			previousFlightsTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+			previousFlightsTable.Dock = DockStyle.Top;
+			previousFlightsTable.Location = new Point(3, 3);
+			previousFlightsTable.Name = "previousFlightsTable";
+			previousFlightsTable.RowCount = 1;
+			previousFlightsTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+			previousFlightsTable.Size = new Size(550, 22);
+			previousFlightsTable.TabIndex = 2;
 			// 
 			// panel2
 			// 
 			panel2.Controls.Add(sideMenu);
+			panel2.Controls.Add(panel3);
 			panel2.Dock = DockStyle.Fill;
 			panel2.Location = new Point(564, 100);
 			panel2.Name = "panel2";
@@ -137,6 +151,14 @@
 			sideMenu.Text = "Click A Flight To View It";
 			sideMenu.TextAlign = ContentAlignment.MiddleCenter;
 			// 
+			// panel3
+			// 
+			panel3.Dock = DockStyle.Fill;
+			panel3.Location = new Point(0, 0);
+			panel3.Name = "panel3";
+			panel3.Size = new Size(428, 491);
+			panel3.TabIndex = 1;
+			// 
 			// ManageFlights_Customer
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
@@ -151,8 +173,10 @@
 			Text = "ManageFlights_Customer";
 			panel1.ResumeLayout(false);
 			tabControl1.ResumeLayout(false);
-			upComingFlights.ResumeLayout(false);
-			previousFlights.ResumeLayout(false);
+			upComingFlightsWindow.ResumeLayout(false);
+			upComingFlightsWindow.PerformLayout();
+			previousFlightsWindow.ResumeLayout(false);
+			previousFlightsWindow.PerformLayout();
 			panel2.ResumeLayout(false);
 			ResumeLayout(false);
 		}
@@ -161,12 +185,13 @@
 
 		private Label label1;
 		private Panel panel1;
-		private TabControl tabControl1;
-		private TabPage upComingFlights;
-		private TabPage previousFlights;
+		private TabPage upComingFlightsWindow;
+		private TabPage previousFlightsWindow;
 		private Panel panel2;
-		private VScrollBar vScrollBar1;
 		private Label sideMenu;
-		private VScrollBar vScrollBar2;
+		private TableLayoutPanel upcomingFlightsTable;
+		public TabControl tabControl1;
+		public TableLayoutPanel previousFlightsTable;
+		private Panel panel3;
 	}
 }

@@ -1,3 +1,4 @@
+using System.Media;
 using System.Windows.Forms;
 
 namespace Airline3550
@@ -22,14 +23,17 @@ namespace Airline3550
 			if (usernameField.Text == "" && passwordField.Text == "")
 			{
 				credentialsErrorMessage.Text = "Please Enter Username and Password";
+				SystemSounds.Beep.Play();
 			}
 			else if (usernameField.Text == "")
 			{
 				credentialsErrorMessage.Text = "Please Enter Username";
+				SystemSounds.Beep.Play();
 			}
 			else if (passwordField.Text == "")
 			{
 				credentialsErrorMessage.Text = "Please Enter Password";
+				SystemSounds.Beep.Play();
 			}
 			else
 			{
@@ -51,6 +55,7 @@ namespace Airline3550
 				}
 				else
 				{
+					SystemSounds.Beep.Play();
 					credentialsErrorMessage.Text = "Invalid Credentials, Please Try Again.";
 				}
 
