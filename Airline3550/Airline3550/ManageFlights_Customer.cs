@@ -57,11 +57,11 @@ namespace Airline3550
 				{
 					string[] currentLine = line.Split(',');
 
-					if (currentLine[2] != userTransactions.ToArray()[i][4])
+					if (currentLine[3] != userTransactions.ToArray()[i][4])
 					{
 						continue;
 					}
-					DateTime flightDateTime = DateTime.Parse(currentLine[8] + " " + currentLine[0]);
+					DateTime flightDateTime = DateTime.Parse(currentLine[2] + " " + currentLine[0]);
 					//Flight must have already happened
 					if (flightDateTime < DateTime.Now)
 					{
@@ -90,7 +90,7 @@ namespace Airline3550
 			for (int i = 0; i < flights.Count; i++)
 			{
 				string[] arr = flights.ToArray()[i].Split(',');
-				string output = arr[8] + " " + arr[4] + "->" + arr[5];
+				string output = arr[2] + " " + arr[5] + "->" + arr[6];
 				Label label = new Label();
 				label.Click += previousClicked;
 				label.Text = output;
@@ -107,7 +107,7 @@ namespace Airline3550
 			for (int i = 0; i < flights.Count; i++)
 			{
 				string[] arr = flights.ToArray()[i].Split(',');
-				string output = arr[8] + " " + arr[4] + "->" + arr[5];
+				string output = arr[2] + " " + arr[5] + "->" + arr[6];
 				Label label = new Label();
 				label.Click += upcomingClicked;
 				label.Text = output;

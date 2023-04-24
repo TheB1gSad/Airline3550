@@ -215,12 +215,21 @@ namespace Airline3550
 						string[] tempstring = lineA.Split(",");
 
 						//Check if the return and departure match the flipped arrival and departure of the user
-						if (tempstring[5] != departure.Text)
+						if (tempstring[6] != departure.Text)
 							continue;
-						if (tempstring[4] != arrival.Text)
+						if (tempstring[5] != arrival.Text)
 							continue;
 
-						tempstring[7] = "$" + tempstring[7];
+						//Check that dates match
+						if (DateOnly.Parse(tempstring[2]) != arrivalD)
+							continue;
+
+						//Check if seat is available
+
+
+
+
+						tempstring[8] = "$" + tempstring[8];
 						lineA = String.Join(",", tempstring);
 						returnsList.Add(lineA);
 
@@ -255,11 +264,16 @@ namespace Airline3550
 					string[] tempstring = line.Split(",");
 
 					//Check if the return and departure match the flipped arrival and departure of the user
-					if (tempstring[5] != arrival.Text)
+					if (tempstring[6] != arrival.Text)
 						continue;
-					if (tempstring[4] != departure.Text)
+					if (tempstring[5] != departure.Text)
 						continue;
-					tempstring[7] = "$" + tempstring[7];
+
+					//Check if dates match
+					if (DateOnly.Parse(tempstring[2]) != departureD)
+						continue;
+					//check if the dates match
+					tempstring[8] = "$" + tempstring[8];
 					line = String.Join(",", tempstring);
 					departureList.Add(line);
 
@@ -335,11 +349,11 @@ namespace Airline3550
 			checkBox.CheckedChanged += table_CheckedChanged;
 			returnTable.RowStyles.Add(new RowStyle(tempor.SizeType, tempor.Height));
 			returnTable.Controls.Add(checkBox, 0, returnTable.RowCount - 1);
-			returnTable.Controls.Add(new Label() { Text = args[4] + "->" + args[5] }, 1, returnTable.RowCount - 1);
-			returnTable.Controls.Add(new Label() { Text = args[7] }, 2, returnTable.RowCount - 1);
+			returnTable.Controls.Add(new Label() { Text = args[5] + "->" + args[6] }, 1, returnTable.RowCount - 1);
+			returnTable.Controls.Add(new Label() { Text = args[8] }, 2, returnTable.RowCount - 1);
 			returnTable.Controls.Add(new Label() { Text = args[0] }, 3, returnTable.RowCount - 1);
 			returnTable.Controls.Add(new Label() { Text = args[1] }, 4, returnTable.RowCount - 1);
-			returnTable.Controls.Add(new Label() { Text = args[2] }, 5, returnTable.RowCount - 1);
+			returnTable.Controls.Add(new Label() { Text = args[3] }, 5, returnTable.RowCount - 1);
 		}
 
 		private void addDepartureEntry(string flightString)
@@ -352,11 +366,11 @@ namespace Airline3550
 			checkBox.CheckedChanged += table_CheckedChanged;
 			departureTable.RowStyles.Add(new RowStyle(tempor.SizeType, tempor.Height));
 			departureTable.Controls.Add(checkBox, 0, departureTable.RowCount - 1);
-			departureTable.Controls.Add(new Label() { Text = args[4] + "->" + args[5] }, 1, departureTable.RowCount - 1);
-			departureTable.Controls.Add(new Label() { Text = args[7] }, 2, departureTable.RowCount - 1);
+			departureTable.Controls.Add(new Label() { Text = args[5] + "->" + args[6] }, 1, departureTable.RowCount - 1);
+			departureTable.Controls.Add(new Label() { Text = args[8] }, 2, departureTable.RowCount - 1);
 			departureTable.Controls.Add(new Label() { Text = args[0] }, 3, departureTable.RowCount - 1);
 			departureTable.Controls.Add(new Label() { Text = args[1] }, 4, departureTable.RowCount - 1);
-			departureTable.Controls.Add(new Label() { Text = args[2] }, 5, departureTable.RowCount - 1);
+			departureTable.Controls.Add(new Label() { Text = args[3] }, 5, departureTable.RowCount - 1);
 		}
 
 		private DialogResult displayCardPaymentConfirmation(int priceInDollars)
