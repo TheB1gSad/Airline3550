@@ -125,9 +125,7 @@ namespace Airline3550
 		{
 			Label l = sender as Label;
 			int row = upcomingFlightsTable.GetRow(l);
-			panel2.Controls.Add(currentFlightDetails);
-			currentFlightDetails.Dock = DockStyle.Fill;
-			currentFlightDetails.Show();
+
 
 
         }

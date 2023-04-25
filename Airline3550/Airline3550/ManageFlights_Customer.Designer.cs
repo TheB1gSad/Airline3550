@@ -36,8 +36,7 @@
             previousFlightsWindow = new TabPage();
             previousFlightsTable = new TableLayoutPanel();
             panel2 = new Panel();
-            sideMenu = new Label();
-            panel3 = new Panel();
+
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             upComingFlightsWindow.SuspendLayout();
@@ -138,34 +137,13 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(sideMenu);
-            panel2.Controls.Add(panel3);
+
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(494, 76);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
             panel2.Size = new Size(374, 367);
             panel2.TabIndex = 3;
-            // 
-            // sideMenu
-            // 
-            sideMenu.Dock = DockStyle.Fill;
-            sideMenu.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            sideMenu.Location = new Point(0, 0);
-            sideMenu.Name = "sideMenu";
-            sideMenu.Size = new Size(374, 367);
-            sideMenu.TabIndex = 0;
-            sideMenu.Text = "Click A Flight To View It";
-            sideMenu.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // panel3
-            // 
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 0);
-            panel3.Margin = new Padding(3, 2, 3, 2);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(374, 367);
-            panel3.TabIndex = 1;
             // 
             // ManageFlights_Customer
             // 
