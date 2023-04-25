@@ -134,6 +134,7 @@
 			// 
 			// departure
 			// 
+			departure.CharacterCasing = CharacterCasing.Upper;
 			departure.Dock = DockStyle.Fill;
 			departure.Location = new Point(3, 34);
 			departure.Name = "departure";
@@ -142,6 +143,7 @@
 			// 
 			// arrival
 			// 
+			arrival.CharacterCasing = CharacterCasing.Upper;
 			arrival.Dock = DockStyle.Fill;
 			arrival.Location = new Point(159, 34);
 			arrival.Name = "arrival";
@@ -150,6 +152,7 @@
 			// 
 			// departureDate
 			// 
+			departureDate.CharacterCasing = CharacterCasing.Upper;
 			departureDate.Dock = DockStyle.Fill;
 			departureDate.Location = new Point(345, 34);
 			departureDate.Name = "departureDate";
@@ -158,6 +161,7 @@
 			// 
 			// arrivalDate
 			// 
+			arrivalDate.CharacterCasing = CharacterCasing.Upper;
 			arrivalDate.Dock = DockStyle.Fill;
 			arrivalDate.Location = new Point(597, 34);
 			arrivalDate.Name = "arrivalDate";

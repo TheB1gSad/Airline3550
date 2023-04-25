@@ -141,7 +141,6 @@
 			ClientSize = new Size(982, 664);
 			Controls.Add(panel1);
 			FormBorderStyle = FormBorderStyle.FixedSingle;
-			MaximumSize = new Size(1512, 1211);
 			Name = "CustomerMenu";
 			Text = "Airline 3550";
 			FormClosing += CustomerMenu_FormClosing;

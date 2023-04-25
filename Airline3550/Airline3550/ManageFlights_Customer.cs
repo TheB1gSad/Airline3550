@@ -20,6 +20,7 @@ namespace Airline3550
 		static string executablePath = AppDomain.CurrentDomain.BaseDirectory;
 		private static string flightListPath = Path.Combine(executablePath, "flightList.csv");
 		private static string transactionlistPath = Path.Combine(executablePath, "userTransactions.csv");
+		private CurrentFlightDetails currentFlightDetails = new CurrentFlightDetails();
 		private CustomerMenu mainMenu;
 		public ManageFlights_Customer(CustomerMenu menu)
 		{
@@ -123,6 +124,10 @@ namespace Airline3550
 		{
 			Label l = sender as Label;
 			int row = upcomingFlightsTable.GetRow(l);
+			panel2.Controls.Add(currentFlightDetails);
+			currentFlightDetails.Dock = DockStyle.Fill;
+			currentFlightDetails.Show();
+
 
 		}
 
