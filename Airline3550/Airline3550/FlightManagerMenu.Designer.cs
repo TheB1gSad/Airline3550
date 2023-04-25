@@ -1,6 +1,6 @@
 ﻿namespace Airline3550
 {
-	partial class CustomerMenu
+	partial class FlightManagerMenu
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,11 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerMenu));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlightManagerMenu));
 			panel2 = new Panel();
 			menuStrip1 = new MenuStrip();
-			manageFlightsToolStripMenuItem = new ToolStripMenuItem();
-			bookFlightToolStripMenuItem = new ToolStripMenuItem();
+			planRoutesToolStripMenuItem = new ToolStripMenuItem();
 			manageAccountToolStripMenuItem = new ToolStripMenuItem();
 			logoutToolStripMenuItem = new ToolStripMenuItem();
 			panel1 = new Panel();
@@ -53,33 +52,25 @@
 			panel2.Name = "panel2";
 			panel2.Size = new Size(2, 2);
 			panel2.TabIndex = 1;
-			panel2.Paint += panel2_Paint;
 			// 
 			// menuStrip1
 			// 
 			menuStrip1.BackColor = Color.White;
 			menuStrip1.GripStyle = ToolStripGripStyle.Visible;
 			menuStrip1.ImageScalingSize = new Size(20, 20);
-			menuStrip1.Items.AddRange(new ToolStripItem[] { manageFlightsToolStripMenuItem, bookFlightToolStripMenuItem, manageAccountToolStripMenuItem, logoutToolStripMenuItem });
+			menuStrip1.Items.AddRange(new ToolStripItem[] { planRoutesToolStripMenuItem, manageAccountToolStripMenuItem, logoutToolStripMenuItem });
 			menuStrip1.Location = new Point(0, 0);
 			menuStrip1.Name = "menuStrip1";
 			menuStrip1.Size = new Size(980, 28);
 			menuStrip1.TabIndex = 1;
 			menuStrip1.Text = "menuStrip1";
 			// 
-			// manageFlightsToolStripMenuItem
+			// planRoutesToolStripMenuItem
 			// 
-			manageFlightsToolStripMenuItem.Name = "manageFlightsToolStripMenuItem";
-			manageFlightsToolStripMenuItem.Size = new Size(124, 24);
-			manageFlightsToolStripMenuItem.Text = "Manage Flights";
-			manageFlightsToolStripMenuItem.Click += manageFlightsClick;
-			// 
-			// bookFlightToolStripMenuItem
-			// 
-			bookFlightToolStripMenuItem.Name = "bookFlightToolStripMenuItem";
-			bookFlightToolStripMenuItem.Size = new Size(98, 24);
-			bookFlightToolStripMenuItem.Text = "Book Flight";
-			bookFlightToolStripMenuItem.Click += bookFlightClick;
+			planRoutesToolStripMenuItem.Name = "planRoutesToolStripMenuItem";
+			planRoutesToolStripMenuItem.Size = new Size(155, 24);
+			planRoutesToolStripMenuItem.Text = "Print Flight Manifest";
+			planRoutesToolStripMenuItem.Click += printFlightManifest;
 			// 
 			// manageAccountToolStripMenuItem
 			// 
@@ -133,16 +124,16 @@
 			label1.TabIndex = 2;
 			label1.Text = "Welcome To Airline 3550 ";
 			// 
-			// CustomerMenu
+			// FlightManagerMenu
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(982, 664);
 			Controls.Add(panel1);
-			MinimumSize = new Size(1000, 711);
-			Name = "CustomerMenu";
+			FormBorderStyle = FormBorderStyle.FixedSingle;
+			Name = "FlightManagerMenu";
 			Text = "Airline 3550";
-			FormClosing += CustomerMenu_FormClosing;
+			FormClosing += FlightManagerClosing;
 			Load += MainMenu_Load;
 			menuStrip1.ResumeLayout(false);
 			menuStrip1.PerformLayout();
@@ -155,12 +146,11 @@
 
 		private Panel panel2;
 		private MenuStrip menuStrip1;
-		private ToolStripMenuItem manageFlightsToolStripMenuItem;
-		private ToolStripMenuItem bookFlightToolStripMenuItem;
 		private ToolStripMenuItem logoutToolStripMenuItem;
 		private Panel panel1;
 		private Label label1;
 		private ToolStripMenuItem manageAccountToolStripMenuItem;
 		private Panel menuLabel;
+		private ToolStripMenuItem planRoutesToolStripMenuItem;
 	}
 }

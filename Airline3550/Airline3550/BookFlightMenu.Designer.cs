@@ -63,7 +63,6 @@
 			label13 = new Label();
 			button1 = new Button();
 			errorMessage = new Label();
-			saveFileDialog1 = new SaveFileDialog();
 			tableLayoutPanel1.SuspendLayout();
 			panel1.SuspendLayout();
 			departureTable.SuspendLayout();
@@ -220,7 +219,7 @@
 			panel1.Dock = DockStyle.Top;
 			panel1.Location = new Point(0, 127);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(992, 196);
+			panel1.Size = new Size(992, 200);
 			panel1.TabIndex = 3;
 			// 
 			// departureTable
@@ -326,9 +325,9 @@
 			panel2.Controls.Add(returnTable);
 			panel2.Controls.Add(returnTableLabel);
 			panel2.Dock = DockStyle.Fill;
-			panel2.Location = new Point(0, 323);
+			panel2.Location = new Point(0, 327);
 			panel2.Name = "panel2";
-			panel2.Size = new Size(992, 232);
+			panel2.Size = new Size(992, 228);
 			panel2.TabIndex = 15;
 			// 
 			// returnTable
@@ -558,6 +557,5 @@
 		private Label label19;
 		private Label label20;
 		private Label returnTableLabel;
-		private SaveFileDialog saveFileDialog1;
 	}
 }

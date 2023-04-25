@@ -26,12 +26,13 @@ public static class User
 		public string age;
 		public string phoneNumber;
 		public string cardNumber;
+		public string pointsTotal;
 	};
 
 	public static userData validateCredentials(string username, string password)
 	{
 		password = hashPassword(password);
-		userData thisUser;
+		userData thisUser = new userData();
 		thisUser.userName = username;
 		thisUser.credentials = "";
 		thisUser.firstname = "";
@@ -55,7 +56,9 @@ public static class User
 							age = columns[5],
 							address = columns[6],
 							phoneNumber = columns[7],
-							cardNumber = columns[8]
+							cardNumber = columns[8],
+							pointsTotal = columns[9]
+
 						};
 
 		//this line made my head hurt
@@ -70,6 +73,7 @@ public static class User
 			thisUser.age = user.age;
 			thisUser.phoneNumber = user.phoneNumber;
 			thisUser.cardNumber = user.cardNumber;
+			thisUser.pointsTotal = user.pointsTotal;
 		}
 
 		return thisUser;
@@ -249,6 +253,40 @@ public static class User
 
 	}
 
+
+	/*
+	 Probably Should Have written this method earlier but oh well
+	 */
+	public static userData getUserInfo(string userID)
+	{
+		userData userData= new userData(); ;
+
+		//Find user id in table
+		StreamReader streamReader = new StreamReader(userInformationPath);
+
+		string line;
+		while ((line = streamReader.ReadLine()) != null)
+		{
+			if (line.Contains(userID))
+			{
+				string[] user = line.Split(',');
+				if (user[0] != userID)
+					continue;
+				userData.userName = userID;
+				userData.firstname = user[3];
+				userData.lastname = user[4];
+				userData.age= user[5];	
+				userData.address= user[6];
+				userData.phoneNumber = user[7];
+				userData.cardNumber = user[8];
+				userData.pointsTotal = user[9];
+				break;
+
+			}
+			
+		}
+		return userData;
+	}
 	public static void cancelBooking(string userID, string flightID)
 	{
 		//Find line with flightID and userID, replace cancled with y

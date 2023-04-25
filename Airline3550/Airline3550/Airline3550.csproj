@@ -13,6 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="FlightManagerMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="LoadEngineerMenu.cs">
       <SubType>Form</SubType>
     </Compile>

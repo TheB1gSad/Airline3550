@@ -15,7 +15,7 @@ namespace Airline3550
 		{
 			List<string> seatList = new List<string>();
 			string filePathSeats = Path.GetDirectoryName(Application.ExecutablePath);
-			string fileCsvSeats = Path.Combine(filePathSeats, "..", "..", "..", "csv", "flightSeats.csv");
+			string fileCsvSeats = Path.Combine(filePathSeats, "flightSeats.csv");
 			using (var streamSeatsReader = File.OpenText(fileCsvSeats))
 			{
 				string line;

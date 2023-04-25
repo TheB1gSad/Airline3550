@@ -56,7 +56,7 @@ namespace Airline3550
 						credentialsErrorMessage.Text = "";
 						mainMenu.Show();
 					}
-					else
+					else if (thisUser.credentials == "loadengineer")
 					{
 						LoadEngineerMenu mainMenu = new LoadEngineerMenu(thisUser, this);
 						this.Hide();
@@ -64,6 +64,16 @@ namespace Airline3550
 						passwordField.Text = "";
 						credentialsErrorMessage.Text = "";
 						mainMenu.Show();
+					}
+					else if(thisUser.credentials =="flightmanager")
+					{
+						FlightManagerMenu mainMenu = new FlightManagerMenu(thisUser, this);
+						this.Hide();
+						usernameField.Text = "";
+						passwordField.Text = "";
+						credentialsErrorMessage.Text = "";
+						mainMenu.Show();
+
 					}
 
 				}

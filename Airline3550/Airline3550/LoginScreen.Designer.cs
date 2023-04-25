@@ -122,8 +122,8 @@
 			// 
 			AcceptButton = button1;
 			AccessibleDescription = "";
-			AutoScaleDimensions = new SizeF(8F, 20F);
-			AutoScaleMode = AutoScaleMode.Font;
+			AutoScaleDimensions = new SizeF(120F, 120F);
+			AutoScaleMode = AutoScaleMode.Dpi;
 			BackColor = SystemColors.Menu;
 			ClientSize = new Size(763, 583);
 			Controls.Add(credentialsErrorMessage);
@@ -134,6 +134,7 @@
 			Controls.Add(label1);
 			Controls.Add(passwordField);
 			Controls.Add(usernameField);
+			MinimumSize = new Size(781, 630);
 			Name = "LoginScreen";
 			Text = "Airline 3550";
 			Load += LoginScreen_Load;
