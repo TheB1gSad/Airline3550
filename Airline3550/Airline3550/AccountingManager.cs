@@ -12,11 +12,6 @@ namespace Airline3550
 {
     internal class AccountingManager
     {
-        public void printFlightStats(int flightID)
-        {
-
-        }
-
         public List<string[]> getTotals()
         {
             // Set the path of the CSV files
@@ -53,7 +48,7 @@ namespace Airline3550
             using (var reader = new StreamReader(flightSeatsFilePath))
             {
                 // Skip the header row
-                reader.ReadLine();
+                //reader.ReadLine();
 
                 // Loop through each line of the file
                 while (!reader.EndOfStream)
