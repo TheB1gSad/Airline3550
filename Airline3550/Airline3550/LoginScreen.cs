@@ -9,6 +9,7 @@ namespace Airline3550
 		{
 
 			InitializeComponent();
+			this.BringToFront();
 		}
 
 		private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
