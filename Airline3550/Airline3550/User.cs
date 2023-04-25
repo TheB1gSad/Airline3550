@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Net.Sockets;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Airline3550;
 
 
 // Test
@@ -209,7 +210,7 @@ public static class User
 		File.Move(temporaryFilePath, userInformationPath);
 	}
 
-	public static void completeTransaction(string userID, bool pointsUsed, int priceInDollars,string flightID)
+	public static void completeTransaction(string userID,int seatNumber, bool pointsUsed, int priceInDollars,string flightID)
 	{
 		//Add transaction to csv in the format userID,pointsUser(y/n),priceInDollars,flightID(s),canceled(y/n);
 		
@@ -229,13 +230,21 @@ public static class User
 			//call function to increment points
 			points = "n";
 		}
+
+		//Book The Seat in the seat list csv
+		FlightManager flightManager = new FlightManager();
+		flightManager.bookSeat(seatNumber, int.Parse(flightID), userID);
+
+
 		string today = DateTime.Now.ToString("M/dd/yyyy");
 		string[] args =
 		{
-			userID,today,points,priceInDollars.ToString(),flightID,"n"
+			userID,today,points,priceInDollars.ToString(),flightID,"n",seatNumber.ToString()
 		};
 		string output = String.Join(",", args);
 		File.AppendAllText(userTransactionsPath,Environment.NewLine+ output);
+
+		
 
 
 	}

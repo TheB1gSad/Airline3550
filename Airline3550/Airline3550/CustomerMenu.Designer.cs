@@ -1,26 +1,26 @@
 ﻿namespace Airline3550
 {
-    partial class CustomerMenu
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class CustomerMenu
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
 		/// <summary>
 		/// Required method for Designer support - do not modify
@@ -152,16 +152,16 @@
 			ResumeLayout(false);
 		}
 
-        #endregion
+		#endregion
 
-        private Panel panel2;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem manageFlightsToolStripMenuItem;
-        private ToolStripMenuItem bookFlightToolStripMenuItem;
-        private ToolStripMenuItem logoutToolStripMenuItem;
-        private Panel panel1;
-        private Label label1;
-        private ToolStripMenuItem manageAccountToolStripMenuItem;
-        private Panel menuLabel;
-    }
+		private Panel panel2;
+		private MenuStrip menuStrip1;
+		private ToolStripMenuItem manageFlightsToolStripMenuItem;
+		private ToolStripMenuItem bookFlightToolStripMenuItem;
+		private ToolStripMenuItem logoutToolStripMenuItem;
+		private Panel panel1;
+		private Label label1;
+		private ToolStripMenuItem manageAccountToolStripMenuItem;
+		private Panel menuLabel;
+	}
 }
