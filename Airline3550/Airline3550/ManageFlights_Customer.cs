@@ -121,10 +121,14 @@ namespace Airline3550
 
         }
 
-        private void upcomingClicked(object sender, EventArgs e)
-        {
-            Label l = sender as Label;
-            int row = upcomingFlightsTable.GetRow(l);
+		private void upcomingClicked(object sender, EventArgs e)
+		{
+			Label l = sender as Label;
+			int row = upcomingFlightsTable.GetRow(l);
+			panel2.Controls.Add(currentFlightDetails);
+			currentFlightDetails.Dock = DockStyle.Fill;
+			currentFlightDetails.Show();
+
 
         }
 

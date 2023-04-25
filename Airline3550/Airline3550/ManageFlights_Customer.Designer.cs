@@ -193,15 +193,13 @@
 
         #endregion
 
-        private Label label1;
-        private Panel panel1;
-        private TabPage upComingFlightsWindow;
-        private TabPage previousFlightsWindow;
-        private Panel panel2;
-        private Label sideMenu;
-        private TableLayoutPanel upcomingFlightsTable;
-        public TabControl tabControl1;
-        public TableLayoutPanel previousFlightsTable;
-        private Panel panel3;
-    }
+		private Label label1;
+		private Panel panel1;
+		private TabPage upComingFlightsWindow;
+		private TabPage previousFlightsWindow;
+		private TableLayoutPanel upcomingFlightsTable;
+		public TabControl tabControl1;
+		public TableLayoutPanel previousFlightsTable;
+		private Panel panel2;
+	}
 }

@@ -233,10 +233,22 @@ namespace Airline3550
                         if (DateOnly.Parse(tempstring[2]) != arrivalD)
                             continue;
 
-                        //Check if seat is available
-
-
-
+						//Check if seat is available
+						FlightManager flightManager = new FlightManager();
+						List<string> seats = flightManager.printManifest(int.Parse(tempstring[3]));
+						bool emptySeat = false;
+						for (int i = 0; i < seats.Count; i++)
+						{
+							if (seats.ToArray()[i] == "0")
+							{
+								emptySeat = true;
+								break;
+							}
+						}
+						if (!emptySeat)
+						{
+							continue;
+						}
 
                         tempstring[8] = "$" + tempstring[8];
                         lineA = String.Join(",", tempstring);
@@ -278,13 +290,13 @@ namespace Airline3550
                     if (tempstring[5] != departure.Text)
                         continue;
 
-                    //Check if dates match
-                    if (DateOnly.Parse(tempstring[2]) != departureD)
-                        continue;
-                    //check if the dates match
-                    tempstring[8] = "$" + tempstring[8];
-                    line = String.Join(",", tempstring);
-                    departureList.Add(line);
+					//Check if dates match
+					if (DateOnly.Parse(tempstring[2]) != departureD)
+						continue;
+					//check if the dates match
+					tempstring[8] = "$" + tempstring[8];
+					line = String.Join(",", tempstring);
+					departureList.Add(line);
 
                 }
                 //Make sure to close the stream or else we will get an error
