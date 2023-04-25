@@ -32,15 +32,6 @@ namespace Airline3550
 			InitializeComponent();
 			tableLayoutPanel1.ColumnStyles[3].Width = 0;
 			departureTable.Capture = true;
-
-
-			/* saveFileDialog1.Filter = "CSV files (*.csv)|*.csv";
-             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-             {
-                 string destination = saveFileDialog1.FileName;
-                 File.Copy(flightListPath, destination, true);
-                 MessageBox.Show("File exported successfully.");
-             }*/
 		}
 
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -158,9 +149,9 @@ namespace Airline3550
 
 				DateOnly departureD = new DateOnly(dYear, dMonth, dDay);
 
-				if (departureD < DateOnly.FromDateTime(DateTime.Now))
+				if (departureD <= DateOnly.FromDateTime(DateTime.Now))
 				{
-					errorMessage.Text = "Departure Time Cannot Be Before Todays Date"; ;
+					errorMessage.Text = "Departure Time Cannot Be On Or Before Todays Date"; ;
 					return;
 				}
 

@@ -25,7 +25,9 @@ namespace Airline3550
 		Button cancelButton;
 		Button printButton;
 		Panel buttonPanel;
-		RichTextBox flightInfopanel; 
+		RichTextBox flightInfopanel;
+		Label previousLabel;
+		private int currentRow = -1;
 
 		List<flightInformation> previousFlightsFullData = new List<flightInformation>();
 		List<flightInformation> upcomingFlightsFullData = new List<flightInformation>();
@@ -48,9 +50,6 @@ namespace Airline3550
 
 		private void initializeFlightList()
 		{
-
-
-
 			//Read every flight from list
 			string line;
 			StreamReader streamReaderA = new StreamReader(transactionlistPath);
@@ -85,10 +84,10 @@ namespace Airline3550
 						previousFlights.Add(String.Join(',', currentLine));
 						flightInformation temp = new flightInformation();
 						temp.seatNumber = userTransactions[i][6];
-						temp.flightNumber = currentLine[0];
+						temp.flightNumber = currentLine[3];
 						temp.datePurchased = userTransactions[i][1];
 						temp.departureCity = currentLine[5];
-						temp.arrivalCity = currentLine[6];	
+						temp.arrivalCity = currentLine[6];
 						temp.planeType = currentLine[7];
 						temp.price = currentLine[8];
 						temp.dateOfDep = currentLine[2];
@@ -108,12 +107,12 @@ namespace Airline3550
 
 						flightInformation temp = new flightInformation();
 						temp.seatNumber = userTransactions[i][6];
-						temp.flightNumber = currentLine[0];
+						temp.flightNumber = currentLine[3];
 						temp.datePurchased = userTransactions[i][1];
 						temp.departureCity = currentLine[5];
 						temp.arrivalCity = currentLine[6];
 						temp.planeType = currentLine[7];
-						temp.price = "$"+currentLine[8];
+						temp.price = "$" + currentLine[8];
 						temp.dateOfDep = currentLine[2];
 						temp.timeOfDep = currentLine[0];
 						temp.timeOfAriv = currentLine[1];
@@ -176,21 +175,61 @@ namespace Airline3550
 
 		private void cancelFlightClicked(object sender, EventArgs e)
 		{
-			Console.WriteLine("OK");
+			MessageBox.Show("Confirm Flight Cancelation"
+				, "",
+				   MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
 		}
 		private void printBoardingPassClicked(object sender, EventArgs e)
 		{
-			Console.WriteLine("OK");
+
+
+			flightInformation data = upcomingFlightsFullData[currentRow];
+			string textData = (
+				"Name: " + mainMenu.userData.firstname + " " + mainMenu.userData.lastname +
+				"\nUser ID Number: " + mainMenu.userData.userName +
+				"\nFlight Number: " + data.flightNumber +
+				"\nSeat Number: " + data.seatNumber +
+				"\nOrigin: " + data.departureCity +
+				"\nDestination: " + data.arrivalCity +
+				"\nDeparture Time: " + data.timeOfDep +
+				"\n Arrival Time: " + data.timeOfAriv);
+
+
+			MessageBox.Show("This Is Your Boarding Pass\n\n" + textData
+				, "",
+				   MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 		}
 		private void upcomingClicked(object sender, EventArgs e)
 		{
+
 			Label l = sender as Label;
-			int row = upcomingFlightsTable.GetRow(l)-1;
+			int row = upcomingFlightsTable.GetRow(l) - 1;
+			if (previousLabel != null)
+			{
+				previousLabel.BackColor = Color.White;
+			}
+			l.BackColor = Color.LightBlue;
+			currentRow = row;
+			buttonPanel.Show();
+			DateTime time = DateTime.Parse(upcomingFlightsFullData[currentRow].dateOfDep + " " + upcomingFlightsFullData[currentRow].timeOfDep);
+			TimeSpan threshold = TimeSpan.FromDays(1);
+			if (time.Subtract(DateTime.Now) > threshold)
+			{
+				printButton.Enabled = false;
+			}
+			else
+			{
+				printButton.Enabled = true;
+			}
+
+
+
 			panel2.Controls.Add(currentFlightDetails);
 			currentFlightDetails.Dock = DockStyle.Fill;
 			instructionSideLabel.Hide();
 			flightInfopanel.Text =
-				"Flight Summary:\n\n"+
+				"Flight Summary:\n\n" +
 				"Date Purchased: " + upcomingFlightsFullData[row].datePurchased +
 				"\nRoute: " + upcomingFlightsFullData[row].departureCity + "->" + upcomingFlightsFullData[row].arrivalCity +
 				"\nStatus: " + upcomingFlightsFullData[row].status +
@@ -201,13 +240,21 @@ namespace Airline3550
 				"\nSeat Number: " + upcomingFlightsFullData[row].seatNumber +
 				"\n";
 			currentFlightDetails.Show();
+			previousLabel = l;
+
 
 		}
 
 		private void previousClicked(object sender, EventArgs e)
 		{
+			buttonPanel.Hide();
 			Label l = sender as Label;
-			int row = previousFlightsTable.GetRow(l)-1;
+			int row = previousFlightsTable.GetRow(l) - 1;
+			if (previousLabel != null)
+			{
+				previousLabel.BackColor = Color.White;
+			}
+			l.BackColor = Color.LightBlue;
 			panel2.Controls.Add(currentFlightDetails);
 			currentFlightDetails.Dock = DockStyle.Fill;
 			instructionSideLabel.Hide();
@@ -223,12 +270,12 @@ namespace Airline3550
 			"\nSeat Number: " + previousFlightsFullData[row].seatNumber +
 			"\n";
 			currentFlightDetails.Show();
+			currentRow = row;
+			previousLabel = l;
 		}
 
 		private void clearTable(TableLayoutPanel table)
 		{
-
-
 			if (table.RowCount > 1)
 			{
 				while (table.RowCount != 1)
@@ -266,6 +313,13 @@ namespace Airline3550
 			print.Width = print.Parent.Width / 2;
 			cancel.Width = cancel.Parent.Width / 2;
 		}
+
+		private void tabChanged(object sender, EventArgs e)
+		{
+			instructionSideLabel.Show();
+			currentFlightDetails.Hide();
+		}
+
 		private struct flightInformation
 		{
 			public string seatNumber;

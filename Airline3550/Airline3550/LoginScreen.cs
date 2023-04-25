@@ -46,12 +46,25 @@ namespace Airline3550
 				if (thisUser.credentials != "")
 				{
 					//create an instance of MainMenu, pass it our user info and then display it
-					CustomerMenu mainMenu = new CustomerMenu(thisUser, this);
-					this.Hide();
-					usernameField.Text = "";
-					passwordField.Text = "";
-					credentialsErrorMessage.Text = "";
-					mainMenu.Show();
+
+					if (thisUser.credentials == "customer")
+					{
+						CustomerMenu mainMenu = new CustomerMenu(thisUser, this);
+						this.Hide();
+						usernameField.Text = "";
+						passwordField.Text = "";
+						credentialsErrorMessage.Text = "";
+						mainMenu.Show();
+					}
+					else
+					{
+						LoadEngineerMenu mainMenu = new LoadEngineerMenu(thisUser, this);
+						this.Hide();
+						usernameField.Text = "";
+						passwordField.Text = "";
+						credentialsErrorMessage.Text = "";
+						mainMenu.Show();
+					}
 
 				}
 				else

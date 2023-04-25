@@ -11,21 +11,17 @@ using System.Windows.Forms;
 
 namespace Airline3550
 {
-	public partial class CustomerMenu : Form
+	public partial class LoadEngineerMenu : Form
 	{
 		private LoginScreen login;
 		public User.userData userData;
 		private ManageAccount manageAccount;
-		private ManageFlights_Customer manageFlights;
-		private BookFlightMenu bookFlightMenu;
 		//pass a userData struct from the User class that contains logged in user's credentials/username
-		public CustomerMenu(User.userData thisUser, LoginScreen loginScreen)
+		public LoadEngineerMenu(User.userData thisUser, LoginScreen loginScreen)
 		{
 			login = loginScreen;
 			userData = thisUser;
 			manageAccount = new ManageAccount(userData);
-			manageFlights = new ManageFlights_Customer(this);
-			bookFlightMenu = new BookFlightMenu(this);
 			InitializeComponent();
 
 
@@ -43,7 +39,7 @@ namespace Airline3550
 
 		}
 
-		private void CustomerMenu_FormClosing(object sender, FormClosingEventArgs e)
+		private void LoadEngineerMenu_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			//Check if the login screen is visible, if it's not then
 			//the user must have closed the program so kill it
@@ -52,10 +48,6 @@ namespace Airline3550
 
 		}
 
-		private void panel2_Paint(object sender, PaintEventArgs e)
-		{
-
-		}
 
 		private void manageAccountClicked(object sender, EventArgs e)
 		{
@@ -82,43 +74,21 @@ namespace Airline3550
 		private void hideAllMenus()
 		{
 			manageAccount.Hide();
-			manageFlights.Hide();
-			bookFlightMenu.Hide();
 			userData = manageAccount.userData;
 			label1.Text = "Welcome To Airline 3550 " + userData.firstname;
 		}
 
-		private void manageFlightsClick(object sender, EventArgs e)
+		private void planRouteClicked(object sender, EventArgs e)
 		{
-			if (!manageFlights.Visible)
+			if (!manageAccount.Visible)
 			{
 
 				hideAllMenus();
 				label1.Hide();
-				manageFlights.TopLevel = false;
-				menuLabel.Controls.Add(manageFlights);
-				manageFlights.Dock = DockStyle.Fill;
-				manageFlights.Show();
-			}
-			else
-			{
-				hideAllMenus();
-				label1.Show();
-			}
-
-		}
-
-		private void bookFlightClick(object sender, EventArgs e)
-		{
-			if (!bookFlightMenu.Visible)
-			{
-
-				hideAllMenus();
-				label1.Hide();
-				bookFlightMenu.TopLevel = false;
-				menuLabel.Controls.Add(bookFlightMenu);
-				bookFlightMenu.Dock = DockStyle.Fill;
-				bookFlightMenu.Show();
+				manageAccount.TopLevel = false;
+				menuLabel.Controls.Add(manageAccount);
+				manageAccount.Dock = DockStyle.Fill;
+				manageAccount.Show();
 			}
 			else
 			{

@@ -76,6 +76,7 @@
 			tabControl1.SelectedIndex = 0;
 			tabControl1.Size = new Size(565, 490);
 			tabControl1.TabIndex = 0;
+			tabControl1.SelectedIndexChanged += tabChanged;
 			// 
 			// upComingFlightsWindow
 			// 
