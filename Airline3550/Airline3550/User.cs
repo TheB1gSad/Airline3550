@@ -238,13 +238,8 @@ public static class User
 
 	public static void completeTransaction(string userID,int seatNumber, bool pointsUsed, int priceInDollars,string flightID)
 	{
-		//Add transaction to csv in the format userID,pointsUser(y/n),priceInDollars,flightID(s),canceled(y/n);
-		
-		//If there are multiple flightIDs they will be seperated by a -
-		
-		var file = File.ReadAllLines(userTransactionsPath);
+	
 
-		//Create array for transaction data
 		string points;
 		if(pointsUsed)
 		{
@@ -256,7 +251,7 @@ public static class User
 			incrementPoints(priceInDollars * 100, userID);
 			points = "n";
 		}
-
+		var file = File.ReadAllLines(userTransactionsPath);
 		//Book The Seat in the seat list csv
 		FlightManager flightManager = new FlightManager();
 		flightManager.bookSeat(seatNumber, int.Parse(flightID), userID);
@@ -270,6 +265,7 @@ public static class User
 		string output = String.Join(",", args);
 		File.AppendAllText(userTransactionsPath,Environment.NewLine+ output);
 
+
 		
 
 
@@ -277,11 +273,93 @@ public static class User
 
 	private static void decrementPoints(int decAmount, string userID)
 	{
+		string temporaryFilePath = Path.GetTempFileName();
+		StreamReader streamReader = new StreamReader(userInformationPath);
+		StreamWriter streamWriter = new StreamWriter(temporaryFilePath);
 
+		string line;
+		bool firstRun = true;
+		while ((line = streamReader.ReadLine()) != null)
+		{
+			if (line.Contains(userID))
+			{
+				string[] tempstring = line.Split(",");
+
+				//double check we are at the right user
+				if (tempstring[0] == userID)
+
+				{
+					int newTotal = int.Parse(tempstring[9])-decAmount;
+					tempstring[9] = newTotal.ToString();
+
+					line = String.Join(",", tempstring);
+				}
+
+			}
+			if (firstRun)
+			{
+				streamWriter.Write(line);
+				firstRun = false;
+			}
+			else
+			{
+				streamWriter.WriteLine();
+				streamWriter.Write(line);
+			}
+		}
+
+		//Make sure to close the stream or else we will get an error
+		streamReader.Close();
+		streamWriter.Close();
+
+		//Delete the original and replace with the new file
+		File.Delete(userInformationPath);
+		File.Move(temporaryFilePath, userInformationPath);
 	}
 	private static void incrementPoints(int incAmount, string userID)
 	{
+		string temporaryFilePath = Path.GetTempFileName();
+		StreamReader streamReader = new StreamReader(userInformationPath);
+		StreamWriter streamWriter = new StreamWriter(temporaryFilePath);
 
+		string line;
+		bool firstRun = true;
+		while ((line = streamReader.ReadLine()) != null)
+		{
+			if (line.Contains(userID))
+			{
+				string[] tempstring = line.Split(",");
+
+				//double check we are at the right user
+				if (tempstring[0] == userID)
+
+				{
+					int newTotal = int.Parse(tempstring[9]) + incAmount;
+					tempstring[9] = newTotal.ToString();
+
+					line = String.Join(",", tempstring);
+				}
+
+			}
+			if (firstRun)
+			{
+				streamWriter.Write(line);
+				firstRun = false;
+			}
+			else
+			{
+				streamWriter.WriteLine();
+				streamWriter.Write(line);
+			}
+		}
+
+		//Make sure to close the stream or else we will get an error
+		streamReader.Close();
+		streamWriter.Close();
+
+		//Delete the original and replace with the new file
+		File.Delete(userInformationPath);
+		File.Move(temporaryFilePath, userInformationPath);
 	}
 	/*
 	 Probably Should Have written this method earlier but oh well
@@ -314,6 +392,7 @@ public static class User
 			}
 			
 		}
+		streamReader.Close();
 		return userData;
 	}
 	public static void cancelBooking(string userID, string flightID)

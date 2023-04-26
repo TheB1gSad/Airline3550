@@ -193,7 +193,7 @@ namespace Airline3550
 				"\nOrigin: " + data.departureCity +
 				"\nDestination: " + data.arrivalCity +
 				"\nDeparture Time: " + data.timeOfDep +
-				"\n Arrival Time: " + data.timeOfAriv);
+				"\nArrival Time: " + data.timeOfAriv);
 
 
 			MessageBox.Show("This Is Your Boarding Pass\n\n" + textData

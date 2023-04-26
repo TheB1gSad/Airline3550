@@ -14,15 +14,17 @@
 		{
 
 			//Set data fields
-			firstLabel.Text += userData.firstname;
-			lastLabel.Text += userData.lastname;
-			ageLabel.Text += userData.age;
-			addressLabel.Text += userData.address;
-			phoneLabel.Text += userData.phoneNumber;
-			userLabel.Text += userData.userName;
+			userData = User.getUserInfo(userData.userName);
+			firstLabel.Text = "First Name: " + userData.firstname;
+			lastLabel.Text = "Last Name: " + userData.lastname;
+			ageLabel.Text = "Age: " + userData.age;
+			addressLabel.Text = "Address: " + userData.address;
+			phoneLabel.Text = "Phone Number: " + userData.phoneNumber;
+			userLabel.Text = "User ID" + userData.userName;
 			string last4CardNum = userData.cardNumber.Substring(userData.cardNumber.Length - 4, 4);
 			string atr = new string('*', (userData.cardNumber.Length - 4));
-			cardLabel.Text += atr + last4CardNum;
+			cardLabel.Text = "Card Number: " + atr + last4CardNum;
+			totalPoints.Text = "Total Points: " + userData.pointsTotal;
 
 
 			//Position the input text boxes to follow the height of the labels

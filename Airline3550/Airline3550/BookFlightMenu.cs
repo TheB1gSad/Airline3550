@@ -432,7 +432,8 @@ namespace Airline3550
 			}
 
 			//Get initial info, if round trip we need to add the price for second flight later
-			int userPoints = 150000;
+			User.userData thisUserDat = User.getUserInfo(mainMenu.userData.userName);
+			int userPoints = int.Parse(thisUserDat.pointsTotal);
 			Control dPriceTextBox = departureTable.GetControlFromPosition(2, departureTable.GetPositionFromControl(departureSelected).Row);
 			string priceText = dPriceTextBox.Text.Replace("$", "");
 			int priceInDollars = int.Parse(priceText);
