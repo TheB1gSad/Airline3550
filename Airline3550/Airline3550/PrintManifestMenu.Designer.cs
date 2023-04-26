@@ -52,6 +52,7 @@
 			// 
 			// panel1
 			// 
+			panel1.AutoSize = true;
 			panel1.Controls.Add(panel2);
 			panel1.Controls.Add(tableLayoutPanel2);
 			panel1.Controls.Add(label1);
@@ -64,6 +65,8 @@
 			// panel2
 			// 
 			panel2.AutoScroll = true;
+			panel2.AutoSize = true;
+			panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 			panel2.Controls.Add(tableLayoutPanel3);
 			panel2.Dock = DockStyle.Fill;
 			panel2.Location = new Point(0, 170);
@@ -75,6 +78,8 @@
 			// 
 			tableLayoutPanel3.AutoScroll = true;
 			tableLayoutPanel3.AutoSize = true;
+			tableLayoutPanel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+			tableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
 			tableLayoutPanel3.ColumnCount = 3;
 			tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 41.34228F));
 			tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 58.65772F));
@@ -82,38 +87,42 @@
 			tableLayoutPanel3.Controls.Add(seatNumberText, 0, 0);
 			tableLayoutPanel3.Controls.Add(passengerNameText, 1, 0);
 			tableLayoutPanel3.Controls.Add(userIDText, 2, 0);
-			tableLayoutPanel3.Dock = DockStyle.Fill;
+			tableLayoutPanel3.Dock = DockStyle.Top;
+			tableLayoutPanel3.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
 			tableLayoutPanel3.Location = new Point(0, 0);
 			tableLayoutPanel3.Name = "tableLayoutPanel3";
 			tableLayoutPanel3.RowCount = 1;
 			tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-			tableLayoutPanel3.Size = new Size(974, 374);
+			tableLayoutPanel3.Size = new Size(974, 22);
 			tableLayoutPanel3.TabIndex = 0;
 			// 
 			// seatNumberText
 			// 
+			seatNumberText.AutoSize = true;
 			seatNumberText.Dock = DockStyle.Fill;
-			seatNumberText.Location = new Point(3, 0);
+			seatNumberText.Location = new Point(4, 1);
 			seatNumberText.Name = "seatNumberText";
-			seatNumberText.Size = new Size(257, 374);
+			seatNumberText.Size = new Size(255, 20);
 			seatNumberText.TabIndex = 0;
 			seatNumberText.Text = "Seat Number";
 			// 
 			// passengerNameText
 			// 
+			passengerNameText.AutoSize = true;
 			passengerNameText.Dock = DockStyle.Fill;
-			passengerNameText.Location = new Point(266, 0);
+			passengerNameText.Location = new Point(266, 1);
 			passengerNameText.Name = "passengerNameText";
-			passengerNameText.Size = new Size(367, 374);
+			passengerNameText.Size = new Size(365, 20);
 			passengerNameText.TabIndex = 1;
 			passengerNameText.Text = "Passenger Name";
 			// 
 			// userIDText
 			// 
+			userIDText.AutoSize = true;
 			userIDText.Dock = DockStyle.Fill;
-			userIDText.Location = new Point(639, 0);
+			userIDText.Location = new Point(638, 1);
 			userIDText.Name = "userIDText";
-			userIDText.Size = new Size(332, 374);
+			userIDText.Size = new Size(332, 20);
 			userIDText.TabIndex = 2;
 			userIDText.Text = "Passenger UID";
 			// 
@@ -235,14 +244,17 @@
 			Name = "PrintManifestMenu";
 			Text = "PrintManifestMenu";
 			panel1.ResumeLayout(false);
+			panel1.PerformLayout();
 			panel2.ResumeLayout(false);
 			panel2.PerformLayout();
 			tableLayoutPanel3.ResumeLayout(false);
+			tableLayoutPanel3.PerformLayout();
 			tableLayoutPanel2.ResumeLayout(false);
 			tableLayoutPanel2.PerformLayout();
 			tableLayoutPanel1.ResumeLayout(false);
 			tableLayoutPanel1.PerformLayout();
 			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion

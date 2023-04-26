@@ -297,6 +297,8 @@ namespace Airline3550
 			currentFlights = new List<string>();
 			previousFlights = new List<string>();
 			userTransactions = new List<string[]>();
+			upcomingFlightsFullData = new List<flightInformation>();
+			previousFlightsFullData = new List<flightInformation>();
 			initializeFlightList();
 			Button cancel = (Button)currentFlightDetails.Controls.Find("cancelFlight", true)[0];
 			Button print = (Button)currentFlightDetails.Controls.Find("printBoardingPass", true)[0];

@@ -130,7 +130,6 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(982, 664);
 			Controls.Add(panel1);
-			FormBorderStyle = FormBorderStyle.FixedSingle;
 			Name = "FlightManagerMenu";
 			Text = "Airline 3550";
 			FormClosing += FlightManagerClosing;

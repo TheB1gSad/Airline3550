@@ -118,7 +118,7 @@
 						lastLabel.Text = "Last Name: " + tempUserDat.lastname;
 						ageLabel.Text = "Age: " + tempUserDat.age;
 						phoneLabel.Text = "Phone Number: " + tempUserDat.phoneNumber;
-						phoneLabel.Text = "Address: " + tempUserDat.address;
+						addressLabel.Text = "Address: " + tempUserDat.address;
 						personalInfoerrorLabel.Text = "";
 					}
 
@@ -156,7 +156,11 @@
 						{
 							if (newPassword.Text.Length > 0)
 							{
-								if (newPassword.Text == newPassword2.Text)
+								if (newPassword.Text.Length < 3)
+								{
+									securityErrorMessage.Text = "Password Must Be Greater Than 3 Characters Long";
+								}
+								else if (newPassword.Text == newPassword2.Text)
 								{
 									//We are good to go ahead and begin replacing password.
 									User.updatePassword(userData.userName, newPassword2.Text);
@@ -167,11 +171,13 @@
 									newPassword2.Text = "";
 									securityErrorMessage.Text = "";
 								}
+
 								else
 								{
 									securityErrorMessage.Text = "New Passwords Do Not Match";
 								}
 							}
+
 							else
 							{
 								securityErrorMessage.Text = "New Password Field Cannot Be Blank";

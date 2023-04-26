@@ -42,17 +42,23 @@ namespace Airline3550
 
 		private void printManifest(int flightID)
 		{
+			seatNumberText.Text = "Seat Number\n";
+			passengerNameText.Text = "Passenger Name\n";
+			userIDText.Text = "Passenger UID\n";
 			FlightManager manager = new FlightManager();
 			List<string> userIDsPerSeat = manager.printManifest(flightID);
 
 			int TotalSeats = userIDsPerSeat.ToArray().Length;
 			string[] userIDArr = userIDsPerSeat.ToArray();
-
+			Cursor.Current = Cursors.WaitCursor;
+			tableLayoutPanel3.Hide();
 			for (int i = 1; i < TotalSeats; i++)
 			{
 				addRow(i, userIDArr[i]);
 
 			}
+			Cursor.Current = Cursors.Default;
+			tableLayoutPanel3.Show();
 		}
 
 		private void addRow(int seatNum, string userID)
@@ -60,11 +66,11 @@ namespace Airline3550
 			//Get passenger name
 			User.userData data = User.getUserInfo(userID);
 			if (data.userName == null)
-				userID = "[Unoccupied]";
+				userID = "";
 			string name = data.firstname + " " + data.lastname;
 			if (data.firstname == null)
 			{
-				name = "[Unoccupied]";
+				name = "";
 			}
 
 

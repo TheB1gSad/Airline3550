@@ -424,6 +424,12 @@ namespace Airline3550
 		}
 		private void button1_Click(object sender, EventArgs e)
 		{
+			if (departureSelected == null)
+			{
+				errorMessage.Text = "No Departure Flight Detected";
+				SystemSounds.Beep.Play();
+				return;
+			}
 
 			//Get initial info, if round trip we need to add the price for second flight later
 			int userPoints = 150000;
@@ -438,12 +444,7 @@ namespace Airline3550
 
 
 
-			if (departureSelected == null)
-			{
-				errorMessage.Text = "No Departure Flight Detected";
-				SystemSounds.Beep.Play();
-				return;
-			}
+
 
 			string flightIDs = departureTable.GetControlFromPosition(5, departureTable.GetPositionFromControl(departureSelected).Row).Text;
 			if (checkBox1.Checked)

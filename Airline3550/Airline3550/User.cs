@@ -114,7 +114,7 @@ public static class User
 
 		} while (user != null);
 		password = hashPassword(password);
-		File.AppendAllText(userInformationPath, Environment.NewLine + username + "," + password + "," + "customer" + "," + firstname + "," + lastname + "," + age + "," + address + "," + phoneNumber + "," + cardNumber);
+		File.AppendAllText(userInformationPath, Environment.NewLine + username + "," + password + "," + "customer" + "," + firstname + "," + lastname + "," + age + "," + address + "," + phoneNumber + "," + cardNumber +",0");
 		return username;
 	}
 
@@ -135,6 +135,7 @@ public static class User
 		StreamWriter streamWriter = new StreamWriter(temporaryFilePath);
 
 		string line;
+		bool firstRun = true;
 		while ((line = streamReader.ReadLine()) != null)
 		{
 			if (line.Contains(username))
@@ -142,14 +143,24 @@ public static class User
 				string[] tempstring = line.Split(",");
 
 				//double check we are at the right user
-				if (tempstring[0] != username)
-					continue;
+				if (tempstring[0] == username)
+				{
 
-				tempstring[1] = hashPassword(password);
-				line = String.Join(",", tempstring);
+					tempstring[1] = hashPassword(password);
+					line = String.Join(",", tempstring);
+				}
 
 			}
-			streamWriter.WriteLine(line);
+			if (firstRun)
+			{
+				streamWriter.Write(line);
+				firstRun = false;
+			}
+			else
+			{
+				streamWriter.WriteLine();
+				streamWriter.Write(line);
+			}
 		}
 
 		//Make sure to close the stream or else we will get an error
@@ -179,6 +190,7 @@ public static class User
 		StreamWriter streamWriter = new StreamWriter(temporaryFilePath);
 
 		string line;
+		bool firstRun = true;
 		while ((line = streamReader.ReadLine()) != null)
 		{
 			if (line.Contains(username))
@@ -186,23 +198,33 @@ public static class User
 				string[] tempstring = line.Split(",");
 
 				//double check we are at the right user
-				if (tempstring[0] != username)
-					continue;
+				if (tempstring[0] == username)
 
-				//Update all the data with the new data we got from the user
+				{
+					//Update all the data with the new data we got from the user
 
-				//We Start at 3 since 0-2 we don't need to change
-				tempstring[3] = data.firstname;
-				tempstring[4] = data.lastname;
-				tempstring[5] = data.age;
-				tempstring[6] = data.address;
-				tempstring[7] = data.phoneNumber;
-				tempstring[8] = data.cardNumber;
+					//We Start at 3 since 0-2 we don't need to change
+					tempstring[3] = data.firstname;
+					tempstring[4] = data.lastname;
+					tempstring[5] = data.age;
+					tempstring[6] = data.address;
+					tempstring[7] = data.phoneNumber;
+					tempstring[8] = data.cardNumber;
 
-				line = String.Join(",", tempstring);
+					line = String.Join(",", tempstring);
+				}
 
 			}
-			streamWriter.WriteLine(line);
+			if (firstRun)
+			{
+				streamWriter.Write(line);
+				firstRun = false;
+			}
+			else
+			{
+				streamWriter.WriteLine();
+				streamWriter.Write(line);
+			}
 		}
 
 		//Make sure to close the stream or else we will get an error
@@ -227,11 +249,11 @@ public static class User
 		if(pointsUsed)
 		{
 			points = "y";
-			//Call function to decrement points
+			decrementPoints(priceInDollars*100, userID);
 		}
 		else
 		{
-			//call function to increment points
+			incrementPoints(priceInDollars * 100, userID);
 			points = "n";
 		}
 
@@ -253,7 +275,14 @@ public static class User
 
 	}
 
+	private static void decrementPoints(int decAmount, string userID)
+	{
 
+	}
+	private static void incrementPoints(int incAmount, string userID)
+	{
+
+	}
 	/*
 	 Probably Should Have written this method earlier but oh well
 	 */

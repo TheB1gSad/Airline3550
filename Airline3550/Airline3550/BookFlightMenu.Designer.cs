@@ -134,6 +134,7 @@
 			// 
 			// departure
 			// 
+			departure.CharacterCasing = CharacterCasing.Upper;
 			departure.Dock = DockStyle.Fill;
 			departure.Location = new Point(3, 34);
 			departure.Name = "departure";
@@ -142,6 +143,7 @@
 			// 
 			// arrival
 			// 
+			arrival.CharacterCasing = CharacterCasing.Upper;
 			arrival.Dock = DockStyle.Fill;
 			arrival.Location = new Point(158, 34);
 			arrival.Name = "arrival";
