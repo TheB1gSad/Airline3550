@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,10 +36,11 @@ namespace Airline3550
 		{
 			mainMenu = menu;
 			InitializeComponent();
-
+			
 			cancelButton = (Button)currentFlightDetails.Controls.Find("cancelFlight", true)[0];
 			printButton = (Button)currentFlightDetails.Controls.Find("printBoardingPass", true)[0];
 			flightInfopanel = (RichTextBox)currentFlightDetails.Controls.Find("textBox", true)[0];
+			flightInfopanel.ReadOnly = true;
 			cancelButton.Click += cancelFlightClicked;
 			printButton.Click += printBoardingPassClicked;
 			buttonPanel = (Panel)currentFlightDetails.Controls.Find("buttonPanel", true)[0];
@@ -175,10 +177,30 @@ namespace Airline3550
 
 		private void cancelFlightClicked(object sender, EventArgs e)
 		{
-			MessageBox.Show("Confirm Flight Cancelation"
+			DialogResult result = MessageBox.Show("Confirm Flight Cancelation"
 				, "",
 				   MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
+			if(result ==DialogResult.OK)
+			{
+				int pointsRefunded = int.Parse(upcomingFlightsFullData[currentRow].price.Replace("$", "")) * 100;
+				if (User.cancelBooking(mainMenu.userData.userName, upcomingFlightsFullData[currentRow].flightNumber, upcomingFlightsFullData[currentRow].seatNumber))
+				{
+					
+					User.incrementPoints(pointsRefunded, mainMenu.userData.userName);
+					MessageBox.Show("Flight Canceled. " + pointsRefunded.ToString()+" Points Were Refunded To Your Account"
+				, "",
+				   MessageBoxButtons.OK, MessageBoxIcon.Information) ;
+				}
+				else
+				{
+					User.decrementPoints(pointsRefunded, mainMenu.userData.userName);
+					MessageBox.Show("Flight Canceled. " + upcomingFlightsFullData[currentRow].price + " Was Refunded To Your Card"
+				, "",
+				   MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+				manageFlightsLoade(sender, e);
+				
+			}
 		}
 		private void printBoardingPassClicked(object sender, EventArgs e)
 		{
@@ -221,6 +243,15 @@ namespace Airline3550
 			else
 			{
 				printButton.Enabled = true;
+			}
+			if(upcomingFlightsFullData[currentRow].status=="Canceled")
+			{
+				cancelButton.Enabled = false;
+				printButton.Enabled = false;
+			}
+			else
+			{
+				cancelButton.Enabled= true;
 			}
 
 

@@ -20,7 +20,7 @@
 			ageLabel.Text = "Age: " + userData.age;
 			addressLabel.Text = "Address: " + userData.address;
 			phoneLabel.Text = "Phone Number: " + userData.phoneNumber;
-			userLabel.Text = "User ID" + userData.userName;
+			userLabel.Text = "User ID: " + userData.userName;
 			string last4CardNum = userData.cardNumber.Substring(userData.cardNumber.Length - 4, 4);
 			string atr = new string('*', (userData.cardNumber.Length - 4));
 			cardLabel.Text = "Card Number: " + atr + last4CardNum;

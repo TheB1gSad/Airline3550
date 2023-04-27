@@ -176,6 +176,7 @@ public static class User
 	/*
 	 * Very similar to updatePassword except we are replacing the whole line at once.
 	 */
+
 	public static void updateInfo(userData data)
 	{
 		/*
@@ -271,7 +272,7 @@ public static class User
 
 	}
 
-	private static void decrementPoints(int decAmount, string userID)
+	public static void decrementPoints(int decAmount, string userID)
 	{
 		string temporaryFilePath = Path.GetTempFileName();
 		StreamReader streamReader = new StreamReader(userInformationPath);
@@ -316,7 +317,7 @@ public static class User
 		File.Delete(userInformationPath);
 		File.Move(temporaryFilePath, userInformationPath);
 	}
-	private static void incrementPoints(int incAmount, string userID)
+	public static void incrementPoints(int incAmount, string userID)
 	{
 		string temporaryFilePath = Path.GetTempFileName();
 		StreamReader streamReader = new StreamReader(userInformationPath);
@@ -395,9 +396,64 @@ public static class User
 		streamReader.Close();
 		return userData;
 	}
-	public static void cancelBooking(string userID, string flightID)
+
+	/*
+	 This method will cancel a booking, if the user used points to purchase then the method will return true
+	Otherwise this will return false
+	 */
+	public static bool cancelBooking(string userID, string flightID, string seatNumber)
 	{
-		//Find line with flightID and userID, replace cancled with y
+		string temporaryFilePath = Path.GetTempFileName();
+		StreamReader streamReader = new StreamReader(userTransactionsPath);
+		StreamWriter streamWriter = new StreamWriter(temporaryFilePath);
+
+		string line;
+		bool firstRun = true;
+		bool pointsUsed = false;
+		while ((line = streamReader.ReadLine()) != null)
+		{
+			if (line.Contains(userID))
+			{
+				string[] tempstring = line.Split(",");
+
+				//double check we are at the right user and the seat number and flight ID are correct
+				if (tempstring[0] == userID && tempstring[4] == flightID && tempstring[6]==seatNumber)
+				{
+					if (tempstring[2]=="y")
+					{
+						pointsUsed = true;
+					}
+					tempstring[5] = "y";
+					line = String.Join(",", tempstring);
+					
+				}
+
+			}
+			if (firstRun)
+			{
+				streamWriter.Write(line);
+				firstRun = false;
+			}
+			else
+			{
+				streamWriter.WriteLine();
+				streamWriter.Write(line);
+			}
+		}
+
+		//Make sure to close the stream or else we will get an error
+		streamReader.Close();
+		streamWriter.Close();
+
+		//Delete the original and replace with the new file
+		File.Delete(userTransactionsPath);
+		File.Move(temporaryFilePath, userTransactionsPath);
+		FlightManager flightManager = new FlightManager();
+
+		//Replace their seat number with 0
+		flightManager.bookSeat(int.Parse(seatNumber), int.Parse(flightID), "0");
+
+		return pointsUsed;
 
 	}
 }

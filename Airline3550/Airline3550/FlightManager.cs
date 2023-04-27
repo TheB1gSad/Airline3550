@@ -42,6 +42,7 @@ namespace Airline3550
 			StreamReader streamSeatsReader = new StreamReader(fileCsvSeats);
 
 			string line;
+			bool firstRun = true;
 			while ((line = streamSeatsReader.ReadLine()) != null)
 			{
 				string[] seats = line.Split(",");
@@ -50,7 +51,16 @@ namespace Airline3550
 					seats[seatNumber] = userID;
 					line = String.Join(",", seats);
 				}
-				streamWriter.WriteLine(line);
+				if (firstRun)
+				{
+					streamWriter.Write(line);
+					firstRun = false;
+				}
+				else
+				{
+					streamWriter.WriteLine();
+					streamWriter.Write(line);
+				}
 			}
 			streamWriter.Close();
 			streamSeatsReader.Close();
