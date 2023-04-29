@@ -1,3 +1,4 @@
+using System.Media;
 using System.Windows.Forms;
 
 namespace Airline3550
@@ -8,22 +9,8 @@ namespace Airline3550
 		{
 
 			InitializeComponent();
+			this.BringToFront();
 		}
-
-
-
-
-		private void textBox1_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void textBox1_TextChanged_1(object sender, EventArgs e)
-		{
-
-		}
-
-
 
 		private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
@@ -37,14 +24,17 @@ namespace Airline3550
 			if (usernameField.Text == "" && passwordField.Text == "")
 			{
 				credentialsErrorMessage.Text = "Please Enter Username and Password";
+				SystemSounds.Beep.Play();
 			}
 			else if (usernameField.Text == "")
 			{
 				credentialsErrorMessage.Text = "Please Enter Username";
+				SystemSounds.Beep.Play();
 			}
 			else if (passwordField.Text == "")
 			{
 				credentialsErrorMessage.Text = "Please Enter Password";
+				SystemSounds.Beep.Play();
 			}
 			else
 			{
@@ -56,16 +46,40 @@ namespace Airline3550
 				if (thisUser.credentials != "")
 				{
 					//create an instance of MainMenu, pass it our user info and then display it
-					CustomerMenu mainMenu = new CustomerMenu(thisUser, this);
-					this.Hide();
-					usernameField.Text = "";
-					passwordField.Text = "";
-					credentialsErrorMessage.Text = "";
-					mainMenu.Show();
+
+					if (thisUser.credentials == "customer")
+					{
+						CustomerMenu mainMenu = new CustomerMenu(thisUser, this);
+						this.Hide();
+						usernameField.Text = "";
+						passwordField.Text = "";
+						credentialsErrorMessage.Text = "";
+						mainMenu.Show();
+					}
+					else if (thisUser.credentials == "loadengineer")
+					{
+						LoadEngineerMenu mainMenu = new LoadEngineerMenu(thisUser, this);
+						this.Hide();
+						usernameField.Text = "";
+						passwordField.Text = "";
+						credentialsErrorMessage.Text = "";
+						mainMenu.Show();
+					}
+					else if(thisUser.credentials =="flightmanager")
+					{
+						FlightManagerMenu mainMenu = new FlightManagerMenu(thisUser, this);
+						this.Hide();
+						usernameField.Text = "";
+						passwordField.Text = "";
+						credentialsErrorMessage.Text = "";
+						mainMenu.Show();
+
+					}
 
 				}
 				else
 				{
+					SystemSounds.Beep.Play();
 					credentialsErrorMessage.Text = "Invalid Credentials, Please Try Again.";
 				}
 
@@ -93,15 +107,5 @@ namespace Airline3550
 			button1.Location = new Point(Width / 2 - button1.Size.Width / 2, button1.Location.Y);
 			credentialsErrorMessage.Location = new Point(Width / 2 - credentialsErrorMessage.Size.Width / 2, credentialsErrorMessage.Location.Y);
 		}
-
-        private void LoginScreen_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passwordField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-    }
+	}
 }
