@@ -16,7 +16,7 @@ namespace Airline3550
         public string[,] getFlightData()
         {
             // Path to the flightList.csv file
-            string flightListPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "csv", "flightList.csv");
+            string flightListPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"flightList.csv");
 
             // Read all lines from the flightList.csv file
             string[] flightListLines = File.ReadAllLines(flightListPath);

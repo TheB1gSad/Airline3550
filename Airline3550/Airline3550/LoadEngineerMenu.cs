@@ -16,11 +16,13 @@ namespace Airline3550
 		private LoginScreen login;
 		public User.userData userData;
 		private ManageAccount manageAccount;
+		private PlanRoute planRoute;
 		//pass a userData struct from the User class that contains logged in user's credentials/username
 		public LoadEngineerMenu(User.userData thisUser, LoginScreen loginScreen)
 		{
 			login = loginScreen;
 			userData = thisUser;
+			planRoute = new PlanRoute();
 			manageAccount = new ManageAccount(userData);
 			InitializeComponent();
 
@@ -74,21 +76,22 @@ namespace Airline3550
 		private void hideAllMenus()
 		{
 			manageAccount.Hide();
+			planRoute.Hide();
 			userData = manageAccount.userData;
 			label1.Text = "Welcome To Airline 3550 " + userData.firstname;
 		}
 
 		private void planRouteClicked(object sender, EventArgs e)
 		{
-			if (!manageAccount.Visible)
+			if (!planRoute.Visible)
 			{
 
 				hideAllMenus();
 				label1.Hide();
-				manageAccount.TopLevel = false;
-				menuLabel.Controls.Add(manageAccount);
-				manageAccount.Dock = DockStyle.Fill;
-				manageAccount.Show();
+				planRoute.TopLevel = false;
+				menuLabel.Controls.Add(planRoute);
+				planRoute.Dock = DockStyle.Fill;
+				planRoute.Show();
 			}
 			else
 			{

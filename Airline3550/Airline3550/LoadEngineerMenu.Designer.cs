@@ -32,7 +32,6 @@
 			panel2 = new Panel();
 			menuStrip1 = new MenuStrip();
 			planRoutesToolStripMenuItem = new ToolStripMenuItem();
-			cancelFlightsToolStripMenuItem = new ToolStripMenuItem();
 			manageAccountToolStripMenuItem = new ToolStripMenuItem();
 			logoutToolStripMenuItem = new ToolStripMenuItem();
 			panel1 = new Panel();
@@ -59,7 +58,7 @@
 			menuStrip1.BackColor = Color.White;
 			menuStrip1.GripStyle = ToolStripGripStyle.Visible;
 			menuStrip1.ImageScalingSize = new Size(20, 20);
-			menuStrip1.Items.AddRange(new ToolStripItem[] { planRoutesToolStripMenuItem, cancelFlightsToolStripMenuItem, manageAccountToolStripMenuItem, logoutToolStripMenuItem });
+			menuStrip1.Items.AddRange(new ToolStripItem[] { planRoutesToolStripMenuItem, manageAccountToolStripMenuItem, logoutToolStripMenuItem });
 			menuStrip1.Location = new Point(0, 0);
 			menuStrip1.Name = "menuStrip1";
 			menuStrip1.Size = new Size(980, 28);
@@ -72,12 +71,6 @@
 			planRoutesToolStripMenuItem.Size = new Size(100, 24);
 			planRoutesToolStripMenuItem.Text = "Plan Routes";
 			planRoutesToolStripMenuItem.Click += planRouteClicked;
-			// 
-			// cancelFlightsToolStripMenuItem
-			// 
-			cancelFlightsToolStripMenuItem.Name = "cancelFlightsToolStripMenuItem";
-			cancelFlightsToolStripMenuItem.Size = new Size(114, 24);
-			cancelFlightsToolStripMenuItem.Text = "Cancel Flights";
 			// 
 			// manageAccountToolStripMenuItem
 			// 
@@ -159,6 +152,5 @@
 		private ToolStripMenuItem manageAccountToolStripMenuItem;
 		private Panel menuLabel;
 		private ToolStripMenuItem planRoutesToolStripMenuItem;
-		private ToolStripMenuItem cancelFlightsToolStripMenuItem;
 	}
 }

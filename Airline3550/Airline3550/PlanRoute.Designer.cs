@@ -30,16 +30,17 @@
 		{
 			panel1 = new Panel();
 			panel2 = new Panel();
+			errorMessage = new Label();
 			button1 = new Button();
 			tableLayoutPanel1 = new TableLayoutPanel();
 			label5 = new Label();
 			label2 = new Label();
 			label3 = new Label();
 			label4 = new Label();
-			textBox1 = new TextBox();
-			textBox2 = new TextBox();
-			textBox3 = new TextBox();
-			textBox4 = new TextBox();
+			departure = new TextBox();
+			arrival = new TextBox();
+			departureTime = new TextBox();
+			departureDate = new TextBox();
 			label1 = new Label();
 			panel1.SuspendLayout();
 			panel2.SuspendLayout();
@@ -57,6 +58,7 @@
 			// 
 			// panel2
 			// 
+			panel2.Controls.Add(errorMessage);
 			panel2.Controls.Add(button1);
 			panel2.Controls.Add(tableLayoutPanel1);
 			panel2.Controls.Add(label1);
@@ -65,6 +67,15 @@
 			panel2.Name = "panel2";
 			panel2.Size = new Size(974, 544);
 			panel2.TabIndex = 0;
+			// 
+			// errorMessage
+			// 
+			errorMessage.ForeColor = Color.Red;
+			errorMessage.Location = new Point(489, 36);
+			errorMessage.Name = "errorMessage";
+			errorMessage.Size = new Size(447, 35);
+			errorMessage.TabIndex = 3;
+			errorMessage.TextAlign = ContentAlignment.MiddleCenter;
 			// 
 			// button1
 			// 
@@ -84,15 +95,15 @@
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 226F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 196F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 258F));
 			tableLayoutPanel1.Controls.Add(label5, 3, 0);
 			tableLayoutPanel1.Controls.Add(label2, 0, 0);
 			tableLayoutPanel1.Controls.Add(label3, 1, 0);
 			tableLayoutPanel1.Controls.Add(label4, 2, 0);
-			tableLayoutPanel1.Controls.Add(textBox1, 0, 1);
-			tableLayoutPanel1.Controls.Add(textBox2, 1, 1);
-			tableLayoutPanel1.Controls.Add(textBox3, 2, 1);
-			tableLayoutPanel1.Controls.Add(textBox4, 3, 1);
+			tableLayoutPanel1.Controls.Add(departure, 0, 1);
+			tableLayoutPanel1.Controls.Add(arrival, 1, 1);
+			tableLayoutPanel1.Controls.Add(departureTime, 2, 1);
+			tableLayoutPanel1.Controls.Add(departureDate, 3, 1);
 			tableLayoutPanel1.Dock = DockStyle.Top;
 			tableLayoutPanel1.Location = new Point(0, 100);
 			tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -106,11 +117,11 @@
 			// label5
 			// 
 			label5.Dock = DockStyle.Fill;
-			label5.Location = new Point(781, 0);
+			label5.Location = new Point(719, 0);
 			label5.Name = "label5";
-			label5.Size = new Size(190, 33);
+			label5.Size = new Size(252, 33);
 			label5.TabIndex = 4;
-			label5.Text = "Departure Date";
+			label5.Text = "Departure Date (mm/dd/yyyy)";
 			label5.TextAlign = ContentAlignment.MiddleCenter;
 			// 
 			// label2
@@ -128,7 +139,7 @@
 			label3.Dock = DockStyle.Fill;
 			label3.Location = new Point(229, 0);
 			label3.Name = "label3";
-			label3.Size = new Size(270, 33);
+			label3.Size = new Size(239, 33);
 			label3.TabIndex = 1;
 			label3.Text = "Arrival City";
 			label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -136,44 +147,48 @@
 			// label4
 			// 
 			label4.Dock = DockStyle.Fill;
-			label4.Location = new Point(505, 0);
+			label4.Location = new Point(474, 0);
 			label4.Name = "label4";
-			label4.Size = new Size(270, 33);
+			label4.Size = new Size(239, 33);
 			label4.TabIndex = 2;
-			label4.Text = "Departure Time";
+			label4.Text = "Departure Time (hh:mm)";
 			label4.TextAlign = ContentAlignment.MiddleCenter;
 			// 
-			// textBox1
+			// departure
 			// 
-			textBox1.Dock = DockStyle.Fill;
-			textBox1.Location = new Point(3, 36);
-			textBox1.Name = "textBox1";
-			textBox1.Size = new Size(220, 27);
-			textBox1.TabIndex = 5;
+			departure.CharacterCasing = CharacterCasing.Upper;
+			departure.Dock = DockStyle.Fill;
+			departure.Location = new Point(3, 36);
+			departure.Name = "departure";
+			departure.Size = new Size(220, 27);
+			departure.TabIndex = 5;
 			// 
-			// textBox2
+			// arrival
 			// 
-			textBox2.Dock = DockStyle.Fill;
-			textBox2.Location = new Point(229, 36);
-			textBox2.Name = "textBox2";
-			textBox2.Size = new Size(270, 27);
-			textBox2.TabIndex = 6;
+			arrival.CharacterCasing = CharacterCasing.Upper;
+			arrival.Dock = DockStyle.Fill;
+			arrival.Location = new Point(229, 36);
+			arrival.Name = "arrival";
+			arrival.Size = new Size(239, 27);
+			arrival.TabIndex = 6;
 			// 
-			// textBox3
+			// departureTime
 			// 
-			textBox3.Dock = DockStyle.Fill;
-			textBox3.Location = new Point(505, 36);
-			textBox3.Name = "textBox3";
-			textBox3.Size = new Size(270, 27);
-			textBox3.TabIndex = 7;
+			departureTime.CharacterCasing = CharacterCasing.Upper;
+			departureTime.Dock = DockStyle.Fill;
+			departureTime.Location = new Point(474, 36);
+			departureTime.Name = "departureTime";
+			departureTime.Size = new Size(239, 27);
+			departureTime.TabIndex = 7;
 			// 
-			// textBox4
+			// departureDate
 			// 
-			textBox4.Dock = DockStyle.Fill;
-			textBox4.Location = new Point(781, 36);
-			textBox4.Name = "textBox4";
-			textBox4.Size = new Size(190, 27);
-			textBox4.TabIndex = 8;
+			departureDate.CharacterCasing = CharacterCasing.Upper;
+			departureDate.Dock = DockStyle.Fill;
+			departureDate.Location = new Point(719, 36);
+			departureDate.Name = "departureDate";
+			departureDate.Size = new Size(252, 27);
+			departureDate.TabIndex = 8;
 			// 
 			// label1
 			// 
@@ -189,6 +204,7 @@
 			// 
 			// PlanRoute
 			// 
+			AcceptButton = button1;
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			AutoSize = true;
@@ -215,9 +231,10 @@
 		private Label label1;
 		private Button button1;
 		private Label label5;
-		private TextBox textBox1;
-		private TextBox textBox2;
-		private TextBox textBox3;
-		private TextBox textBox4;
+		private TextBox departure;
+		private TextBox arrival;
+		private TextBox departureTime;
+		private TextBox departureDate;
+		private Label errorMessage;
 	}
 }
