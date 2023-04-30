@@ -36,6 +36,10 @@
 			label2 = new Label();
 			label3 = new Label();
 			label4 = new Label();
+			textBox1 = new TextBox();
+			textBox2 = new TextBox();
+			textBox3 = new TextBox();
+			textBox4 = new TextBox();
 			label1 = new Label();
 			panel1.SuspendLayout();
 			panel2.SuspendLayout();
@@ -72,11 +76,12 @@
 			button1.TabIndex = 2;
 			button1.Text = "Confirm Route";
 			button1.UseVisualStyleBackColor = true;
+			button1.Click += button1_Click;
 			// 
 			// tableLayoutPanel1
 			// 
 			tableLayoutPanel1.ColumnCount = 4;
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 130F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 226F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 196F));
@@ -84,6 +89,10 @@
 			tableLayoutPanel1.Controls.Add(label2, 0, 0);
 			tableLayoutPanel1.Controls.Add(label3, 1, 0);
 			tableLayoutPanel1.Controls.Add(label4, 2, 0);
+			tableLayoutPanel1.Controls.Add(textBox1, 0, 1);
+			tableLayoutPanel1.Controls.Add(textBox2, 1, 1);
+			tableLayoutPanel1.Controls.Add(textBox3, 2, 1);
+			tableLayoutPanel1.Controls.Add(textBox4, 3, 1);
 			tableLayoutPanel1.Dock = DockStyle.Top;
 			tableLayoutPanel1.Location = new Point(0, 100);
 			tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -109,7 +118,7 @@
 			label2.Dock = DockStyle.Fill;
 			label2.Location = new Point(3, 0);
 			label2.Name = "label2";
-			label2.Size = new Size(124, 33);
+			label2.Size = new Size(220, 33);
 			label2.TabIndex = 0;
 			label2.Text = "Departure City";
 			label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -117,9 +126,9 @@
 			// label3
 			// 
 			label3.Dock = DockStyle.Fill;
-			label3.Location = new Point(133, 0);
+			label3.Location = new Point(229, 0);
 			label3.Name = "label3";
-			label3.Size = new Size(318, 33);
+			label3.Size = new Size(270, 33);
 			label3.TabIndex = 1;
 			label3.Text = "Arrival City";
 			label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -127,12 +136,44 @@
 			// label4
 			// 
 			label4.Dock = DockStyle.Fill;
-			label4.Location = new Point(457, 0);
+			label4.Location = new Point(505, 0);
 			label4.Name = "label4";
-			label4.Size = new Size(318, 33);
+			label4.Size = new Size(270, 33);
 			label4.TabIndex = 2;
 			label4.Text = "Departure Time";
 			label4.TextAlign = ContentAlignment.MiddleCenter;
+			// 
+			// textBox1
+			// 
+			textBox1.Dock = DockStyle.Fill;
+			textBox1.Location = new Point(3, 36);
+			textBox1.Name = "textBox1";
+			textBox1.Size = new Size(220, 27);
+			textBox1.TabIndex = 5;
+			// 
+			// textBox2
+			// 
+			textBox2.Dock = DockStyle.Fill;
+			textBox2.Location = new Point(229, 36);
+			textBox2.Name = "textBox2";
+			textBox2.Size = new Size(270, 27);
+			textBox2.TabIndex = 6;
+			// 
+			// textBox3
+			// 
+			textBox3.Dock = DockStyle.Fill;
+			textBox3.Location = new Point(505, 36);
+			textBox3.Name = "textBox3";
+			textBox3.Size = new Size(270, 27);
+			textBox3.TabIndex = 7;
+			// 
+			// textBox4
+			// 
+			textBox4.Dock = DockStyle.Fill;
+			textBox4.Location = new Point(781, 36);
+			textBox4.Name = "textBox4";
+			textBox4.Size = new Size(190, 27);
+			textBox4.TabIndex = 8;
 			// 
 			// label1
 			// 
@@ -159,6 +200,7 @@
 			panel1.ResumeLayout(false);
 			panel2.ResumeLayout(false);
 			tableLayoutPanel1.ResumeLayout(false);
+			tableLayoutPanel1.PerformLayout();
 			ResumeLayout(false);
 		}
 
@@ -173,5 +215,9 @@
 		private Label label1;
 		private Button button1;
 		private Label label5;
+		private TextBox textBox1;
+		private TextBox textBox2;
+		private TextBox textBox3;
+		private TextBox textBox4;
 	}
 }
