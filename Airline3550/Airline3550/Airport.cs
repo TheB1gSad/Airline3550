@@ -217,9 +217,9 @@ public class AirportGraph
             HasHeaderRecord = false
         };
         string filePathFlights = Path.GetDirectoryName(Application.ExecutablePath);
-        string fileCsvFlights = Path.Combine(filePathFlights, "..", "..", "..", "csv", "flightList.csv");
+        string fileCsvFlights = Path.Combine(filePathFlights, "flightList.csv");
         string filePathSeats = Path.GetDirectoryName(Application.ExecutablePath);
-        string fileCsvSeats = Path.Combine(filePathSeats, "..", "..", "..", "csv", "flightSeats.csv");
+        string fileCsvSeats = Path.Combine(filePathSeats, "flightSeats.csv");
         using (var streamFlightsReader = File.OpenText(fileCsvFlights))
         using (var csvFlightsReader = new CsvReader(streamFlightsReader, csvFlightsConfig))
         {
