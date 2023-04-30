@@ -28,358 +28,368 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			panel1 = new Panel();
-			label1 = new Label();
-			panel2 = new Panel();
-			personalInfoerrorLabel = new Label();
-			phoneField = new TextBox();
-			addressField = new TextBox();
-			ageField = new TextBox();
-			lastNameField = new TextBox();
-			firstNameField = new TextBox();
-			phoneLabel = new Label();
-			addressLabel = new Label();
-			ageLabel = new Label();
-			lastLabel = new Label();
-			firstLabel = new Label();
-			label2 = new Label();
-			panel3 = new Panel();
-			cardNumberField = new TextBox();
-			newPassword2 = new TextBox();
-			newPassword = new TextBox();
-			currPassword = new TextBox();
-			label6 = new Label();
-			label7 = new Label();
-			label8 = new Label();
-			label5 = new Label();
-			totalPoints = new Label();
-			cardLabel = new Label();
-			userLabel = new Label();
-			securityErrorMessage = new Label();
-			label3 = new Label();
-			panel1.SuspendLayout();
-			panel2.SuspendLayout();
-			panel3.SuspendLayout();
-			SuspendLayout();
-			// 
-			// panel1
-			// 
-			panel1.Controls.Add(label1);
-			panel1.Dock = DockStyle.Top;
-			panel1.Location = new Point(0, 0);
-			panel1.Name = "panel1";
-			panel1.Size = new Size(992, 99);
-			panel1.TabIndex = 0;
-			// 
-			// label1
-			// 
-			label1.BorderStyle = BorderStyle.FixedSingle;
-			label1.Dock = DockStyle.Fill;
-			label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-			label1.Location = new Point(0, 0);
-			label1.Name = "label1";
-			label1.Padding = new Padding(0, 11, 0, 0);
-			label1.Size = new Size(992, 99);
-			label1.TabIndex = 0;
-			label1.Text = "Manage Account Details";
-			label1.TextAlign = ContentAlignment.MiddleLeft;
-			label1.Click += label1_Click;
-			// 
-			// panel2
-			// 
-			panel2.BorderStyle = BorderStyle.FixedSingle;
-			panel2.Controls.Add(personalInfoerrorLabel);
-			panel2.Controls.Add(phoneField);
-			panel2.Controls.Add(addressField);
-			panel2.Controls.Add(ageField);
-			panel2.Controls.Add(lastNameField);
-			panel2.Controls.Add(firstNameField);
-			panel2.Controls.Add(phoneLabel);
-			panel2.Controls.Add(addressLabel);
-			panel2.Controls.Add(ageLabel);
-			panel2.Controls.Add(lastLabel);
-			panel2.Controls.Add(firstLabel);
-			panel2.Controls.Add(label2);
-			panel2.Dock = DockStyle.Left;
-			panel2.Location = new Point(0, 99);
-			panel2.Name = "panel2";
-			panel2.Size = new Size(493, 492);
-			panel2.TabIndex = 1;
-			// 
-			// personalInfoerrorLabel
-			// 
-			personalInfoerrorLabel.Dock = DockStyle.Top;
-			personalInfoerrorLabel.ForeColor = Color.Red;
-			personalInfoerrorLabel.Location = new Point(0, 36);
-			personalInfoerrorLabel.Name = "personalInfoerrorLabel";
-			personalInfoerrorLabel.Size = new Size(491, 29);
-			personalInfoerrorLabel.TabIndex = 16;
-			personalInfoerrorLabel.TextAlign = ContentAlignment.MiddleCenter;
-			// 
-			// phoneField
-			// 
-			phoneField.Location = new Point(262, 291);
-			phoneField.Name = "phoneField";
-			phoneField.Size = new Size(212, 27);
-			phoneField.TabIndex = 5;
-			// 
-			// addressField
-			// 
-			addressField.Location = new Point(262, 239);
-			addressField.Name = "addressField";
-			addressField.Size = new Size(212, 27);
-			addressField.TabIndex = 4;
-			// 
-			// ageField
-			// 
-			ageField.Location = new Point(262, 187);
-			ageField.Name = "ageField";
-			ageField.Size = new Size(212, 27);
-			ageField.TabIndex = 3;
-			// 
-			// lastNameField
-			// 
-			lastNameField.Location = new Point(262, 135);
-			lastNameField.Name = "lastNameField";
-			lastNameField.Size = new Size(212, 27);
-			lastNameField.TabIndex = 2;
-			// 
-			// firstNameField
-			// 
-			firstNameField.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-			firstNameField.Location = new Point(262, 82);
-			firstNameField.Name = "firstNameField";
-			firstNameField.Size = new Size(212, 27);
-			firstNameField.TabIndex = 1;
-			// 
-			// phoneLabel
-			// 
-			phoneLabel.AutoSize = true;
-			phoneLabel.Location = new Point(1, 291);
-			phoneLabel.Name = "phoneLabel";
-			phoneLabel.Padding = new Padding(5, 0, 0, 0);
-			phoneLabel.Size = new Size(120, 20);
-			phoneLabel.TabIndex = 5;
-			phoneLabel.Text = "Phone Number: ";
-			// 
-			// addressLabel
-			// 
-			addressLabel.AutoSize = true;
-			addressLabel.Location = new Point(1, 239);
-			addressLabel.Name = "addressLabel";
-			addressLabel.Padding = new Padding(5, 0, 0, 0);
-			addressLabel.Size = new Size(74, 20);
-			addressLabel.TabIndex = 4;
-			addressLabel.Text = "Address: ";
-			// 
-			// ageLabel
-			// 
-			ageLabel.AutoSize = true;
-			ageLabel.Location = new Point(1, 187);
-			ageLabel.Name = "ageLabel";
-			ageLabel.Padding = new Padding(5, 0, 0, 0);
-			ageLabel.Size = new Size(48, 20);
-			ageLabel.TabIndex = 3;
-			ageLabel.Text = "Age: ";
-			// 
-			// lastLabel
-			// 
-			lastLabel.AutoSize = true;
-			lastLabel.Location = new Point(1, 135);
-			lastLabel.Name = "lastLabel";
-			lastLabel.Padding = new Padding(5, 0, 0, 0);
-			lastLabel.Size = new Size(91, 20);
-			lastLabel.TabIndex = 2;
-			lastLabel.Text = "Last Name: ";
-			// 
-			// firstLabel
-			// 
-			firstLabel.AutoSize = true;
-			firstLabel.Location = new Point(0, 83);
-			firstLabel.Name = "firstLabel";
-			firstLabel.Padding = new Padding(5, 0, 0, 0);
-			firstLabel.Size = new Size(92, 20);
-			firstLabel.TabIndex = 1;
-			firstLabel.Text = "First Name: ";
-			// 
-			// label2
-			// 
-			label2.Dock = DockStyle.Top;
-			label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-			label2.Location = new Point(0, 0);
-			label2.Name = "label2";
-			label2.Size = new Size(491, 36);
-			label2.TabIndex = 0;
-			label2.Text = "Personal Info";
-			label2.TextAlign = ContentAlignment.TopCenter;
-			// 
-			// panel3
-			// 
-			panel3.BorderStyle = BorderStyle.FixedSingle;
-			panel3.Controls.Add(cardNumberField);
-			panel3.Controls.Add(newPassword2);
-			panel3.Controls.Add(newPassword);
-			panel3.Controls.Add(currPassword);
-			panel3.Controls.Add(label6);
-			panel3.Controls.Add(label7);
-			panel3.Controls.Add(label8);
-			panel3.Controls.Add(label5);
-			panel3.Controls.Add(totalPoints);
-			panel3.Controls.Add(cardLabel);
-			panel3.Controls.Add(userLabel);
-			panel3.Controls.Add(securityErrorMessage);
-			panel3.Controls.Add(label3);
-			panel3.Dock = DockStyle.Fill;
-			panel3.Location = new Point(493, 99);
-			panel3.Name = "panel3";
-			panel3.Size = new Size(499, 492);
-			panel3.TabIndex = 2;
-			// 
-			// cardNumberField
-			// 
-			cardNumberField.Location = new Point(209, 135);
-			cardNumberField.Name = "cardNumberField";
-			cardNumberField.Size = new Size(257, 27);
-			cardNumberField.TabIndex = 6;
-			// 
-			// newPassword2
-			// 
-			newPassword2.Location = new Point(207, 371);
-			newPassword2.Name = "newPassword2";
-			newPassword2.Size = new Size(258, 27);
-			newPassword2.TabIndex = 9;
-			newPassword2.UseSystemPasswordChar = true;
-			// 
-			// newPassword
-			// 
-			newPassword.Location = new Point(208, 315);
-			newPassword.Name = "newPassword";
-			newPassword.Size = new Size(257, 27);
-			newPassword.TabIndex = 8;
-			newPassword.UseSystemPasswordChar = true;
-			// 
-			// currPassword
-			// 
-			currPassword.Location = new Point(209, 260);
-			currPassword.Name = "currPassword";
-			currPassword.Size = new Size(257, 27);
-			currPassword.TabIndex = 7;
-			currPassword.UseSystemPasswordChar = true;
-			// 
-			// label6
-			// 
-			label6.AutoSize = true;
-			label6.Location = new Point(3, 377);
-			label6.Name = "label6";
-			label6.Size = new Size(162, 20);
-			label6.TabIndex = 36;
-			label6.Text = "Re-Type New Password";
-			// 
-			// label7
-			// 
-			label7.AutoSize = true;
-			label7.Location = new Point(3, 323);
-			label7.Name = "label7";
-			label7.Size = new Size(104, 20);
-			label7.TabIndex = 35;
-			label7.Text = "New Password";
-			// 
-			// label8
-			// 
-			label8.AutoSize = true;
-			label8.Location = new Point(3, 267);
-			label8.Name = "label8";
-			label8.Size = new Size(122, 20);
-			label8.TabIndex = 34;
-			label8.Text = "Current Password";
-			// 
-			// label5
-			// 
-			label5.Dock = DockStyle.Top;
-			label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-			label5.Location = new Point(0, 199);
-			label5.Name = "label5";
-			label5.Size = new Size(497, 31);
-			label5.TabIndex = 29;
-			label5.Text = "Change Password";
-			label5.TextAlign = ContentAlignment.MiddleCenter;
-			// 
-			// totalPoints
-			// 
-			totalPoints.Dock = DockStyle.Top;
-			totalPoints.Location = new Point(0, 152);
-			totalPoints.Name = "totalPoints";
-			totalPoints.Padding = new Padding(0, 20, 0, 10);
-			totalPoints.Size = new Size(497, 47);
-			totalPoints.TabIndex = 28;
-			totalPoints.Text = "Total Points: ";
-			// 
-			// cardLabel
-			// 
-			cardLabel.AutoSize = true;
-			cardLabel.Dock = DockStyle.Top;
-			cardLabel.Location = new Point(0, 105);
-			cardLabel.Name = "cardLabel";
-			cardLabel.Padding = new Padding(0, 20, 0, 7);
-			cardLabel.Size = new Size(105, 47);
-			cardLabel.TabIndex = 27;
-			cardLabel.Text = "Card Number: ";
-			// 
-			// userLabel
-			// 
-			userLabel.AutoSize = true;
-			userLabel.Dock = DockStyle.Top;
-			userLabel.Location = new Point(0, 65);
-			userLabel.Name = "userLabel";
-			userLabel.Padding = new Padding(0, 20, 0, 0);
-			userLabel.Size = new Size(64, 40);
-			userLabel.TabIndex = 26;
-			userLabel.Text = "User ID: ";
-			// 
-			// securityErrorMessage
-			// 
-			securityErrorMessage.BackColor = SystemColors.Control;
-			securityErrorMessage.Dock = DockStyle.Top;
-			securityErrorMessage.ForeColor = Color.Red;
-			securityErrorMessage.Location = new Point(0, 36);
-			securityErrorMessage.Name = "securityErrorMessage";
-			securityErrorMessage.Size = new Size(497, 29);
-			securityErrorMessage.TabIndex = 1;
-			securityErrorMessage.TextAlign = ContentAlignment.MiddleCenter;
-			// 
-			// label3
-			// 
-			label3.Dock = DockStyle.Top;
-			label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-			label3.Location = new Point(0, 0);
-			label3.Name = "label3";
-			label3.Size = new Size(497, 36);
-			label3.TabIndex = 0;
-			label3.Text = "Security And Payment";
-			label3.TextAlign = ContentAlignment.TopCenter;
-			// 
-			// ManageAccount
-			// 
-			AutoScaleDimensions = new SizeF(8F, 20F);
-			AutoScaleMode = AutoScaleMode.Font;
-			AutoSizeMode = AutoSizeMode.GrowAndShrink;
-			ClientSize = new Size(992, 591);
-			Controls.Add(panel3);
-			Controls.Add(panel2);
-			Controls.Add(panel1);
-			FormBorderStyle = FormBorderStyle.None;
-			KeyPreview = true;
-			Name = "ManageAccount";
-			Text = "ManageAccount";
-			VisibleChanged += formLoaded;
-			KeyDown += keyPressed;
-			Resize += formResized;
-			panel1.ResumeLayout(false);
-			panel2.ResumeLayout(false);
-			panel2.PerformLayout();
-			panel3.ResumeLayout(false);
-			panel3.PerformLayout();
-			ResumeLayout(false);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.personalInfoerrorLabel = new System.Windows.Forms.Label();
+            this.phoneField = new System.Windows.Forms.TextBox();
+            this.addressField = new System.Windows.Forms.TextBox();
+            this.ageField = new System.Windows.Forms.TextBox();
+            this.lastNameField = new System.Windows.Forms.TextBox();
+            this.firstNameField = new System.Windows.Forms.TextBox();
+            this.phoneLabel = new System.Windows.Forms.Label();
+            this.addressLabel = new System.Windows.Forms.Label();
+            this.ageLabel = new System.Windows.Forms.Label();
+            this.lastLabel = new System.Windows.Forms.Label();
+            this.firstLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cardNumberField = new System.Windows.Forms.TextBox();
+            this.newPassword2 = new System.Windows.Forms.TextBox();
+            this.newPassword = new System.Windows.Forms.TextBox();
+            this.currPassword = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.totalPoints = new System.Windows.Forms.Label();
+            this.cardLabel = new System.Windows.Forms.Label();
+            this.userLabel = new System.Windows.Forms.Label();
+            this.securityErrorMessage = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(868, 74);
+            this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.label1.Size = new System.Drawing.Size(868, 74);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Manage Account Details";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.personalInfoerrorLabel);
+            this.panel2.Controls.Add(this.phoneField);
+            this.panel2.Controls.Add(this.addressField);
+            this.panel2.Controls.Add(this.ageField);
+            this.panel2.Controls.Add(this.lastNameField);
+            this.panel2.Controls.Add(this.firstNameField);
+            this.panel2.Controls.Add(this.phoneLabel);
+            this.panel2.Controls.Add(this.addressLabel);
+            this.panel2.Controls.Add(this.ageLabel);
+            this.panel2.Controls.Add(this.lastLabel);
+            this.panel2.Controls.Add(this.firstLabel);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 74);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(432, 369);
+            this.panel2.TabIndex = 1;
+            // 
+            // personalInfoerrorLabel
+            // 
+            this.personalInfoerrorLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.personalInfoerrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.personalInfoerrorLabel.Location = new System.Drawing.Point(0, 27);
+            this.personalInfoerrorLabel.Name = "personalInfoerrorLabel";
+            this.personalInfoerrorLabel.Size = new System.Drawing.Size(430, 22);
+            this.personalInfoerrorLabel.TabIndex = 16;
+            this.personalInfoerrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // phoneField
+            // 
+            this.phoneField.Location = new System.Drawing.Point(229, 218);
+            this.phoneField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.phoneField.Name = "phoneField";
+            this.phoneField.Size = new System.Drawing.Size(186, 23);
+            this.phoneField.TabIndex = 5;
+            // 
+            // addressField
+            // 
+            this.addressField.Location = new System.Drawing.Point(229, 179);
+            this.addressField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addressField.Name = "addressField";
+            this.addressField.Size = new System.Drawing.Size(186, 23);
+            this.addressField.TabIndex = 4;
+            // 
+            // ageField
+            // 
+            this.ageField.Location = new System.Drawing.Point(229, 140);
+            this.ageField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ageField.Name = "ageField";
+            this.ageField.Size = new System.Drawing.Size(186, 23);
+            this.ageField.TabIndex = 3;
+            // 
+            // lastNameField
+            // 
+            this.lastNameField.Location = new System.Drawing.Point(229, 101);
+            this.lastNameField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lastNameField.Name = "lastNameField";
+            this.lastNameField.Size = new System.Drawing.Size(186, 23);
+            this.lastNameField.TabIndex = 2;
+            // 
+            // firstNameField
+            // 
+            this.firstNameField.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.firstNameField.Location = new System.Drawing.Point(229, 61);
+            this.firstNameField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.firstNameField.Name = "firstNameField";
+            this.firstNameField.Size = new System.Drawing.Size(186, 23);
+            this.firstNameField.TabIndex = 1;
+            // 
+            // phoneLabel
+            // 
+            this.phoneLabel.AutoSize = true;
+            this.phoneLabel.Location = new System.Drawing.Point(1, 218);
+            this.phoneLabel.Name = "phoneLabel";
+            this.phoneLabel.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.phoneLabel.Size = new System.Drawing.Size(98, 15);
+            this.phoneLabel.TabIndex = 5;
+            this.phoneLabel.Text = "Phone Number: ";
+            // 
+            // addressLabel
+            // 
+            this.addressLabel.AutoSize = true;
+            this.addressLabel.Location = new System.Drawing.Point(1, 179);
+            this.addressLabel.Name = "addressLabel";
+            this.addressLabel.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.addressLabel.Size = new System.Drawing.Size(59, 15);
+            this.addressLabel.TabIndex = 4;
+            this.addressLabel.Text = "Address: ";
+            // 
+            // ageLabel
+            // 
+            this.ageLabel.AutoSize = true;
+            this.ageLabel.Location = new System.Drawing.Point(1, 140);
+            this.ageLabel.Name = "ageLabel";
+            this.ageLabel.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.ageLabel.Size = new System.Drawing.Size(38, 15);
+            this.ageLabel.TabIndex = 3;
+            this.ageLabel.Text = "Age: ";
+            // 
+            // lastLabel
+            // 
+            this.lastLabel.AutoSize = true;
+            this.lastLabel.Location = new System.Drawing.Point(1, 101);
+            this.lastLabel.Name = "lastLabel";
+            this.lastLabel.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.lastLabel.Size = new System.Drawing.Size(73, 15);
+            this.lastLabel.TabIndex = 2;
+            this.lastLabel.Text = "Last Name: ";
+            // 
+            // firstLabel
+            // 
+            this.firstLabel.AutoSize = true;
+            this.firstLabel.Location = new System.Drawing.Point(0, 62);
+            this.firstLabel.Name = "firstLabel";
+            this.firstLabel.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.firstLabel.Size = new System.Drawing.Size(74, 15);
+            this.firstLabel.TabIndex = 1;
+            this.firstLabel.Text = "First Name: ";
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(430, 27);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Personal Info";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.cardNumberField);
+            this.panel3.Controls.Add(this.newPassword2);
+            this.panel3.Controls.Add(this.newPassword);
+            this.panel3.Controls.Add(this.currPassword);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.totalPoints);
+            this.panel3.Controls.Add(this.cardLabel);
+            this.panel3.Controls.Add(this.userLabel);
+            this.panel3.Controls.Add(this.securityErrorMessage);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(432, 74);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(436, 369);
+            this.panel3.TabIndex = 2;
+            // 
+            // cardNumberField
+            // 
+            this.cardNumberField.Location = new System.Drawing.Point(183, 101);
+            this.cardNumberField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cardNumberField.Name = "cardNumberField";
+            this.cardNumberField.Size = new System.Drawing.Size(225, 23);
+            this.cardNumberField.TabIndex = 6;
+            // 
+            // newPassword2
+            // 
+            this.newPassword2.Location = new System.Drawing.Point(181, 278);
+            this.newPassword2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.newPassword2.Name = "newPassword2";
+            this.newPassword2.Size = new System.Drawing.Size(226, 23);
+            this.newPassword2.TabIndex = 9;
+            this.newPassword2.UseSystemPasswordChar = true;
+            // 
+            // newPassword
+            // 
+            this.newPassword.Location = new System.Drawing.Point(182, 236);
+            this.newPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.newPassword.Name = "newPassword";
+            this.newPassword.Size = new System.Drawing.Size(225, 23);
+            this.newPassword.TabIndex = 8;
+            this.newPassword.UseSystemPasswordChar = true;
+            // 
+            // currPassword
+            // 
+            this.currPassword.Location = new System.Drawing.Point(183, 195);
+            this.currPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.currPassword.Name = "currPassword";
+            this.currPassword.Size = new System.Drawing.Size(225, 23);
+            this.currPassword.TabIndex = 7;
+            this.currPassword.UseSystemPasswordChar = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 283);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(129, 15);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Re-Type New Password";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 242);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 15);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "New Password";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 200);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 15);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "Current Password";
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(0, 149);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(434, 23);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Change Password";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // totalPoints
+            // 
+            this.totalPoints.Dock = System.Windows.Forms.DockStyle.Top;
+            this.totalPoints.Location = new System.Drawing.Point(0, 114);
+            this.totalPoints.Name = "totalPoints";
+            this.totalPoints.Padding = new System.Windows.Forms.Padding(0, 15, 0, 8);
+            this.totalPoints.Size = new System.Drawing.Size(434, 35);
+            this.totalPoints.TabIndex = 28;
+            this.totalPoints.Text = "Total Points: ";
+            // 
+            // cardLabel
+            // 
+            this.cardLabel.AutoSize = true;
+            this.cardLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cardLabel.Location = new System.Drawing.Point(0, 79);
+            this.cardLabel.Name = "cardLabel";
+            this.cardLabel.Padding = new System.Windows.Forms.Padding(0, 15, 0, 5);
+            this.cardLabel.Size = new System.Drawing.Size(85, 35);
+            this.cardLabel.TabIndex = 27;
+            this.cardLabel.Text = "Card Number: ";
+            // 
+            // userLabel
+            // 
+            this.userLabel.AutoSize = true;
+            this.userLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.userLabel.Location = new System.Drawing.Point(0, 49);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.userLabel.Size = new System.Drawing.Size(50, 30);
+            this.userLabel.TabIndex = 26;
+            this.userLabel.Text = "User ID: ";
+            // 
+            // securityErrorMessage
+            // 
+            this.securityErrorMessage.BackColor = System.Drawing.SystemColors.Control;
+            this.securityErrorMessage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.securityErrorMessage.ForeColor = System.Drawing.Color.Red;
+            this.securityErrorMessage.Location = new System.Drawing.Point(0, 27);
+            this.securityErrorMessage.Name = "securityErrorMessage";
+            this.securityErrorMessage.Size = new System.Drawing.Size(434, 22);
+            this.securityErrorMessage.TabIndex = 1;
+            this.securityErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(434, 27);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Security And Payment";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // ManageAccount
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(868, 443);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "ManageAccount";
+            this.Text = "ManageAccount";
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.ResumeLayout(false);
+
 		}
 
 		#endregion

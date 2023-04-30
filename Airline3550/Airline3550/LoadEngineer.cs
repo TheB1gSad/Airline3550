@@ -16,7 +16,7 @@ namespace Airline3550
          * departure is the 3 letter code of the airport the flight is departing from
          * arrival is the 3 letter code of the airport the flight is arriving at
          */
-        public void setFlightRoute(string departureTime, int flightID, string departure, string arrival)
+        public void setFlightRoute(string departureTime, string departure, string arrival, string departureDate)
         {
 
             string[,] airportInfo = new string[10, 2]
@@ -136,23 +136,60 @@ namespace Airline3550
             if (distance < 600) planeType = 737;
             else if (distance < 1100) planeType = 757;
             else planeType = 777;
+            string filePath = Path.GetDirectoryName(Application.ExecutablePath);
+            string filecsvSeat = Path.Combine(filePath, "..", "..", "..", "csv", "flightSeats.csv");
+            string filecsvFlight = Path.Combine(filePath, "..", "..", "..", "csv", "flightList.csv");
+            string[] lastLine = File.ReadLines(filecsvSeat).Last().Split(',');
+            int flightID = Convert.ToInt32(lastLine[0]) + 1;
             var records = new List<Flight>
             {
-                new Flight { departureTime = departureTime, arrivalTime = arrivalTime.ToString() + ":00", flightID = flightID, flightDistance = distance, departure = departure, arrival = arrival, planeType = planeType, price = price}
+                new Flight { departureTime = departureTime, arrivalTime = arrivalTime.ToString() + ":00", departureDate = departureDate, flightID = flightID, flightDistance = distance, departure = departure, arrival = arrival, planeType = planeType, price = price}
             };
 
-            string filePath = Path.GetDirectoryName(Application.ExecutablePath);
-            string filecsv = Path.Combine(filePath, "..", "..", "..", "csv", "flightList.csv");
+            
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 // Don't write the header again.
                 HasHeaderRecord = false,
             };
-            using (var stream = File.Open(filecsv, FileMode.Append))
+            using (var stream = File.Open(filecsvFlight, FileMode.Append))
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, config))
             {
                 csv.WriteRecords(records);
+            }
+            List<Seat> seats = new List<Seat>();
+            if (distance < 600)
+            {
+                for (int seatID = 0; seatID < 189; seatID++)
+                {
+                    seats.Add(new Seat() { seatID = seatID, available = true });
+                }
+            }
+            else if (distance < 1100)
+            {
+                for (int seatID = 0; seatID < 200; seatID++)
+                {
+                    seats.Add(new Seat() { seatID = seatID, available = true });
+                }
+            }
+            else
+            {
+                for (int seatID = 0; seatID < 312; seatID++)
+                {
+                    seats.Add(new Seat() { seatID = seatID, available = true });
+                }
+            }
+            using (var stream = File.Open(filecsvSeat, FileMode.Append))
+            using (var writer = new StreamWriter(stream))
+            using (var csv = new CsvWriter(writer, config))
+            {
+                csv.WriteField(flightID);
+                foreach (Seat seat in seats)
+                {
+                    csv.WriteField(seat.userID);
+                }
+                csv.NextRecord();
             }
         }
     }
