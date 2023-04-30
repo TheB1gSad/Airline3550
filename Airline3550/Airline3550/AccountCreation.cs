@@ -80,8 +80,11 @@ namespace Airline3550
 			else
 			{
 				//User input is correct
-				userIDPopup popup = new userIDPopup(User.createCustomerAccount(firstName.Text, lastName.Text, passwordField.Text, address.Text, age.Text, phoneNumber.Text, cardNumber.Text), this);
+				string username = User.createCustomerAccount(firstName.Text, lastName.Text, passwordField.Text, address.Text, age.Text, phoneNumber.Text, cardNumber.Text);
+				userIDPopup popup = new userIDPopup(username, this);
 				popup.Show();
+				TextBox uname = (TextBox)loginScreen.Controls.Find("usernameField", true)[0];
+				uname.Text = username;
 
 
 			}

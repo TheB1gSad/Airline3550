@@ -36,8 +36,7 @@
 			previousFlightsWindow = new TabPage();
 			previousFlightsTable = new TableLayoutPanel();
 			panel2 = new Panel();
-			sideMenu = new Label();
-			panel3 = new Panel();
+			instructionSideLabel = new Label();
 			panel1.SuspendLayout();
 			tabControl1.SuspendLayout();
 			upComingFlightsWindow.SuspendLayout();
@@ -52,8 +51,8 @@
 			label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
 			label1.Location = new Point(0, 0);
 			label1.Name = "label1";
-			label1.Padding = new Padding(0, 10, 0, 0);
-			label1.Size = new Size(992, 100);
+			label1.Padding = new Padding(0, 11, 0, 0);
+			label1.Size = new Size(992, 101);
 			label1.TabIndex = 1;
 			label1.Text = "Manage Flights";
 			label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -62,9 +61,9 @@
 			// 
 			panel1.Controls.Add(tabControl1);
 			panel1.Dock = DockStyle.Left;
-			panel1.Location = new Point(0, 100);
+			panel1.Location = new Point(0, 101);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(564, 491);
+			panel1.Size = new Size(565, 490);
 			panel1.TabIndex = 2;
 			// 
 			// tabControl1
@@ -75,8 +74,9 @@
 			tabControl1.Location = new Point(0, 0);
 			tabControl1.Name = "tabControl1";
 			tabControl1.SelectedIndex = 0;
-			tabControl1.Size = new Size(564, 491);
+			tabControl1.Size = new Size(565, 490);
 			tabControl1.TabIndex = 0;
+			tabControl1.SelectedIndexChanged += tabChanged;
 			// 
 			// upComingFlightsWindow
 			// 
@@ -85,7 +85,7 @@
 			upComingFlightsWindow.Location = new Point(4, 29);
 			upComingFlightsWindow.Name = "upComingFlightsWindow";
 			upComingFlightsWindow.Padding = new Padding(3);
-			upComingFlightsWindow.Size = new Size(556, 458);
+			upComingFlightsWindow.Size = new Size(557, 457);
 			upComingFlightsWindow.TabIndex = 0;
 			upComingFlightsWindow.Text = "Upcoming Flights";
 			upComingFlightsWindow.UseVisualStyleBackColor = true;
@@ -100,8 +100,8 @@
 			upcomingFlightsTable.Location = new Point(3, 3);
 			upcomingFlightsTable.Name = "upcomingFlightsTable";
 			upcomingFlightsTable.RowCount = 1;
-			upcomingFlightsTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-			upcomingFlightsTable.Size = new Size(550, 22);
+			upcomingFlightsTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+			upcomingFlightsTable.Size = new Size(551, 25);
 			upcomingFlightsTable.TabIndex = 1;
 			// 
 			// previousFlightsWindow
@@ -111,7 +111,7 @@
 			previousFlightsWindow.Location = new Point(4, 29);
 			previousFlightsWindow.Name = "previousFlightsWindow";
 			previousFlightsWindow.Padding = new Padding(3);
-			previousFlightsWindow.Size = new Size(556, 458);
+			previousFlightsWindow.Size = new Size(557, 457);
 			previousFlightsWindow.TabIndex = 1;
 			previousFlightsWindow.Text = "Previous Flights";
 			previousFlightsWindow.UseVisualStyleBackColor = true;
@@ -126,38 +126,29 @@
 			previousFlightsTable.Location = new Point(3, 3);
 			previousFlightsTable.Name = "previousFlightsTable";
 			previousFlightsTable.RowCount = 1;
-			previousFlightsTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-			previousFlightsTable.Size = new Size(550, 22);
+			previousFlightsTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+			previousFlightsTable.Size = new Size(551, 25);
 			previousFlightsTable.TabIndex = 2;
 			// 
 			// panel2
 			// 
-			panel2.Controls.Add(sideMenu);
-			panel2.Controls.Add(panel3);
+			panel2.Controls.Add(instructionSideLabel);
 			panel2.Dock = DockStyle.Fill;
-			panel2.Location = new Point(564, 100);
+			panel2.Location = new Point(565, 101);
 			panel2.Name = "panel2";
-			panel2.Size = new Size(428, 491);
+			panel2.Size = new Size(427, 490);
 			panel2.TabIndex = 3;
 			// 
-			// sideMenu
+			// instructionSideLabel
 			// 
-			sideMenu.Dock = DockStyle.Fill;
-			sideMenu.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-			sideMenu.Location = new Point(0, 0);
-			sideMenu.Name = "sideMenu";
-			sideMenu.Size = new Size(428, 491);
-			sideMenu.TabIndex = 0;
-			sideMenu.Text = "Click A Flight To View It";
-			sideMenu.TextAlign = ContentAlignment.MiddleCenter;
-			// 
-			// panel3
-			// 
-			panel3.Dock = DockStyle.Fill;
-			panel3.Location = new Point(0, 0);
-			panel3.Name = "panel3";
-			panel3.Size = new Size(428, 491);
-			panel3.TabIndex = 1;
+			instructionSideLabel.Dock = DockStyle.Fill;
+			instructionSideLabel.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+			instructionSideLabel.Location = new Point(0, 0);
+			instructionSideLabel.Name = "instructionSideLabel";
+			instructionSideLabel.Size = new Size(427, 490);
+			instructionSideLabel.TabIndex = 0;
+			instructionSideLabel.Text = "Click A Flight To View It";
+			instructionSideLabel.TextAlign = ContentAlignment.MiddleCenter;
 			// 
 			// ManageFlights_Customer
 			// 
@@ -171,6 +162,8 @@
 			KeyPreview = true;
 			Name = "ManageFlights_Customer";
 			Text = "ManageFlights_Customer";
+			SizeChanged += windowResized;
+			VisibleChanged += manageFlightsLoade;
 			panel1.ResumeLayout(false);
 			tabControl1.ResumeLayout(false);
 			upComingFlightsWindow.ResumeLayout(false);
@@ -187,11 +180,10 @@
 		private Panel panel1;
 		private TabPage upComingFlightsWindow;
 		private TabPage previousFlightsWindow;
-		private Panel panel2;
-		private Label sideMenu;
 		private TableLayoutPanel upcomingFlightsTable;
 		public TabControl tabControl1;
 		public TableLayoutPanel previousFlightsTable;
-		private Panel panel3;
+		private Panel panel2;
+		private Label instructionSideLabel;
 	}
 }

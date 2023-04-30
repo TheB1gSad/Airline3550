@@ -35,10 +35,6 @@ namespace Airline3550
 		{
 			label1.Text += userData.firstname;
 		}
-		private void panel1_Paint(object sender, PaintEventArgs e)
-		{
-
-		}
 
 		private void logout_Clicked(object sender, EventArgs e)
 		{

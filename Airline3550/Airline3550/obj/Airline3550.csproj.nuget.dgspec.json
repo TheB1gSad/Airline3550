@@ -1,32 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\xiggg\\source\\repos\\TheB1gSad\\Airline3550\\Airline3550\\Airline3550\\Airline3550.csproj": {}
+    "C:\\Users\\Ready Player 1\\Source\\Repos\\Airline3550\\Airline3550\\Airline3550\\Airline3550.csproj": {}
   },
   "projects": {
-    "C:\\Users\\xiggg\\source\\repos\\TheB1gSad\\Airline3550\\Airline3550\\Airline3550\\Airline3550.csproj": {
+    "C:\\Users\\Ready Player 1\\Source\\Repos\\Airline3550\\Airline3550\\Airline3550\\Airline3550.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\xiggg\\source\\repos\\TheB1gSad\\Airline3550\\Airline3550\\Airline3550\\Airline3550.csproj",
+        "projectUniqueName": "C:\\Users\\Ready Player 1\\Source\\Repos\\Airline3550\\Airline3550\\Airline3550\\Airline3550.csproj",
         "projectName": "Airline3550",
-        "projectPath": "C:\\Users\\xiggg\\source\\repos\\TheB1gSad\\Airline3550\\Airline3550\\Airline3550\\Airline3550.csproj",
-        "packagesPath": "C:\\Users\\xiggg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\xiggg\\source\\repos\\TheB1gSad\\Airline3550\\Airline3550\\Airline3550\\obj\\",
+        "projectPath": "C:\\Users\\Ready Player 1\\Source\\Repos\\Airline3550\\Airline3550\\Airline3550\\Airline3550.csproj",
+        "packagesPath": "C:\\Users\\Ready Player 1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ready Player 1\\Source\\Repos\\Airline3550\\Airline3550\\Airline3550\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\xiggg\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Ready Player 1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows"
+          "net6.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -56,8 +51,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -69,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -9,6 +9,7 @@ namespace Airline3550
 		{
 
 			InitializeComponent();
+			this.BringToFront();
 		}
 
 		private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -45,12 +46,35 @@ namespace Airline3550
 				if (thisUser.credentials != "")
 				{
 					//create an instance of MainMenu, pass it our user info and then display it
-					CustomerMenu mainMenu = new CustomerMenu(thisUser, this);
-					this.Hide();
-					usernameField.Text = "";
-					passwordField.Text = "";
-					credentialsErrorMessage.Text = "";
-					mainMenu.Show();
+
+					if (thisUser.credentials == "customer")
+					{
+						CustomerMenu mainMenu = new CustomerMenu(thisUser, this);
+						this.Hide();
+						usernameField.Text = "";
+						passwordField.Text = "";
+						credentialsErrorMessage.Text = "";
+						mainMenu.Show();
+					}
+					else if (thisUser.credentials == "loadengineer")
+					{
+						LoadEngineerMenu mainMenu = new LoadEngineerMenu(thisUser, this);
+						this.Hide();
+						usernameField.Text = "";
+						passwordField.Text = "";
+						credentialsErrorMessage.Text = "";
+						mainMenu.Show();
+					}
+					else if(thisUser.credentials =="flightmanager")
+					{
+						FlightManagerMenu mainMenu = new FlightManagerMenu(thisUser, this);
+						this.Hide();
+						usernameField.Text = "";
+						passwordField.Text = "";
+						credentialsErrorMessage.Text = "";
+						mainMenu.Show();
+
+					}
 
 				}
 				else

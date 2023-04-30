@@ -12,16 +12,19 @@
 
 		private void formLoaded(object sender, EventArgs e)
 		{
+
 			//Set data fields
-			firstLabel.Text += userData.firstname;
-			lastLabel.Text += userData.lastname;
-			ageLabel.Text += userData.age;
-			addressLabel.Text += userData.address;
-			phoneLabel.Text += userData.phoneNumber;
-			userLabel.Text += userData.userName;
+			userData = User.getUserInfo(userData.userName);
+			firstLabel.Text = "First Name: " + userData.firstname;
+			lastLabel.Text = "Last Name: " + userData.lastname;
+			ageLabel.Text = "Age: " + userData.age;
+			addressLabel.Text = "Address: " + userData.address;
+			phoneLabel.Text = "Phone Number: " + userData.phoneNumber;
+			userLabel.Text = "User ID: " + userData.userName;
 			string last4CardNum = userData.cardNumber.Substring(userData.cardNumber.Length - 4, 4);
 			string atr = new string('*', (userData.cardNumber.Length - 4));
-			cardLabel.Text += atr + last4CardNum;
+			cardLabel.Text = "Card Number: " + atr + last4CardNum;
+			totalPoints.Text = "Total Points: " + userData.pointsTotal;
 
 
 			//Position the input text boxes to follow the height of the labels
@@ -117,7 +120,7 @@
 						lastLabel.Text = "Last Name: " + tempUserDat.lastname;
 						ageLabel.Text = "Age: " + tempUserDat.age;
 						phoneLabel.Text = "Phone Number: " + tempUserDat.phoneNumber;
-						phoneLabel.Text = "Address: " + tempUserDat.address;
+						addressLabel.Text = "Address: " + tempUserDat.address;
 						personalInfoerrorLabel.Text = "";
 					}
 
@@ -155,7 +158,11 @@
 						{
 							if (newPassword.Text.Length > 0)
 							{
-								if (newPassword.Text == newPassword2.Text)
+								if (newPassword.Text.Length < 3)
+								{
+									securityErrorMessage.Text = "Password Must Be Greater Than 3 Characters Long";
+								}
+								else if (newPassword.Text == newPassword2.Text)
 								{
 									//We are good to go ahead and begin replacing password.
 									User.updatePassword(userData.userName, newPassword2.Text);
@@ -166,11 +173,13 @@
 									newPassword2.Text = "";
 									securityErrorMessage.Text = "";
 								}
+
 								else
 								{
 									securityErrorMessage.Text = "New Passwords Do Not Match";
 								}
 							}
+
 							else
 							{
 								securityErrorMessage.Text = "New Password Field Cannot Be Blank";

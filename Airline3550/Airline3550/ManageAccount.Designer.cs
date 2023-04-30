@@ -52,7 +52,7 @@
 			label7 = new Label();
 			label8 = new Label();
 			label5 = new Label();
-			label4 = new Label();
+			totalPoints = new Label();
 			cardLabel = new Label();
 			userLabel = new Label();
 			securityErrorMessage = new Label();
@@ -78,7 +78,7 @@
 			label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
 			label1.Location = new Point(0, 0);
 			label1.Name = "label1";
-			label1.Padding = new Padding(0, 10, 0, 0);
+			label1.Padding = new Padding(0, 11, 0, 0);
 			label1.Size = new Size(992, 99);
 			label1.TabIndex = 0;
 			label1.Text = "Manage Account Details";
@@ -112,7 +112,7 @@
 			personalInfoerrorLabel.ForeColor = Color.Red;
 			personalInfoerrorLabel.Location = new Point(0, 36);
 			personalInfoerrorLabel.Name = "personalInfoerrorLabel";
-			personalInfoerrorLabel.Size = new Size(491, 30);
+			personalInfoerrorLabel.Size = new Size(491, 29);
 			personalInfoerrorLabel.TabIndex = 16;
 			personalInfoerrorLabel.TextAlign = ContentAlignment.MiddleCenter;
 			// 
@@ -147,7 +147,7 @@
 			// firstNameField
 			// 
 			firstNameField.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-			firstNameField.Location = new Point(262, 83);
+			firstNameField.Location = new Point(262, 82);
 			firstNameField.Name = "firstNameField";
 			firstNameField.Size = new Size(212, 27);
 			firstNameField.TabIndex = 1;
@@ -224,7 +224,7 @@
 			panel3.Controls.Add(label7);
 			panel3.Controls.Add(label8);
 			panel3.Controls.Add(label5);
-			panel3.Controls.Add(label4);
+			panel3.Controls.Add(totalPoints);
 			panel3.Controls.Add(cardLabel);
 			panel3.Controls.Add(userLabel);
 			panel3.Controls.Add(securityErrorMessage);
@@ -244,7 +244,7 @@
 			// 
 			// newPassword2
 			// 
-			newPassword2.Location = new Point(207, 346);
+			newPassword2.Location = new Point(207, 371);
 			newPassword2.Name = "newPassword2";
 			newPassword2.Size = new Size(258, 27);
 			newPassword2.TabIndex = 9;
@@ -252,7 +252,7 @@
 			// 
 			// newPassword
 			// 
-			newPassword.Location = new Point(208, 291);
+			newPassword.Location = new Point(208, 315);
 			newPassword.Name = "newPassword";
 			newPassword.Size = new Size(257, 27);
 			newPassword.TabIndex = 8;
@@ -260,7 +260,7 @@
 			// 
 			// currPassword
 			// 
-			currPassword.Location = new Point(209, 236);
+			currPassword.Location = new Point(209, 260);
 			currPassword.Name = "currPassword";
 			currPassword.Size = new Size(257, 27);
 			currPassword.TabIndex = 7;
@@ -269,7 +269,7 @@
 			// label6
 			// 
 			label6.AutoSize = true;
-			label6.Location = new Point(3, 353);
+			label6.Location = new Point(3, 377);
 			label6.Name = "label6";
 			label6.Size = new Size(162, 20);
 			label6.TabIndex = 36;
@@ -278,7 +278,7 @@
 			// label7
 			// 
 			label7.AutoSize = true;
-			label7.Location = new Point(3, 298);
+			label7.Location = new Point(3, 323);
 			label7.Name = "label7";
 			label7.Size = new Size(104, 20);
 			label7.TabIndex = 35;
@@ -287,7 +287,7 @@
 			// label8
 			// 
 			label8.AutoSize = true;
-			label8.Location = new Point(3, 243);
+			label8.Location = new Point(3, 267);
 			label8.Name = "label8";
 			label8.Size = new Size(122, 20);
 			label8.TabIndex = 34;
@@ -297,30 +297,31 @@
 			// 
 			label5.Dock = DockStyle.Top;
 			label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-			label5.Location = new Point(0, 170);
+			label5.Location = new Point(0, 199);
 			label5.Name = "label5";
-			label5.Size = new Size(497, 39);
+			label5.Size = new Size(497, 31);
 			label5.TabIndex = 29;
 			label5.Text = "Change Password";
 			label5.TextAlign = ContentAlignment.MiddleCenter;
 			// 
-			// label4
+			// totalPoints
 			// 
-			label4.BorderStyle = BorderStyle.Fixed3D;
-			label4.Dock = DockStyle.Top;
-			label4.Location = new Point(0, 168);
-			label4.Name = "label4";
-			label4.Size = new Size(497, 2);
-			label4.TabIndex = 28;
+			totalPoints.Dock = DockStyle.Top;
+			totalPoints.Location = new Point(0, 152);
+			totalPoints.Name = "totalPoints";
+			totalPoints.Padding = new Padding(0, 20, 0, 10);
+			totalPoints.Size = new Size(497, 47);
+			totalPoints.TabIndex = 28;
+			totalPoints.Text = "Total Points: ";
 			// 
 			// cardLabel
 			// 
 			cardLabel.AutoSize = true;
 			cardLabel.Dock = DockStyle.Top;
-			cardLabel.Location = new Point(0, 106);
+			cardLabel.Location = new Point(0, 105);
 			cardLabel.Name = "cardLabel";
-			cardLabel.Padding = new Padding(0, 35, 0, 7);
-			cardLabel.Size = new Size(105, 62);
+			cardLabel.Padding = new Padding(0, 20, 0, 7);
+			cardLabel.Size = new Size(105, 47);
 			cardLabel.TabIndex = 27;
 			cardLabel.Text = "Card Number: ";
 			// 
@@ -328,7 +329,7 @@
 			// 
 			userLabel.AutoSize = true;
 			userLabel.Dock = DockStyle.Top;
-			userLabel.Location = new Point(0, 66);
+			userLabel.Location = new Point(0, 65);
 			userLabel.Name = "userLabel";
 			userLabel.Padding = new Padding(0, 20, 0, 0);
 			userLabel.Size = new Size(64, 40);
@@ -342,7 +343,7 @@
 			securityErrorMessage.ForeColor = Color.Red;
 			securityErrorMessage.Location = new Point(0, 36);
 			securityErrorMessage.Name = "securityErrorMessage";
-			securityErrorMessage.Size = new Size(497, 30);
+			securityErrorMessage.Size = new Size(497, 29);
 			securityErrorMessage.TabIndex = 1;
 			securityErrorMessage.TextAlign = ContentAlignment.MiddleCenter;
 			// 
@@ -370,7 +371,7 @@
 			KeyPreview = true;
 			Name = "ManageAccount";
 			Text = "ManageAccount";
-			Load += formLoaded;
+			VisibleChanged += formLoaded;
 			KeyDown += keyPressed;
 			Resize += formResized;
 			panel1.ResumeLayout(false);
@@ -410,7 +411,7 @@
 		private Label label7;
 		private Label label8;
 		private Label label5;
-		private Label label4;
+		private Label totalPoints;
 		private TextBox cardNumberField;
 	}
 }

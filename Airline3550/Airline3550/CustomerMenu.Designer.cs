@@ -108,7 +108,6 @@
 			panel1.Name = "panel1";
 			panel1.Size = new Size(982, 663);
 			panel1.TabIndex = 0;
-			panel1.Paint += panel1_Paint;
 			// 
 			// menuLabel
 			// 
@@ -140,8 +139,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(982, 664);
 			Controls.Add(panel1);
-			FormBorderStyle = FormBorderStyle.FixedSingle;
-			MaximumSize = new Size(1512, 1211);
+			MinimumSize = new Size(1000, 711);
 			Name = "CustomerMenu";
 			Text = "Airline 3550";
 			FormClosing += CustomerMenu_FormClosing;

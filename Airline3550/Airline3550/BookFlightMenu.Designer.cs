@@ -90,7 +90,7 @@
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 21.3302746F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.8990822F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.8807335F));
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 118F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 122F));
 			tableLayoutPanel1.Controls.Add(label3, 1, 0);
 			tableLayoutPanel1.Controls.Add(label2, 0, 0);
 			tableLayoutPanel1.Controls.Add(departure, 0, 1);
@@ -114,9 +114,9 @@
 			// 
 			label3.AutoSize = true;
 			label3.Dock = DockStyle.Top;
-			label3.Location = new Point(159, 0);
+			label3.Location = new Point(158, 0);
 			label3.Name = "label3";
-			label3.Size = new Size(180, 20);
+			label3.Size = new Size(179, 20);
 			label3.TabIndex = 1;
 			label3.Text = "Arrival";
 			label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -127,50 +127,52 @@
 			label2.Dock = DockStyle.Fill;
 			label2.Location = new Point(3, 0);
 			label2.Name = "label2";
-			label2.Size = new Size(150, 31);
+			label2.Size = new Size(149, 31);
 			label2.TabIndex = 0;
 			label2.Text = "Departure";
 			label2.TextAlign = ContentAlignment.MiddleCenter;
 			// 
 			// departure
 			// 
+			departure.CharacterCasing = CharacterCasing.Upper;
 			departure.Dock = DockStyle.Fill;
 			departure.Location = new Point(3, 34);
 			departure.Name = "departure";
-			departure.Size = new Size(150, 27);
+			departure.Size = new Size(149, 27);
 			departure.TabIndex = 2;
 			// 
 			// arrival
 			// 
+			arrival.CharacterCasing = CharacterCasing.Upper;
 			arrival.Dock = DockStyle.Fill;
-			arrival.Location = new Point(159, 34);
+			arrival.Location = new Point(158, 34);
 			arrival.Name = "arrival";
-			arrival.Size = new Size(180, 27);
+			arrival.Size = new Size(179, 27);
 			arrival.TabIndex = 3;
 			// 
 			// departureDate
 			// 
 			departureDate.Dock = DockStyle.Fill;
-			departureDate.Location = new Point(345, 34);
+			departureDate.Location = new Point(343, 34);
 			departureDate.Name = "departureDate";
-			departureDate.Size = new Size(246, 27);
+			departureDate.Size = new Size(245, 27);
 			departureDate.TabIndex = 4;
 			// 
 			// arrivalDate
 			// 
 			arrivalDate.Dock = DockStyle.Fill;
-			arrivalDate.Location = new Point(597, 34);
+			arrivalDate.Location = new Point(594, 34);
 			arrivalDate.Name = "arrivalDate";
-			arrivalDate.Size = new Size(272, 27);
+			arrivalDate.Size = new Size(271, 27);
 			arrivalDate.TabIndex = 5;
 			// 
 			// label4
 			// 
 			label4.AutoSize = true;
 			label4.Dock = DockStyle.Fill;
-			label4.Location = new Point(345, 0);
+			label4.Location = new Point(343, 0);
 			label4.Name = "label4";
-			label4.Size = new Size(246, 31);
+			label4.Size = new Size(245, 31);
 			label4.TabIndex = 6;
 			label4.Text = "Departure Date mm/dd/yyyy";
 			label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -179,9 +181,9 @@
 			// 
 			label5.AutoSize = true;
 			label5.Dock = DockStyle.Fill;
-			label5.Location = new Point(597, 0);
+			label5.Location = new Point(594, 0);
 			label5.Name = "label5";
-			label5.Size = new Size(272, 31);
+			label5.Size = new Size(271, 31);
 			label5.TabIndex = 7;
 			label5.Text = "Return Date mm/dd/yyyy";
 			label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -190,9 +192,9 @@
 			// 
 			label11.AutoSize = true;
 			label11.Dock = DockStyle.Fill;
-			label11.Location = new Point(875, 0);
+			label11.Location = new Point(871, 0);
 			label11.Name = "label11";
-			label11.Size = new Size(114, 31);
+			label11.Size = new Size(118, 31);
 			label11.TabIndex = 8;
 			label11.Text = "Round Trip?";
 			label11.TextAlign = ContentAlignment.MiddleCenter;
@@ -202,9 +204,9 @@
 			checkBox1.AutoSize = true;
 			checkBox1.CheckAlign = ContentAlignment.MiddleCenter;
 			checkBox1.Dock = DockStyle.Fill;
-			checkBox1.Location = new Point(875, 34);
+			checkBox1.Location = new Point(871, 34);
 			checkBox1.Name = "checkBox1";
-			checkBox1.Size = new Size(114, 32);
+			checkBox1.Size = new Size(118, 32);
 			checkBox1.TabIndex = 9;
 			checkBox1.TextAlign = ContentAlignment.MiddleCenter;
 			checkBox1.UseVisualStyleBackColor = true;
@@ -219,7 +221,7 @@
 			panel1.Dock = DockStyle.Top;
 			panel1.Location = new Point(0, 127);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(992, 196);
+			panel1.Size = new Size(992, 200);
 			panel1.TabIndex = 3;
 			// 
 			// departureTable
@@ -325,9 +327,9 @@
 			panel2.Controls.Add(returnTable);
 			panel2.Controls.Add(returnTableLabel);
 			panel2.Dock = DockStyle.Fill;
-			panel2.Location = new Point(0, 323);
+			panel2.Location = new Point(0, 327);
 			panel2.Name = "panel2";
-			panel2.Size = new Size(992, 232);
+			panel2.Size = new Size(992, 228);
 			panel2.TabIndex = 15;
 			// 
 			// returnTable

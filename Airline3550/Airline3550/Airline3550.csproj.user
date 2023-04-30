@@ -7,6 +7,9 @@
     <Compile Update="BookFlightMenu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CurrentFlightDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="CustomerMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -14,6 +17,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ManageFlights_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PlanRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PrintManifestMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="userIDPopup.cs">

@@ -24,6 +24,8 @@ namespace Airline3550
 		private CheckBox departureSelected = null;
 		private CheckBox returnSelected = null;
 		private CustomerMenu mainMenu;
+		private int dSeatNumber;
+		private int aSeatNumber;
 		public BookFlightMenu(CustomerMenu menu)
 		{
 			mainMenu = menu;
@@ -147,9 +149,9 @@ namespace Airline3550
 
 				DateOnly departureD = new DateOnly(dYear, dMonth, dDay);
 
-				if (departureD < DateOnly.FromDateTime(DateTime.Now))
+				if (departureD <= DateOnly.FromDateTime(DateTime.Now))
 				{
-					errorMessage.Text = "Departure Time Cannot Be Before Todays Date"; ;
+					errorMessage.Text = "Departure Time Cannot Be On Or Before Todays Date"; ;
 					return;
 				}
 
@@ -225,9 +227,22 @@ namespace Airline3550
 							continue;
 
 						//Check if seat is available
-
-
-
+						FlightManager flightManager = new FlightManager();
+						List<string> seats = flightManager.printManifest(int.Parse(tempstring[3]));
+						bool emptySeat = false;
+						for (int i = 0; i < seats.Count; i++)
+						{
+							if (seats.ToArray()[i] == "0")
+							{
+								emptySeat = true;
+								aSeatNumber = i;
+								break;
+							}
+						}
+						if (!emptySeat)
+						{
+							continue;
+						}
 
 						tempstring[8] = "$" + tempstring[8];
 						lineA = String.Join(",", tempstring);
@@ -272,6 +287,23 @@ namespace Airline3550
 					//Check if dates match
 					if (DateOnly.Parse(tempstring[2]) != departureD)
 						continue;
+
+					FlightManager flightManager = new FlightManager();
+					List<string> seats = flightManager.printManifest(int.Parse(tempstring[3]));
+					bool emptySeat = false;
+					for (int i = 0; i < seats.Count; i++)
+					{
+						if (seats.ToArray()[i] == "0")
+						{
+							emptySeat = true;
+							dSeatNumber = i;
+							break;
+						}
+					}
+					if (!emptySeat)
+					{
+						continue;
+					}
 					//check if the dates match
 					tempstring[8] = "$" + tempstring[8];
 					line = String.Join(",", tempstring);
@@ -392,9 +424,16 @@ namespace Airline3550
 		}
 		private void button1_Click(object sender, EventArgs e)
 		{
+			if (departureSelected == null)
+			{
+				errorMessage.Text = "No Departure Flight Detected";
+				SystemSounds.Beep.Play();
+				return;
+			}
 
 			//Get initial info, if round trip we need to add the price for second flight later
-			int userPoints = 150000;
+			User.userData thisUserDat = User.getUserInfo(mainMenu.userData.userName);
+			int userPoints = int.Parse(thisUserDat.pointsTotal);
 			Control dPriceTextBox = departureTable.GetControlFromPosition(2, departureTable.GetPositionFromControl(departureSelected).Row);
 			string priceText = dPriceTextBox.Text.Replace("$", "");
 			int priceInDollars = int.Parse(priceText);
@@ -405,12 +444,8 @@ namespace Airline3550
 
 
 
-			if (departureSelected == null)
-			{
-				errorMessage.Text = "No Departure Flight Detected";
-				SystemSounds.Beep.Play();
-				return;
-			}
+
+
 
 			string flightIDs = departureTable.GetControlFromPosition(5, departureTable.GetPositionFromControl(departureSelected).Row).Text;
 			if (checkBox1.Checked)
@@ -436,8 +471,8 @@ namespace Airline3550
 					if (results == DialogResult.Yes)
 					{
 						//Purchase complete, add to the database of user transactions with flight ID
-						User.completeTransaction(mainMenu.userData.userName, true, departurePrice, flightIDs);
-						User.completeTransaction(mainMenu.userData.userName, true, arrivalPrice, flightReturnID);
+						User.completeTransaction(mainMenu.userData.userName, dSeatNumber, true, departurePrice, flightIDs);
+						User.completeTransaction(mainMenu.userData.userName, aSeatNumber, true, arrivalPrice, flightReturnID);
 					}
 					else if (results == DialogResult.No)
 					{
@@ -445,8 +480,8 @@ namespace Airline3550
 						if (results == DialogResult.OK)
 						{
 							//Transaction complete
-							User.completeTransaction(mainMenu.userData.userName, false, departurePrice, flightIDs);
-							User.completeTransaction(mainMenu.userData.userName, false, arrivalPrice, flightReturnID);
+							User.completeTransaction(mainMenu.userData.userName, dSeatNumber, false, departurePrice, flightIDs);
+							User.completeTransaction(mainMenu.userData.userName, aSeatNumber, false, arrivalPrice, flightReturnID);
 						}
 					}
 				}
@@ -456,8 +491,8 @@ namespace Airline3550
 					if (results == DialogResult.OK)
 					{
 						//Transaction Complete
-						User.completeTransaction(mainMenu.userData.userName, false, departurePrice, flightIDs);
-						User.completeTransaction(mainMenu.userData.userName, false, arrivalPrice, flightReturnID);
+						User.completeTransaction(mainMenu.userData.userName, dSeatNumber, false, departurePrice, flightIDs);
+						User.completeTransaction(mainMenu.userData.userName, aSeatNumber, false, arrivalPrice, flightReturnID);
 					}
 				}
 
@@ -475,7 +510,7 @@ namespace Airline3550
 					{
 
 						//Purchase complete, add to the database of user transactions with flight ID
-						User.completeTransaction(mainMenu.userData.userName, true, priceInDollars, flightIDs);
+						User.completeTransaction(mainMenu.userData.userName, dSeatNumber, true, priceInDollars, flightIDs);
 
 					}
 					else if (results == DialogResult.No)
@@ -484,7 +519,7 @@ namespace Airline3550
 						if (results == DialogResult.OK)
 						{
 							//Transaction complete
-							User.completeTransaction(mainMenu.userData.userName, false, priceInDollars, flightIDs);
+							User.completeTransaction(mainMenu.userData.userName, dSeatNumber, false, priceInDollars, flightIDs);
 						}
 					}
 				}
@@ -494,7 +529,7 @@ namespace Airline3550
 					if (results == DialogResult.OK)
 					{
 						//Transaction Complete
-						User.completeTransaction(mainMenu.userData.userName, false, priceInDollars, flightIDs);
+						User.completeTransaction(mainMenu.userData.userName, dSeatNumber, false, priceInDollars, flightIDs);
 					}
 				}
 			}
