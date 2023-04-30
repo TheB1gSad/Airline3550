@@ -39,11 +39,12 @@ namespace Airline3550
                 flightData[i, 1] = price;
             }
 
-            // Path to the flightSeats.csv file
-            string flightSeatsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "csv", "flightSeats.csv");
+			// Path to the flightSeats.csv file
+			string filePathSeats = Path.GetDirectoryName(Application.ExecutablePath);
+			string flightSeatsPath = Path.Combine(filePathSeats, "flightSeats.csv");
 
-            // Read all lines from the flightSeats.csv file
-            string[] flightSeatsLines = File.ReadAllLines(flightSeatsPath);
+			// Read all lines from the flightSeats.csv file
+			string[] flightSeatsLines = File.ReadAllLines(flightSeatsPath);
 
             // Create a dictionary to store the number of taken seats and total seats for each flight
             var seatData = new Dictionary<string, (int takenSeats, int totalSeats)>();

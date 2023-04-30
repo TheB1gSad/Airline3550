@@ -75,6 +75,15 @@ namespace Airline3550
 						mainMenu.Show();
 
 					}
+					else if (thisUser.credentials =="accountant")
+					{
+						AccountantMenu mainMenu = new AccountantMenu(thisUser, this);
+						this.Hide();
+						usernameField.Text = "";
+						passwordField.Text = "";
+						credentialsErrorMessage.Text = "";
+						mainMenu.Show();
+					}
 
 				}
 				else
