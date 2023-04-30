@@ -32,12 +32,10 @@
 			panel2 = new Panel();
 			button1 = new Button();
 			tableLayoutPanel1 = new TableLayoutPanel();
-			label6 = new Label();
 			label5 = new Label();
 			label2 = new Label();
 			label3 = new Label();
 			label4 = new Label();
-			comboBox1 = new ComboBox();
 			label1 = new Label();
 			panel1.SuspendLayout();
 			panel2.SuspendLayout();
@@ -77,18 +75,15 @@
 			// 
 			// tableLayoutPanel1
 			// 
-			tableLayoutPanel1.ColumnCount = 5;
+			tableLayoutPanel1.ColumnCount = 4;
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 130F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 196F));
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 168F));
-			tableLayoutPanel1.Controls.Add(label6, 4, 0);
 			tableLayoutPanel1.Controls.Add(label5, 3, 0);
 			tableLayoutPanel1.Controls.Add(label2, 0, 0);
 			tableLayoutPanel1.Controls.Add(label3, 1, 0);
 			tableLayoutPanel1.Controls.Add(label4, 2, 0);
-			tableLayoutPanel1.Controls.Add(comboBox1, 4, 1);
 			tableLayoutPanel1.Dock = DockStyle.Top;
 			tableLayoutPanel1.Location = new Point(0, 100);
 			tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -99,20 +94,10 @@
 			tableLayoutPanel1.Size = new Size(974, 82);
 			tableLayoutPanel1.TabIndex = 1;
 			// 
-			// label6
-			// 
-			label6.Dock = DockStyle.Fill;
-			label6.Location = new Point(809, 0);
-			label6.Name = "label6";
-			label6.Size = new Size(162, 33);
-			label6.TabIndex = 5;
-			label6.Text = "Plane";
-			label6.TextAlign = ContentAlignment.MiddleCenter;
-			// 
 			// label5
 			// 
 			label5.Dock = DockStyle.Fill;
-			label5.Location = new Point(613, 0);
+			label5.Location = new Point(781, 0);
 			label5.Name = "label5";
 			label5.Size = new Size(190, 33);
 			label5.TabIndex = 4;
@@ -134,7 +119,7 @@
 			label3.Dock = DockStyle.Fill;
 			label3.Location = new Point(133, 0);
 			label3.Name = "label3";
-			label3.Size = new Size(234, 33);
+			label3.Size = new Size(318, 33);
 			label3.TabIndex = 1;
 			label3.Text = "Arrival City";
 			label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -142,22 +127,12 @@
 			// label4
 			// 
 			label4.Dock = DockStyle.Fill;
-			label4.Location = new Point(373, 0);
+			label4.Location = new Point(457, 0);
 			label4.Name = "label4";
-			label4.Size = new Size(234, 33);
+			label4.Size = new Size(318, 33);
 			label4.TabIndex = 2;
 			label4.Text = "Departure Time";
 			label4.TextAlign = ContentAlignment.MiddleCenter;
-			// 
-			// comboBox1
-			// 
-			comboBox1.Dock = DockStyle.Fill;
-			comboBox1.FormattingEnabled = true;
-			comboBox1.Items.AddRange(new object[] { "737", "777", "757" });
-			comboBox1.Location = new Point(809, 36);
-			comboBox1.Name = "comboBox1";
-			comboBox1.Size = new Size(162, 28);
-			comboBox1.TabIndex = 6;
 			// 
 			// label1
 			// 
@@ -197,8 +172,6 @@
 		private Label label4;
 		private Label label1;
 		private Button button1;
-		private Label label6;
 		private Label label5;
-		private ComboBox comboBox1;
 	}
 }
