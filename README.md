@@ -8,6 +8,7 @@ on what type of user is logged in.
 
 Main Menu Splash Image Courtesy of https://www.pexels.com/photo/white-and-gray-airplane-249581/
 
+WARNING: Do NOT open the csv files in excel, it has the potential to completely break them!
 
 Instructions:
 
